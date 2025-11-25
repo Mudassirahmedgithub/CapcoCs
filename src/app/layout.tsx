@@ -97,7 +97,7 @@ export default function RootLayout({
               disableTransitionOnChange
             >
               {children}
-              <GoogleAnalytics />
+              
               <Toaster />
             </ThemeProvider>
           </body>

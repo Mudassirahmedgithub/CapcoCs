@@ -22,15 +22,11 @@ export function CopyButton() {
 
   function copytoclipboard({ text, label }: CTCProps) {
     if (typeof window === "undefined") return;
-    setIsCopied(true);
-    void window.navigator.clipboard.writeText(text?.toString() ?? "");
-    setTimeout(() => setIsCopied(false), 2000);
-    toast.success("Copied to clipboard");
-    event({
-      category: "Copy Clicks",
-      action: "clicks",
-      label: label
-    });
+setIsCopied(true)
+navigator.clipboard.writeText(value)
+setTimeout(() => setIsCopied(false), 2000)
+toast.success("Copied to clipboard")
+    };
   }
 
   return (

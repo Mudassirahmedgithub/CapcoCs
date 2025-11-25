@@ -1,82 +1,26 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger
-} from "@/components/ui/dropdown-menu";
-
-import { CheckIcon, CopyIcon } from "@radix-ui/react-icons";
-import * as React from "react";
+import { useState } from "react";
 import { toast } from "sonner";
+import { Copy } from "lucide-react";
 
-interface CTCProps {
-  text: string;
-  label: string;
-}
+export default function CopyButton({ value }: { value: string }) {
+  const [isCopied, setIsCopied] = useState(false);
 
-export function CopyButton() {
-  const [isCopied, setIsCopied] = React.useState(false);
+  const handleCopy = () => {
+    navigator.clipboard.writeText(value);
+    setIsCopied(true);
+    toast.success("Copied!");
 
-  function copytoclipboard({ text, label }: CTCProps) {
-    if (typeof window === "undefined") return;
-setIsCopied(true)
-navigator.clipboard.writeText(value)
-setTimeout(() => setIsCopied(false), 2000)
-toast.success("Copied to clipboard")
-    };
-  }
+    setTimeout(() => setIsCopied(false), 2000);
+  };
 
   return (
-    <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button
-          variant="outline"
-          size="sm"
-          className="absolute right-3 z-30 h-8 w-8 px-0 -translate-y-2/4 top-2/4"
-        >
-          {isCopied ? (
-            <CheckIcon className="h-4 w-4" aria-hidden="true" />
-          ) : (
-            <CopyIcon className="h-4 w-4" aria-hidden="true" />
-          )}
-          <span className="sr-only">Copy</span>
-        </Button>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent align="end">
-        <DropdownMenuItem
-          onClick={() =>
-            copytoclipboard({
-              text: "https://github.com/sujjeee/codox.git",
-              label: "https_copy_click"
-            })
-          }
-        >
-          Https
-        </DropdownMenuItem>
-        <DropdownMenuItem
-          onClick={() =>
-            copytoclipboard({
-              text: "gh repo clone sujjeee/codox",
-              label: "ghcli_copy_click"
-            })
-          }
-        >
-          GitHub CLI
-        </DropdownMenuItem>
-        <DropdownMenuItem
-          onClick={() =>
-            copytoclipboard({
-              text: "npx codox",
-              label: "npx_codox"
-            })
-          }
-        >
-          npx
-        </DropdownMenuItem>
-      </DropdownMenuContent>
-    </DropdownMenu>
+    <button
+      onClick={handleCopy}
+      className="p-2 text-gray-500 hover:text-white hover:bg-gray-700 rounded-md transition"
+    >
+      <Copy className="w-4 h-4" />
+    </button>
   );
 }

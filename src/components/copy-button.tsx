@@ -7,7 +7,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger
 } from "@/components/ui/dropdown-menu";
-import { event } from "@/lib/gtags";
+
 import { CheckIcon, CopyIcon } from "@radix-ui/react-icons";
 import * as React from "react";
 import { toast } from "sonner";

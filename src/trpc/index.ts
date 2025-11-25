@@ -1,6 +1,6 @@
 import { db } from "@/db";
 import { getUserEmail } from "@/lib/utils";
-import { currentUser } from "@clerk/nextjs";
+
 import { TRPCError } from "@trpc/server";
 import { privateProcedure, publicProcedure, router } from "./trpc";
 

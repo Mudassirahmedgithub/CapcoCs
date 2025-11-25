@@ -1,5 +1,4 @@
-import type { User } from "@clerk/nextjs/server";
-import type { UserResource } from "@clerk/types";
+
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 

@@ -2,10 +2,11 @@ import { ThemeProvider } from "@/components/providers/theme-providers";
 import TrpcProvider from "@/components/providers/trpc-provider";
 import { Toaster } from "@/components/ui/toaster";
 import { siteConfig } from "@/configs/site";
-import GoogleAnalytics from "@/google-analytics";
+
+
 import "@/styles/globals.css";
 
-import { dark } from "@clerk/themes";
+
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 
@@ -20,7 +21,7 @@ export const metadata: Metadata = {
   description: siteConfig.description,
   // added new keywords for SEO
   keywords: [
-    "clerk auth",
+  
     "prisma",
     "prisma io",
     "prisma postgres",
@@ -38,7 +39,7 @@ export const metadata: Metadata = {
     "nextjs with trpc",
     "t3 stack",
     "typescript",
-    "clerk with prisma",
+    
     "trpc with prisma",
     "web development",
     "codox"

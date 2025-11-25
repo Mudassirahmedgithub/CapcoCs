@@ -1,4 +1,4 @@
-import { currentUser } from "@clerk/nextjs";
+
 import { TRPCError, initTRPC } from "@trpc/server";
 
 const t = initTRPC.create();

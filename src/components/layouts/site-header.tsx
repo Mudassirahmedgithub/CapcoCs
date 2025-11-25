@@ -1,52 +1,60 @@
 "use client";
 
-import { ThemeToggle } from "@/components/theme-toggle";
-import { Button, buttonVariants } from "@/components/ui/button";
-import useWindow from "@/hooks/use-window";
-import { Github } from "lucide-react";
+import React, { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { Menu, X, ChevronDown } from "lucide-react";
 
-export default function SiteHeader() {
-  const { isDesktop } = useWindow();
-  const path = usePathname();
+export default function Header() {
+  const [mobileNavOpen, setMobileNavOpen] = useState(false);
+  const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
+  const pathname = usePathname(); // Next.js replacement
+
+  const products = [
+    { name: "Product", path: "/products/product" },
+    { name: "Product", path: "/products/product" },
+    { name: "Product", path: "/products/Produtc" },
+  ];
 
   return (
-    <header className="md:container md:max-w-6xl px-4">
-      <nav className="md:py-8 py-4 flex w-full justify-between items-center z-50">
-        <h2 className="text-2xl font-semibold tracking-wide flex gap-2.5 items-center">
-          {isDesktop ? (
-            <>
-              <span>{"<"}</span>
-              <Link href={"/"}>CoDox</Link>
-              <span>{"/>"}</span>
-            </>
-          ) : (
-            <span>{"</>"}</span>
-          )}
-        </h2>
+    <header className="bg-black shadow-md px-6 py-4 flex items-center justify-between">
+      <Link href="/" className="text-xl font-semibold">
+        Capco Consultating Services
+      </Link>
 
-        <div className="flex justify-center items-center gap-2">
-          <Link
-            target="_blank"
-            href="http://github.com/sujjeee/codox"
-            className={buttonVariants({
-              size: "icon",
-              variant: "outline"
-            })}
-          >
-            <Github className="h-5 w-5" />
-            <span className="sr-only">github profile</span>
-          </Link>
+      {/* Desktop Nav */}
+      <nav className="hidden md:flex gap-6">
+        <Link href="/" className={pathname === "/" ? "font-bold" : ""}>
+          Home
+        </Link>
+        <Link href="/about" className={pathname === "/about" ? "font-bold" : ""}>
+          About
+        </Link>
 
-          <ThemeToggle />
+        {/* Products Dropdown */}
+        <div className="relative group">
+          <button className="flex items-center gap-1">
+            Products <ChevronDown size={16} />
+          </button>
 
-          {/* Static UI button instead of Clerk login/dashboard */}
-          <Button className="flex" variant="outline" asChild>
-            <Link href="/">Home</Link>
-          </Button>
+          <div className="absolute left-0 mt-2 bg-black shadow-lg p-3 hidden group-hover:block rounded-lg">
+            {products.map((p) => (
+              <Link key={p.path} href={p.path} className="block py-1 px-2">
+                {p.name}
+              </Link>
+            ))}
+          </div>
         </div>
+
+        <Link href="/contact" className={pathname === "/contact" ? "font-bold" : ""}>
+          Contact
+        </Link>
       </nav>
+
+      {/* Mobile Menu Icon */}
+      <button className="md:hidden" onClick={() => setMobileNavOpen(!mobileNavOpen)}>
+        {mobileNavOpen ? <X size={24} /> : <Menu size={24} />}
+      </button>
     </header>
   );
 }

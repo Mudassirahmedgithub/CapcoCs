@@ -1,21 +1,24 @@
 import { TRPCError, initTRPC } from "@trpc/server";
 
-const t = initTRPC.create();
+type Context = {
+  userId?: string | null; // optional
+};
+
+const t = initTRPC.context<Context>().create();
 const middleware = t.middleware;
 
-// TEMP AUTH MIDDLEWARE (no Clerk)
+// TEMP AUTH (No Clerk)
 const isAuth = middleware(async (opts) => {
-  // ctx must contain userId from your custom auth (middleware.ts)
-  const userId = opts.ctx?.userId;
+  const { ctx } = opts;
 
-  if (!userId) {
+  if (!ctx.userId) {
     throw new TRPCError({ code: "UNAUTHORIZED" });
   }
 
   return opts.next({
     ctx: {
-      ...opts.ctx,
-      userId,
+      ...ctx,
+      userId: ctx.userId,
     },
   });
 });

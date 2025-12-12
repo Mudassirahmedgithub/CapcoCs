@@ -44,12 +44,7 @@ export const metadata: Metadata = {
     "web development",
     "codox"
   ],
-  authors: [
-    {
-      name: siteConfig.author.name,
-      url: siteConfig.author.github
-    }
-  ],
+
   creator: siteConfig.author.name,
   openGraph: {
     type: "website",
@@ -65,7 +60,7 @@ export const metadata: Metadata = {
     title: siteConfig.name,
     description: siteConfig.description,
     images: [`${siteConfig.url}/og-image.png`],
-    creator: "@sujjeeee"
+    creator: "@capcocs"
   },
   icons: {
     icon: "/favicon.ico"

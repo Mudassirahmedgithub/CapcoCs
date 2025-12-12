@@ -32,26 +32,3 @@ DATABASE_URL =
 NEXT_PUBLIC_GOOGLE_ID =
 ```
 
-## Setup Locally 🚀
-
-1. Clone the repository
-
-```bash
-git clone https://github.com/sujjeee/codox.git
-```
-
-2. Install dependencies using pnpm
-
-```bash
-pnpm install
-```
-
-3. Start the development server
-
-```bash
-pnpm dev
-```
-
-## Preview 👀
-
-See the preview — <a href="https://codox.vercel.app/">CoDox</a>

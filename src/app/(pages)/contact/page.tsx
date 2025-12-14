@@ -13,7 +13,7 @@ export default function ContactPage() {
   });
 
   const [selected, setSelected] = useState<{ [group: string]: string[] }>({
-    Solutions: [],
+    digitalTransformation: [],
     Products: [],
     Services: [],
   });

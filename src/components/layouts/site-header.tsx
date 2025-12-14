@@ -19,8 +19,7 @@ export default function Header() {
 
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
-  const solutions = [
-    "Digital Transformation",
+  const digitalTransformation = [
     "ERP & CRM",
     "Procurement Solutions",
     "Data & AI",
@@ -83,7 +82,7 @@ export default function Header() {
           About
         </Link>
 
-        <Dropdown title="Solutions" items={solutions} base="solutions" />
+        <Dropdown title="Digital Transformation" items={digitalTransformation} base="digitalTransformation" />
         <Dropdown title="Products" items={products} base="products" />
         <Dropdown title="Services" items={services} base="services" />
 
@@ -115,18 +114,18 @@ export default function Header() {
               <button
                 className="flex items-center justify-between w-full"
                 onClick={() =>
-                  setOpenDropdown(openDropdown === "solutions" ? null : "solutions")
+                  setOpenDropdown(openDropdown === "digitalTransformation" ? null : "digitalTransformation")
                 }
               >
-                Solutions <ChevronDown size={16} />
+                Digital Transformation <ChevronDown size={16} />
               </button>
 
-              {openDropdown === "solutions" && (
+              {openDropdown === "digitalTransformation" && (
                 <div className="mt-2 ml-4 flex flex-col gap-2">
-                  {solutions.map((item) => (
+                  {digitalTransformation.map((item) => (
                     <Link
                       key={item}
-                      href={`/solutions/${slugify(item)}`}
+                      href={`/digitalTransformation/${slugify(item)}`}
                       className="text-gray-300"
                     >
                       {item}

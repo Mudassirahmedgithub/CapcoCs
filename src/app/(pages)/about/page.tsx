@@ -28,12 +28,12 @@ export default function AboutUs() {
           </div>
         </div>
 
-        {/* Solutions */}
+        {/* Digital Transformation */}
         <div className="mb-20">
-          <h2 className="text-3xl font-semibold mb-10 text-center">Our Solutions</h2>
+          <h2 className="text-3xl font-semibold mb-10 text-center">Digital Transformation</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
-              "Digital Transformation",
+              
               "ERP & CRM",
               "Procurement Solutions",
               "Data & AI",

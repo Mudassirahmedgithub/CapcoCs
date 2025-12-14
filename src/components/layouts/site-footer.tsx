@@ -10,8 +10,7 @@ import {
 } from "lucide-react";
 
 export default function Footer() {
-  const solutions = [
-    "Digital Transformation",
+  const digitalTransformation = [
     "ERP & CRM",
     "Procurement Solutions",
     "Data & AI",
@@ -101,18 +100,18 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* SOLUTIONS */}
+          {/* digital Transformation */}
           <div>
             <h3 className="text-lg font-bold flex items-center mb-4">
               <div className="w-1 h-6 bg-blue-500 mr-2" />
-              Solutions
+              Digital Transformation
             </h3>
 
             <ul className="space-y-2">
-              {solutions.map((item, i) => (
+              {digitalTransformation.map((item, i) => (
                 <li key={i}>
                   <a
-                    href={`/solutions/${item.toLowerCase().replace(/ & /g, "-").replace(/ /g, "-")}`}
+                    href={`/digitalTransformation/${item.toLowerCase().replace(/ & /g, "-").replace(/ /g, "-")}`}
                     className="text-slate-300 text-sm flex items-center hover:text-blue-400 transition-colors"
                   >
                     <ChevronRight size={16} className="mr-1" />

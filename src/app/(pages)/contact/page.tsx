@@ -22,8 +22,8 @@ export default function ContactPage() {
   const [status, setStatus] = useState<{ ok: boolean; message: string } | null>(null);
 
   const OPTIONS = {
-    Solutions: [
-      "Digital Transformation",
+    digitalTransformation: [
+      
       "ERP & CRM",
       "Procurement Solutions",
       "Data & AI",

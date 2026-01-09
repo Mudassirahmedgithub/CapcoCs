@@ -1,0 +1,278 @@
+{
+  "mainNav": [
+    { "label": "About", "href": "/about" },
+    { "label": "Products", "type": "mega" },
+    { "label": "Services", "href": "/services" },
+    { "label": "Contact", "href": "/contact" }
+  ],
+
+  "products": [
+    {
+      "category": "Manufacturing ERP",
+      "base": "manufacturing-erp",
+      "items": [
+        "AI Powered Demand Forecasting",
+        "Analytics Reporting",
+        "Bills of Materials",
+        "Document Management",
+        "Expense Management Software",
+        "Field Service Management",
+        "Finance Cost Accounting",
+        "Human Resources Time Tracking",
+        "Inventory Warehouse Management",
+        "Maintenance Asset Management",
+        "Mobile App",
+        "Procurement Supplier Management",
+        "Product Configurator",
+        "Production Planning Scheduling",
+        "Project Based Manufacturing",
+        "Quality Control Compliance",
+        "Quotes Sales Orders",
+        "Shop Floor MES Reporting",
+        "Statutory Compliance Taxation",
+        "Subcontracting Outside Processing",
+        "Ticket Management Software",
+        "Training Management System",
+        "Vendor Management Software"
+      ]
+    },
+
+    {
+      "category": "HRMS",
+      "base": "hrms",
+      "items": [
+        "Attendance Management",
+        "Business Chat and Collaboration",
+        "Compensation Management",
+        "Custom Services",
+        "Digital Document Management",
+        "Employee Engagement",
+        "Employee Management",
+        "HR Analytics",
+        "HR Automation",
+        "HR Chatbot",
+        "HR Help Desk",
+        "Integrated Payroll Software",
+        "Integrated Recruitment",
+        "Integrated Travel and Expense",
+        "Integrations",
+        "Learning Management",
+        "Leave Management",
+        "Mobile App",
+        "Onboarding",
+        "Performance Management",
+        "Shift Management",
+        "Timesheets"
+      ]
+    },
+
+    {
+      "category": "CRM",
+      "base": "crm",
+      "items": [
+        "Accessibility",
+        "AI",
+        "Analytics",
+        "Customer Success",
+        "Customization",
+        "Journey Orchestration",
+        "Mobile",
+        "Omnichannel",
+        "Process Management",
+        "Sales Enablement",
+        "Sales Force Automation",
+        "Sales Performance",
+        "Security"
+      ]
+    },
+
+    {
+      "category": "Assets",
+      "base": "assets",
+      "items": [
+        "Asset Inspection",
+        "Asset Lifecycle Optimization",
+        "Asset Work Registry",
+        "Field Service Management",
+        "Geo Tracking Usage Monitoring",
+        "Predictive Maintenance Alerts"
+      ]
+    },
+
+    {
+      "category": "Audit",
+      "base": "audit",
+      "items": [
+        "Automated Audit Scheduling",
+        "Internal Audit",
+        "Issue Tracking Corrective Actions",
+        "IT Cyber Compliance",
+        "Regulatory Compliance",
+        "Role Based Reporting Dashboard"
+      ]
+    },
+
+    {
+      "category": "Books",
+      "base": "books",
+      "items": [
+        "Automated Bookkeeping",
+        "Expense Tracking Reporting",
+        "Financial Dashboards Analytics",
+        "GST Tax Compliance",
+        "Invoicing Payment Management",
+        "Multi Account Ledger Management"
+      ]
+    },
+
+    {
+      "category": "EduVibe",
+      "base": "eduvibe",
+      "items": [
+        "Admissions",
+        "Assessments Quizzes",
+        "Course Creation Management",
+        "Fees Finance Module",
+        "Instructor Student Dashboards",
+        "Teacher Staff Management"
+      ]
+    },
+
+    {
+      "category": "Expenz",
+      "base": "expenz",
+      "items": [
+        "AI Fraud Detection",
+        "Global Reimbursement",
+        "Multi Level Approval Workflows",
+        "Real Time Spend Analytics",
+        "Receipt Scanning",
+        "Travel Expense"
+      ]
+    },
+
+    {
+      "category": "HIMS",
+      "base": "hims",
+      "items": [
+        "Appointment Management",
+        "Doctor Staff Scheduling",
+        "Electronic Medical Records",
+        "Multi Location Management",
+        "Patient Billing Insurance Claims",
+        "Pharmacy Inventory Control"
+      ]
+    },
+
+    {
+      "category": "Legal",
+      "base": "legal",
+      "items": [
+        "Case Timeline Task Automation",
+        "Centralized Evidence Repository",
+        "Contract Lifecycle Management",
+        "Court Date Deadline Tracking",
+        "Enterprise Legal Management",
+        "Legal Collections Management"
+      ]
+    },
+
+    {
+      "category": "POS",
+      "base": "pos",
+      "items": [
+        "Barcode SKU Management",
+        "Customer Loyalty Integration",
+        "Fast Billing Checkout",
+        "Multi Store POS Management",
+        "Real Time Inventory Tracking",
+        "Sales Report Retail Analytics"
+      ]
+    },
+
+    {
+      "category": "Procurement",
+      "base": "procurement",
+      "items": [
+        "Account Payable",
+        "Asset Management",
+        "Contract Management",
+        "GRN",
+        "Inventory Management",
+        "Procure to Pay",
+        "Project Management",
+        "Purchase Request",
+        "Quotation Management",
+        "RFP",
+        "Spend Analytics",
+        "Vendor Management",
+        "Vendor Portal"
+      ]
+    },
+
+    {
+      "category": "Projects",
+      "base": "projects",
+      "items": [
+        "Budgeting Cost Control",
+        "Collaboration Communication Hub",
+        "Project Planning Scheduling",
+        "Real Time Progress Tracking",
+        "Risk Issue Management",
+        "Task Resource Management"
+      ]
+    },
+
+    {
+      "category": "Recruit",
+      "base": "recruit",
+      "items": [
+        "AI Powered Candidate Sourcing",
+        "Automated Resume Screening",
+        "Customizable Hiring Pipelines",
+        "Interview Scheduling Coordination",
+        "Offer Management Onboarding",
+        "Skill Based Assessments"
+      ]
+    },
+
+    {
+      "category": "Retail",
+      "base": "retail",
+      "items": [
+        "Customer Loyalty Engagement",
+        "Multi Store Management",
+        "Order Supply Chain Automation",
+        "Real Time Inventory Sync",
+        "Smart Retail Analytics",
+        "Unified POS Billing"
+      ]
+    },
+
+    {
+      "category": "Rewards",
+      "base": "rewards",
+      "items": [
+        "Automated Campaign Management",
+        "Customer Loyalty Voucher",
+        "Employee Rewards Recognition",
+        "Multi Tier Reward Framework",
+        "Partner Loyalty Program",
+        "Real Time Points Tracking"
+      ]
+    },
+
+    {
+      "category": "Upskill",
+      "base": "upskill",
+      "items": [
+        "AI Powered Learning Paths",
+        "Compliance Training",
+        "Employee Enablement",
+        "Employee Onboarding",
+        "Integrated Assessment Certification",
+        "Skill Gap Analysis"
+      ]
+    }
+  ]
+}

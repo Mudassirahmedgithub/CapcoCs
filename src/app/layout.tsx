@@ -76,28 +76,25 @@ export const viewport: Viewport = {
 };
 
 export default function RootLayout({
-  children
+  children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    
-      <TrpcProvider>
-        <html lang="en">
-          <body className={inter.className}>
-            <ThemeProvider
-              attribute="class"
-              defaultTheme="system"
-              enableSystem
-              disableTransitionOnChange
-            >
-              {children}
-              
-              <Toaster />
-            </ThemeProvider>
-          </body>
-        </html>
-      </TrpcProvider>
-    
+    <html lang="en" suppressHydrationWarning>
+      <body className={inter.className}>
+        <TrpcProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            {children}
+            <Toaster />
+          </ThemeProvider>
+        </TrpcProvider>
+      </body>
+    </html>
   );
 }

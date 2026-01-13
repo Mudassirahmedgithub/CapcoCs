@@ -1,6 +1,5 @@
 "use client";
-
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
   Sparkles,
   TrendingUp,
@@ -8,155 +7,280 @@ import {
   Shield,
   Lightbulb,
   Heart,
-  ChevronLeft,
-  ChevronRight,
   Play,
 } from "lucide-react";
 
+// Enhanced ParticleHero Component
+function ParticleHero() {
+  const mountRef = useRef<HTMLDivElement>(null);
+  const mouseRef = useRef({ x: 0, y: 0 });
+
+  useEffect(() => {
+    if (!mountRef.current) return;
+    
+    // Import THREE from CDN
+    const THREE = window.THREE;
+    if (!THREE) return;
+
+    // Scene setup
+    const scene = new THREE.Scene();
+    scene.fog = new THREE.FogExp2(0x000000, 0.001);
+
+    // Camera
+    const camera = new THREE.PerspectiveCamera(
+      75,
+      window.innerWidth / window.innerHeight,
+      0.1,
+      1000
+    );
+    camera.position.z = 50;
+
+    // Renderer
+    const renderer = new THREE.WebGLRenderer({ 
+      alpha: true, 
+      antialias: true 
+    });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    mountRef.current.appendChild(renderer.domElement);
+
+    // Create multiple particle systems with different colors
+    const particleSystems = [];
+    
+    // Main cyan particles
+    const createParticleSystem = (count, color, size, spread) => {
+      const geometry = new THREE.BufferGeometry();
+      const positions = new Float32Array(count * 3);
+      const velocities = new Float32Array(count * 3);
+      
+      for (let i = 0; i < count * 3; i += 3) {
+        positions[i] = (Math.random() - 0.5) * spread;
+        positions[i + 1] = (Math.random() - 0.5) * spread;
+        positions[i + 2] = (Math.random() - 0.5) * spread;
+        
+        velocities[i] = (Math.random() - 0.5) * 0.02;
+        velocities[i + 1] = (Math.random() - 0.5) * 0.02;
+        velocities[i + 2] = (Math.random() - 0.5) * 0.02;
+      }
+      
+      geometry.setAttribute(
+        "position",
+        new THREE.BufferAttribute(positions, 3)
+      );
+      geometry.setAttribute(
+        "velocity",
+        new THREE.BufferAttribute(velocities, 3)
+      );
+
+      const material = new THREE.PointsMaterial({
+        color: color,
+        size: size,
+        transparent: true,
+        opacity: 0.8,
+        blending: THREE.AdditiveBlending,
+      });
+
+      return new THREE.Points(geometry, material);
+    };
+
+    // Create multiple layers of particles
+    particleSystems.push(createParticleSystem(5000, 0x00ffff, 0.8, 200));
+    particleSystems.push(createParticleSystem(3000, 0x6366f1, 0.6, 180));
+    particleSystems.push(createParticleSystem(2000, 0xa855f7, 1.2, 150));
+    
+    particleSystems.forEach(system => scene.add(system));
+
+    // Mouse interaction
+    const handleMouseMove = (event) => {
+      mouseRef.current.x = (event.clientX / window.innerWidth) * 2 - 1;
+      mouseRef.current.y = -(event.clientY / window.innerHeight) * 2 + 1;
+    };
+    window.addEventListener('mousemove', handleMouseMove);
+
+    // Animation
+    let frame = 0;
+    const animate = () => {
+      frame += 0.01;
+      
+      particleSystems.forEach((system, index) => {
+        // Rotation
+        system.rotation.y += 0.0003 * (index + 1);
+        system.rotation.x += 0.0002 * (index + 1);
+        
+        // Mouse interaction
+        system.rotation.x += mouseRef.current.y * 0.0005;
+        system.rotation.y += mouseRef.current.x * 0.0005;
+        
+        // Wave effect
+        const positions = system.geometry.attributes.position.array;
+        const velocities = system.geometry.attributes.velocity.array;
+        
+        for (let i = 0; i < positions.length; i += 3) {
+          positions[i + 1] += Math.sin(frame + positions[i] * 0.01) * 0.02;
+          
+          // Drift
+          positions[i] += velocities[i];
+          positions[i + 1] += velocities[i + 1];
+          positions[i + 2] += velocities[i + 2];
+          
+          // Boundary check
+          const spread = 100 + index * 20;
+          if (Math.abs(positions[i]) > spread) velocities[i] *= -1;
+          if (Math.abs(positions[i + 1]) > spread) velocities[i + 1] *= -1;
+          if (Math.abs(positions[i + 2]) > spread) velocities[i + 2] *= -1;
+        }
+        
+        system.geometry.attributes.position.needsUpdate = true;
+      });
+      
+      renderer.render(scene, camera);
+      requestAnimationFrame(animate);
+    };
+    animate();
+
+    // Resize handler
+    const handleResize = () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    };
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      window.removeEventListener("mousemove", handleMouseMove);
+      if (mountRef.current && renderer.domElement) {
+        mountRef.current.removeChild(renderer.domElement);
+      }
+      particleSystems.forEach(system => {
+        system.geometry.dispose();
+        system.material.dispose();
+      });
+      renderer.dispose();
+    };
+  }, []);
+
+  return <div ref={mountRef} className="absolute inset-0" />;
+}
+
 export default function HomePage() {
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const [scrollY, setScrollY] = useState(0);
-
-  const slides = [
-    {
-      image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&q=80',
-      title: 'Empowering Global Excellence',
-      subtitle: 'Transforming businesses across Qatar, India, and Canada'
-    },
-    {
-      image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920&q=80',
-      title: 'Innovation Meets Strategy',
-      subtitle: 'Tailored solutions for sustainable growth'
-    },
-    {
-      image: 'https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=1920&q=80',
-      title: 'Building Tomorrow Together',
-      subtitle: 'Your trusted partner in digital transformation'
-    }
-  ];
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    setIsLoaded(true);
   }, []);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, []);
-
-  const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % slides.length);
-  const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
 
   const coreValues = [
-    { icon: Sparkles, title: 'Quality', desc: 'Excellence in every deliverable', gradient: 'from-violet-600 to-purple-600' },
-    { icon: Heart, title: 'Client Satisfaction', desc: 'Your success is our priority', gradient: 'from-pink-600 to-rose-600' },
-    { icon: TrendingUp, title: 'Excellence', desc: 'Setting industry standards', gradient: 'from-blue-600 to-cyan-600' },
-    { icon: Shield, title: 'Safety', desc: 'Secure and reliable operations', gradient: 'from-emerald-600 to-teal-600' },
-    { icon: Lightbulb, title: 'Innovation', desc: 'Out of the box solutions', gradient: 'from-amber-600 to-orange-600' },
-    { icon: Users, title: 'Integrity', desc: 'Loyalty and confidentiality', gradient: 'from-indigo-600 to-violet-600' },
+    {
+      title: "Innovation",
+      desc: "We embrace forward-thinking solutions to solve complex business challenges.",
+      icon: Lightbulb,
+      gradient: "from-violet-500 to-purple-600",
+    },
+    {
+      title: "Integrity",
+      desc: "We operate with complete honesty and transparency in everything we do.",
+      icon: Shield,
+      gradient: "from-indigo-500 to-blue-600",
+    },
+    {
+      title: "Client Focus",
+      desc: "Our clients' success is at the heart of every decision we make.",
+      icon: Heart,
+      gradient: "from-pink-500 to-rose-600",
+    },
+    {
+      title: "Collaboration",
+      desc: "We believe great results come from strong partnerships and teamwork.",
+      icon: Users,
+      gradient: "from-emerald-500 to-teal-600",
+    },
+    {
+      title: "Growth",
+      desc: "We continuously evolve to help businesses scale and thrive.",
+      icon: TrendingUp,
+      gradient: "from-cyan-500 to-sky-600",
+    },
+    {
+      title: "Excellence",
+      desc: "We hold ourselves to the highest standards in delivery and execution.",
+      icon: Sparkles,
+      gradient: "from-amber-500 to-orange-600",
+    },
   ];
 
   return (
     <div className="bg-white">
-      {/* Hero Slider */}
-      <section className="relative h-screen overflow-hidden">
-        {/* Slides */}
-        {slides.map((slide, index) => (
-          <div
-            key={index}
-            className={`absolute inset-0 transition-opacity duration-1000 ${
-              index === currentSlide ? 'opacity-100' : 'opacity-0'
-            }`}
-          >
-            <img
-              src={slide.image}
-              alt={slide.title}
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent"></div>
-          </div>
-        ))}
+      {/* Enhanced Particle Hero Section */}
+      <section className="relative h-screen w-full overflow-hidden bg-gradient-to-b from-black via-gray-900 to-black">
+        {/* Load Three.js */}
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+        
+        {/* WebGL Particle Background */}
+        <ParticleHero />
 
-        {/* Content */}
+        {/* Overlay Content */}
         <div className="relative z-10 h-full flex items-center">
           <div className="container mx-auto px-6 md:px-12">
-            <div className="max-w-3xl">
-              <div className="overflow-hidden">
-                <h1 
-                  key={`title-${currentSlide}`}
-                  className="text-6xl md:text-8xl font-bold text-white mb-6 leading-tight animate-slide-up"
-                  style={{ animationDelay: '0.2s' }}
-                >
-                  {slides[currentSlide].title}
+            <div className="max-w-4xl">
+              <div className={`transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+                <div className="mb-6 inline-block px-6 py-2 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 backdrop-blur-sm border border-cyan-400/30 rounded-full">
+                  <span className="text-cyan-400 font-semibold tracking-wider text-sm">
+                    ✦ TRANSFORMING BUSINESSES GLOBALLY
+                  </span>
+                </div>
+                
+                <h1 className="text-6xl md:text-8xl font-bold text-white mb-6 leading-tight">
+                  Engineering <br />
+                  <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent animate-gradient">
+                    Digital Excellence
+                  </span>
                 </h1>
-              </div>
-              <div className="overflow-hidden">
-                <p 
-                  key={`subtitle-${currentSlide}`}
-                  className="text-2xl md:text-3xl text-gray-200 mb-12 animate-slide-up"
-                  style={{ animationDelay: '0.4s' }}
-                >
-                  {slides[currentSlide].subtitle}
+
+                <p className="text-xl md:text-2xl text-gray-300 mb-12 leading-relaxed max-w-2xl">
+                  Strategic IT consulting, cloud transformation, and scalable
+                  technology solutions for global enterprises.
                 </p>
-              </div>
-              <div className="flex gap-6 animate-fade-in" style={{ animationDelay: '0.6s' }}>
-                <button className="group px-10 py-5 bg-white text-gray-900 rounded-full font-bold text-lg hover:bg-gray-900 hover:text-white transition-all duration-300 shadow-2xl hover:shadow-white/20 hover:scale-105">
-                  Get Started
-                  <span className="inline-block ml-2 group-hover:translate-x-1 transition-transform">→</span>
-                </button>
-                <button className="px-10 py-5 border-2 border-white text-white rounded-full font-bold text-lg hover:bg-white hover:text-gray-900 transition-all duration-300 backdrop-blur-sm hover:scale-105 flex items-center gap-2">
-                  <Play className="w-5 h-5" />
-                  Watch Video
-                </button>
+
+                <div className="flex flex-wrap gap-4">
+                  <button className="group px-10 py-5 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-full font-bold text-lg hover:shadow-2xl hover:shadow-cyan-500/50 transition-all duration-300 hover:scale-105">
+                    Get Started
+                    <span className="inline-block ml-2 group-hover:translate-x-1 transition-transform">
+                      →
+                    </span>
+                  </button>
+
+                  <button className="group px-10 py-5 border-2 border-white/30 text-white rounded-full font-bold text-lg hover:bg-white/10 transition-all duration-300 backdrop-blur-sm hover:scale-105 flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center group-hover:bg-white/30 transition-colors">
+                      <Play className="w-5 h-5 fill-white" />
+                    </div>
+                    Watch Video
+                  </button>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Navigation Arrows */}
-        <button
-          onClick={prevSlide}
-          className="absolute left-8 top-1/2 -translate-y-1/2 z-20 w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center hover:bg-white/30 transition-all group"
-        >
-          <ChevronLeft className="w-8 h-8 text-white group-hover:scale-125 transition-transform" />
-        </button>
-        <button
-          onClick={nextSlide}
-          className="absolute right-8 top-1/2 -translate-y-1/2 z-20 w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center hover:bg-white/30 transition-all group"
-        >
-          <ChevronRight className="w-8 h-8 text-white group-hover:scale-125 transition-transform" />
-        </button>
-
-        {/* Slide Indicators */}
-        <div className="absolute bottom-12 left-1/2 -translate-x-1/2 z-20 flex gap-3">
-          {slides.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => setCurrentSlide(index)}
-              className={`transition-all duration-300 rounded-full ${
-                index === currentSlide
-                  ? 'w-12 h-3 bg-white'
-                  : 'w-3 h-3 bg-white/40 hover:bg-white/60'
-              }`}
-            />
-          ))}
-        </div>
+        {/* Gradient overlays for depth */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent pointer-events-none"></div>
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black to-transparent pointer-events-none"></div>
       </section>
 
       {/* Company Intro */}
-      <section className="py-32 bg-gradient-to-b from-white to-gray-50">
-        <div className="container mx-auto px-6 md:px-12">
+      <section className="py-32 bg-gradient-to-b from-white via-gray-50 to-white relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-purple-200 rounded-full blur-3xl opacity-20"></div>
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-cyan-200 rounded-full blur-3xl opacity-20"></div>
+        
+        <div className="container mx-auto px-6 md:px-12 relative z-10">
           <div className="max-w-6xl mx-auto text-center">
-            <div className="inline-block mb-6 px-6 py-2 bg-gradient-to-r from-violet-600 to-purple-600 text-white rounded-full text-sm font-bold tracking-wider">
+            <div className="inline-block mb-6 px-6 py-2 bg-gradient-to-r from-violet-600 to-purple-600 text-white rounded-full text-sm font-bold tracking-wider shadow-lg">
               WHO WE ARE
             </div>
             <h2 className="text-5xl md:text-7xl font-bold text-gray-900 mb-8 leading-tight">
               Complete Honesty and <br />
-              <span className="bg-gradient-to-r from-violet-600 to-purple-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-violet-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent">
                 Transparency
               </span>
             </h2>
@@ -167,18 +291,23 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="py-24 bg-gray-900 text-white">
-        <div className="container mx-auto px-6 md:px-12">
+      {/* Enhanced Stats Section */}
+      <section className="py-24 bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-500 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500 rounded-full blur-3xl"></div>
+        </div>
+        
+        <div className="container mx-auto px-6 md:px-12 relative z-10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-12 max-w-6xl mx-auto">
             {[
-              { number: '500+', label: 'Projects Delivered' },
-              { number: '50+', label: 'Global Clients' },
-              { number: '15+', label: 'Years Experience' },
-              { number: '98%', label: 'Client Satisfaction' },
+              { number: '500+', label: 'Projects Delivered', color: 'from-cyan-400 to-blue-500' },
+              { number: '50+', label: 'Global Clients', color: 'from-violet-400 to-purple-500' },
+              { number: '15+', label: 'Years Experience', color: 'from-pink-400 to-rose-500' },
+              { number: '98%', label: 'Client Satisfaction', color: 'from-emerald-400 to-teal-500' },
             ].map((stat, index) => (
-              <div key={index} className="text-center">
-                <div className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-violet-400 to-purple-400 bg-clip-text text-transparent mb-3">
+              <div key={index} className="text-center group">
+                <div className={`text-5xl md:text-6xl font-bold bg-gradient-to-r ${stat.color} bg-clip-text text-transparent mb-3 group-hover:scale-110 transition-transform duration-300`}>
                   {stat.number}
                 </div>
                 <div className="text-gray-400 text-lg">{stat.label}</div>
@@ -210,11 +339,12 @@ export default function HomePage() {
                 <div
                   key={index}
                   className="group relative bg-white p-10 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 border-2 border-gray-100 hover:border-transparent hover:-translate-y-2"
+                  style={{ animationDelay: `${index * 100}ms` }}
                 >
                   <div className={`absolute inset-0 rounded-3xl bg-gradient-to-br ${value.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
                   
                   <div className="relative z-10">
-                    <div className={`w-20 h-20 mb-6 rounded-2xl bg-gradient-to-br ${value.gradient} flex items-center justify-center transform group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 shadow-xl`}>
+                    <div className={`w-20 h-20 mb-6 rounded-2xl bg-gradient-to-br ${value.gradient} flex items-center justify-center transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-xl`}>
                       <Icon className="w-10 h-10 text-white" />
                     </div>
                     
@@ -234,16 +364,19 @@ export default function HomePage() {
       </section>
 
       {/* About Section with Image */}
-      <section className="py-32 bg-gray-50">
+      <section className="py-32 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-6 md:px-12">
           <div className="grid md:grid-cols-2 gap-16 items-center max-w-7xl mx-auto">
-            <div className="relative h-[600px] rounded-3xl overflow-hidden shadow-2xl">
+            <div className="relative h-[600px] rounded-3xl overflow-hidden shadow-2xl group">
               <img
                 src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80"
                 alt="Team collaboration"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+              <div className="absolute bottom-8 left-8 right-8">
+                <div className="text-white font-bold text-2xl">Building Tomorrow, Together</div>
+              </div>
             </div>
 
             <div>
@@ -262,8 +395,9 @@ export default function HomePage() {
               <p className="text-xl text-gray-600 leading-relaxed mb-10">
                 Through collaborative partnerships, we address complex challenges and deliver lasting value to our clients, employees, and communities.
               </p>
-              <button className="px-10 py-5 bg-gradient-to-r from-violet-600 to-purple-600 text-white rounded-full font-bold text-lg hover:shadow-2xl hover:shadow-purple-600/50 transition-all duration-300 hover:scale-105">
-                Learn More About Us →
+              <button className="group px-10 py-5 bg-gradient-to-r from-violet-600 to-purple-600 text-white rounded-full font-bold text-lg hover:shadow-2xl hover:shadow-purple-600/50 transition-all duration-300 hover:scale-105">
+                Learn More About Us 
+                <span className="inline-block ml-2 group-hover:translate-x-1 transition-transform">→</span>
               </button>
             </div>
           </div>
@@ -272,9 +406,9 @@ export default function HomePage() {
 
       {/* CTA Section */}
       <section className="py-32 bg-gradient-to-br from-violet-600 via-purple-600 to-indigo-700 text-white relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-white rounded-full blur-3xl"></div>
-          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-white rounded-full blur-3xl"></div>
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-white rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-white rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
         </div>
         
         <div className="container mx-auto px-6 md:px-12 relative z-10">
@@ -286,8 +420,9 @@ export default function HomePage() {
               Join the organizations that trust CAPCO for world-class consulting services
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <button className="px-12 py-5 bg-white text-violet-600 rounded-full font-bold text-xl hover:bg-gray-100 transition-all duration-300 shadow-2xl hover:scale-105">
+              <button className="group px-12 py-5 bg-white text-violet-600 rounded-full font-bold text-xl hover:bg-gray-100 transition-all duration-300 shadow-2xl hover:scale-105">
                 Get in Touch
+                <span className="inline-block ml-2 group-hover:translate-x-1 transition-transform">→</span>
               </button>
               <button className="px-12 py-5 border-2 border-white text-white rounded-full font-bold text-xl hover:bg-white hover:text-violet-600 transition-all duration-300 hover:scale-105">
                 View Our Work
@@ -298,32 +433,18 @@ export default function HomePage() {
       </section>
 
       <style jsx>{`
-        @keyframes slide-up {
-          from {
-            opacity: 0;
-            transform: translateY(40px);
+        @keyframes gradient {
+          0%, 100% {
+            background-position: 0% 50%;
           }
-          to {
-            opacity: 1;
-            transform: translateY(0);
+          50% {
+            background-position: 100% 50%;
           }
         }
 
-        @keyframes fade-in {
-          from {
-            opacity: 0;
-          }
-          to {
-            opacity: 1;
-          }
-        }
-
-        .animate-slide-up {
-          animation: slide-up 0.8s ease-out forwards;
-        }
-
-        .animate-fade-in {
-          animation: fade-in 1s ease-out forwards;
+        .animate-gradient {
+          background-size: 200% 200%;
+          animation: gradient 3s ease infinite;
         }
       `}</style>
     </div>

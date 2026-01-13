@@ -12,22 +12,41 @@ import {
 } from "lucide-react";
 
 export default function Footer() {
-  const digitalTransformation = [
-    "ERP & CRM",
-    "Procurement Solutions",
-    "Data & AI",
-    "Robotics Process Automation",
-    "Enterprise Warehouse Management",
+  const ai = [
+    "AI Agent Development",
+    "AI Chatbot Development",
+    "AI Consulting",
+    "AI Development",
+    "AI Integration",
+    "AI OCR",
+    "Computer Vision",
+    "Generative AI Consulting",
+    "Generative AI Development",
+    "Generative AI",
+    "Hire a Developer Services",
+    "Low-Code No-Code Services",
+    "Machine Learning",
   ];
 
+
   const products = [
-    "Vertex HCM",
-    "Campus Management",
-    "Mobile Device Management",
-    "Customized Manufacturing ERP",
-    "Customized Procurement ERP",
-    "Customized HRMS",
-    "Retail Solution",
+    "Manufacturing ERP",
+    "HRMS",
+    "CRM",
+    "Asset Management",
+    "Audit",
+    "Accounting",
+    "LMS",
+    "Expense Management",
+    "HIMS",
+    "Legal",
+    "POS",
+    "Procurement",
+    "Project Management",
+    "Recruitment",
+    "Retail",
+    "Rewards",
+    "Upskill",
   ];
 
   const services = [
@@ -134,15 +153,15 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Digital Transformation */}
+          {/* AI */}
           <div>
             <h3 className="text-lg font-bold flex items-center mb-6 group cursor-default">
               <div className="w-1 h-6 bg-gradient-to-b from-blue-500 to-blue-600 mr-3 rounded-full group-hover:h-8 transition-all" />
-              <span className="group-hover:text-blue-400 transition-colors">Digital Transformation</span>
+              <span className="group-hover:text-blue-400 transition-colors">AI</span>
             </h3>
 
             <ul className="space-y-3">
-              {digitalTransformation.map((item, i) => (
+              {ai.map((item, i) => (
                 <li key={i}>
                   <a
                     href={`/digitalTransformation/${item.toLowerCase().replace(/ & /g, "-").replace(/ /g, "-")}`}

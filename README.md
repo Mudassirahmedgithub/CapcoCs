@@ -1,34 +1,70 @@
-# [CoDox](https://codox.vercel.app/) - starter template for modern web development !
+# Capco Consulting Services – Web Platform
 
-<kbd>
-<a href="https://codox.vercel.app/">
-  <img alt="CoDox – A starter template for modern web development with nextjs 13 (app route), tailwindcss, typescript, trpc, clerk auth, and prisma." src="https://codox.vercel.app/og-image.png">
-</a>
-</kbd>
+## Overview
 
-### A starter template for modern web development with nextjs 13 (app route), tailwindcss, typescript, trpc, clerk auth, and prisma.
+This repository contains a modern web application platform developed for **Capco Consulting Services**. It is designed to support scalable, secure, and high-performance digital solutions, aligned with Capco’s consulting, technology, and innovation-driven services.
 
-## Tech Stacks 💻
+The platform follows modern web development best practices, enabling rapid development, maintainability, and enterprise-grade reliability.
 
-- ⚡ [Next.js](https://nextjs.org) 13 — The React framework with hybrid static & server rendering, and App Router
-- 🔥 [TypeScript](https://www.typescriptlang.org) — JavaScript with type safety and enhanced developer experience.
-- 💅 [Tailwind CSS](https://tailwindcss.com) — A utility-first CSS framework for rapid UI development
-- 🗃 [Shadcn UI](https://ui.shadcn.com/) — A collection of beautiful and accessible components built with Radix UI and Tailwind CSS.
-- 🌐 [tRPC](https://trpc.io) — A toolkit for building end-to-end typesafe APIs with Next.js and any database
-- 🔒 [Clerk](https://clerk.com?utm_source=github&utm_medium=sponsorship&utm_campaign=nextjs-boilerplate) — A complete user management solution with authentication, profiles, and more
-- 📦 [Prisma](https://www.prisma.io/) — A modern ORM for Node.js and TypeScript that simplifies database access
-- ♻️ [T3 Env](https://env.t3.gg/) — A library for managing type-safe environment variables in Next.js
-- 🛠 [BiomeJS](https://biomejs.dev/) — A tool for formatting, linting, and more in a fraction of a second.
-- 📊 [Google Analytics ](https://analytics.google.com/) — A web analytics service that tracks and reports website traffic
+---
+
+## Technology Stack 💻
+
+The application is built using a carefully selected set of modern technologies:
+
+* ⚡ **Next.js 13 (App Router)** — React framework with hybrid static and server-side rendering for optimal performance and scalability
+* 🔥 **TypeScript** — Strongly typed JavaScript for improved code quality and developer productivity
+* 💅 **Tailwind CSS** — Utility-first CSS framework for consistent and responsive UI design
+* 🗃 **Shadcn UI** — Accessible, reusable UI components built with Radix UI and Tailwind CSS
+* 🌐 **tRPC** — End-to-end type-safe APIs for seamless frontend–backend integration
+* 🔒 **Clerk Authentication** — Secure user authentication, authorization, and profile management
+* 📦 **Prisma ORM** — Type-safe database access and schema management
+* ♻️ **T3 Env** — Type-safe environment variable management
+* 🛠 **BiomeJS** — Fast formatting and linting for clean, consistent code
+* 📊 **Google Analytics** — Traffic monitoring and user behavior insights
+
+---
+
+## Key Features 🚀
+
+* Enterprise-ready architecture
+* Secure authentication and user management
+* Scalable API layer with full type safety
+* Responsive and accessible UI components
+* Optimized performance and SEO
+* Maintainable and extensible codebase
+
+---
 
 ## Environment Variables 🌎
 
-To use clerk and analytics you need to add the following environment variables to your .env file:
+To run the application locally or in production, configure the following environment variables in a `.env` file:
 
 ```bash
-NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY =
+# Authentication (Clerk)
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
 
-DATABASE_URL =
-NEXT_PUBLIC_GOOGLE_ID =
+# Database
+DATABASE_URL=
+
+# Analytics
+NEXT_PUBLIC_GOOGLE_ID=
 ```
 
+Ensure that sensitive values are managed securely and not committed to source control.
+
+---
+
+## Usage & Deployment
+
+This platform is intended for internal Capco projects and client-facing solutions. Deployment can be performed using modern hosting providers that support Next.js (e.g., Vercel or equivalent enterprise infrastructure).
+
+---
+
+## About Capco Consulting Services
+
+**Capco Consulting Services** is a global management and technology consultancy, specializing in financial services and digital transformation. This platform reflects Capco’s commitment to innovation, quality engineering, and delivering impactful digital solutions.
+
+---
+
+© Capco Consulting Services. All rights reserved.

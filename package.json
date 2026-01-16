@@ -41,7 +41,7 @@
     "tailwind-merge": "^1.14.0",
     "tailwind-scrollbar": "^3.1.0",
     "tailwindcss-animate": "^1.0.7",
-    "three": "^0.182.0",
+    "three": "^0.180.0",
     "zod": "^3.22.4"
   },
   "devDependencies": {
@@ -49,6 +49,7 @@
     "@types/node": "^20.11.16",
     "@types/react": "^18.2.53",
     "@types/react-dom": "^18.2.18",
+    "@types/three": "^0.182.0",
     "autoprefixer": "^10.4.17",
     "postcss": "^8.4.33",
     "prisma": "^5.9.1",

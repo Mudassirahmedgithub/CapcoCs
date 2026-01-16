@@ -1,5 +1,6 @@
 "use client";
 import * as THREE from "three";
+import type { Object3D } from "three";
 import React, { useEffect, useRef, useState } from "react";
 import {
   Sparkles,
@@ -18,12 +19,8 @@ function ParticleHero() {
 
   useEffect(() => {
     if (!mountRef.current) return;
-    
-    // Import THREE from CDN
-    const THREE = window.THREE;
-    if (!THREE) return;
 
-    // Scene setup
+    // Scene
     const scene = new THREE.Scene();
     scene.fog = new THREE.FogExp2(0x000000, 0.001);
 
@@ -37,45 +34,40 @@ function ParticleHero() {
     camera.position.z = 50;
 
     // Renderer
-    const renderer = new THREE.WebGLRenderer({ 
-      alpha: true, 
-      antialias: true 
-    });
+    const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     mountRef.current.appendChild(renderer.domElement);
 
-    // Create multiple particle systems with different colors
+    // Particle systems
     const particleSystems: THREE.Points[] = [];
-    
-    // Main cyan particles
-    const createParticleSystem = (count, color, size, spread) => {
+
+    const createParticleSystem = (
+      count: number,
+      color: THREE.ColorRepresentation,
+      size: number,
+      spread: number
+    ): THREE.Points => {
       const geometry = new THREE.BufferGeometry();
       const positions = new Float32Array(count * 3);
       const velocities = new Float32Array(count * 3);
-      
+
       for (let i = 0; i < count * 3; i += 3) {
         positions[i] = (Math.random() - 0.5) * spread;
         positions[i + 1] = (Math.random() - 0.5) * spread;
         positions[i + 2] = (Math.random() - 0.5) * spread;
-        
+
         velocities[i] = (Math.random() - 0.5) * 0.02;
         velocities[i + 1] = (Math.random() - 0.5) * 0.02;
         velocities[i + 2] = (Math.random() - 0.5) * 0.02;
       }
-      
-      geometry.setAttribute(
-        "position",
-        new THREE.BufferAttribute(positions, 3)
-      );
-      geometry.setAttribute(
-        "velocity",
-        new THREE.BufferAttribute(velocities, 3)
-      );
+
+      geometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
+      geometry.setAttribute("velocity", new THREE.BufferAttribute(velocities, 3));
 
       const material = new THREE.PointsMaterial({
-        color: color,
-        size: size,
+        color,
+        size,
         transparent: true,
         opacity: 0.8,
         blending: THREE.AdditiveBlending,
@@ -84,62 +76,51 @@ function ParticleHero() {
       return new THREE.Points(geometry, material);
     };
 
-    // Create multiple layers of particles
     particleSystems.push(createParticleSystem(5000, 0x00ffff, 0.8, 200));
     particleSystems.push(createParticleSystem(3000, 0x6366f1, 0.6, 180));
     particleSystems.push(createParticleSystem(2000, 0xa855f7, 1.2, 150));
-    
-    particleSystems.forEach(system => scene.add(system));
 
-    // Mouse interaction
-    const handleMouseMove = (event) => {
-      mouseRef.current.x = (event.clientX / window.innerWidth) * 2 - 1;
-      mouseRef.current.y = -(event.clientY / window.innerHeight) * 2 + 1;
+    particleSystems.forEach(ps => scene.add(ps));
+
+    // Mouse
+    const handleMouseMove = (e: MouseEvent) => {
+      mouseRef.current.x = (e.clientX / window.innerWidth) * 2 - 1;
+      mouseRef.current.y = -(e.clientY / window.innerHeight) * 2 + 1;
     };
-    window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener("mousemove", handleMouseMove);
 
     // Animation
     let frame = 0;
     const animate = () => {
       frame += 0.01;
-      
+
       particleSystems.forEach((system, index) => {
-        // Rotation
         system.rotation.y += 0.0003 * (index + 1);
         system.rotation.x += 0.0002 * (index + 1);
-        
-        // Mouse interaction
+
         system.rotation.x += mouseRef.current.y * 0.0005;
         system.rotation.y += mouseRef.current.x * 0.0005;
-        
-        // Wave effect
-        const positions = system.geometry.attributes.position.array;
-        const velocities = system.geometry.attributes.velocity.array;
-        
-        for (let i = 0; i < positions.length; i += 3) {
-          positions[i + 1] += Math.sin(frame + positions[i] * 0.01) * 0.02;
-          
-          // Drift
-          positions[i] += velocities[i];
-          positions[i + 1] += velocities[i + 1];
-          positions[i + 2] += velocities[i + 2];
-          
-          // Boundary check
-          const spread = 100 + index * 20;
-          if (Math.abs(positions[i]) > spread) velocities[i] *= -1;
-          if (Math.abs(positions[i + 1]) > spread) velocities[i + 1] *= -1;
-          if (Math.abs(positions[i + 2]) > spread) velocities[i + 2] *= -1;
+
+        const pos = system.geometry.attributes.position.array as Float32Array;
+        const vel = system.geometry.attributes.velocity.array as Float32Array;
+
+        for (let i = 0; i < pos.length; i += 3) {
+          pos[i + 1] += Math.sin(frame + pos[i] * 0.01) * 0.02;
+
+          pos[i] += vel[i];
+          pos[i + 1] += vel[i + 1];
+          pos[i + 2] += vel[i + 2];
         }
-        
+
         system.geometry.attributes.position.needsUpdate = true;
       });
-      
+
       renderer.render(scene, camera);
       requestAnimationFrame(animate);
     };
     animate();
 
-    // Resize handler
+    // Resize
     const handleResize = () => {
       camera.aspect = window.innerWidth / window.innerHeight;
       camera.updateProjectionMatrix();
@@ -151,12 +132,14 @@ function ParticleHero() {
     return () => {
       window.removeEventListener("resize", handleResize);
       window.removeEventListener("mousemove", handleMouseMove);
-      if (mountRef.current && renderer.domElement) {
-        mountRef.current.removeChild(renderer.domElement);
-      }
-      particleSystems.forEach(system => {
-        system.geometry.dispose();
-        system.material.dispose();
+      mountRef.current?.removeChild(renderer.domElement);
+      particleSystems.forEach(p => {
+        p.geometry.dispose();
+        if (Array.isArray(p.material)) {
+          p.material.forEach(m => m.dispose());
+        } else {
+          p.material.dispose();
+        }
       });
       renderer.dispose();
     };
@@ -164,6 +147,7 @@ function ParticleHero() {
 
   return <div ref={mountRef} className="absolute inset-0" />;
 }
+
 
 export default function HomePage() {
   const [isLoaded, setIsLoaded] = useState(false);

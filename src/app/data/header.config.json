@@ -1279,34 +1279,6 @@
   "services": [
 
     {
-      "category": "Web Development",
-      "icon": "🌐",
-      "description": "Modern websites and web apps built for speed and scalability.",
-      "base": "web development",
-      "items": [
-        {
-          "label": "Frontend Development",
-          "icon": "🎨",
-          "description": "Responsive and interactive user interfaces."
-        },
-        {
-          "label": "Backend Development",
-          "icon": "⚙️",
-          "description": "Secure and scalable server-side solutions."
-        },
-        {
-          "label": "E-Commerce Solutions",
-          "icon": "🛒",
-          "description": "Online stores with payment and product management."
-        },
-        {
-          "label": "Website Maintenance",
-          "icon": "🛠️",
-          "description": "Ongoing updates, fixes, and performance optimization."
-        }
-      ]
-    },
-    {
       "category": "Software Development",
       "icon": "💻",
       "description": "Custom software tailored to your business needs.",
@@ -1331,34 +1303,6 @@
           "label": "System Modernization",
           "icon": "♻️",
           "description": "Upgrading legacy systems with modern tech."
-        }
-      ]
-    },
-    {
-      "category": "Cloud Services",
-      "icon": "☁️",
-      "description": "Scalable and secure cloud infrastructure solutions.",
-      "base": "cloud services",
-      "items": [
-        {
-          "label": "Cloud Migration",
-          "icon": "🚀",
-          "description": "Seamless move to cloud platforms."
-        },
-        {
-          "label": "Cloud Architecture",
-          "icon": "🏗️",
-          "description": "Design of scalable cloud environments."
-        },
-        {
-          "label": "DevOps & Automation",
-          "icon": "⚡",
-          "description": "CI/CD pipelines and infrastructure automation."
-        },
-        {
-          "label": "Cloud Security",
-          "icon": "🔐",
-          "description": "Protecting data and cloud resources."
         }
       ]
     },
@@ -1415,35 +1359,6 @@
           "label": "Technical Support",
           "icon": "🎧",
           "description": "Responsive help and issue resolution."
-        }
-      ]
-    },
-
-    {
-      "category": "Mobile App Development",
-      "icon": "📱",
-      "description": "Custom iOS and Android apps with smooth performance and great UX.",
-      "base": "mobile app development",
-      "items": [
-        {
-          "label": "iOS App Development",
-          "icon": "🍎",
-          "description": "Native iOS applications built for performance and security."
-        },
-        {
-          "label": "Android App Development",
-          "icon": "🤖",
-          "description": "Scalable Android apps optimized for multiple devices."
-        },
-        {
-          "label": "Cross-Platform Apps",
-          "icon": "🔄",
-          "description": "Single-codebase apps using Flutter or React Native."
-        },
-        {
-          "label": "App Maintenance & Support",
-          "icon": "🛠️",
-          "description": "Ongoing updates, monitoring, and performance improvements."
         }
       ]
     }

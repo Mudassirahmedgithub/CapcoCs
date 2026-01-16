@@ -1,4 +1,5 @@
 "use client";
+import * as THREE from "three";
 import React, { useEffect, useRef, useState } from "react";
 import {
   Sparkles,
@@ -45,7 +46,7 @@ function ParticleHero() {
     mountRef.current.appendChild(renderer.domElement);
 
     // Create multiple particle systems with different colors
-    const particleSystems = [];
+    const particleSystems: THREE.Points[] = [];
     
     // Main cyan particles
     const createParticleSystem = (count, color, size, spread) => {

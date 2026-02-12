@@ -50,10 +50,7 @@ export default function Footer() {
   ];
 
   const services = [
-    "Web Development",
     "Software Development",
-    "Mobile App Development",
-    "Cloud Services",
     "Data Governance & AI",
     "IT Consulting Support",
   ];
@@ -152,7 +149,6 @@ export default function Footer() {
               </div>
             </div>
           </div>
-
           {/* AI */}
           <div>
             <h3 className="text-lg font-bold flex items-center mb-6 group cursor-default">
@@ -235,10 +231,10 @@ export default function Footer() {
                 <div>
                   <p className="text-xs text-slate-500 mb-1 font-medium uppercase tracking-wide">Call Us</p>
                   <a href="tel:+919999999999" className="font-semibold text-sm hover:text-blue-400 transition-colors block">
-                    +91 999999999999
+                    +91 8522915171
                   </a>
                   <a href="tel:+9999999999" className="font-semibold text-sm hover:text-blue-400 transition-colors block">
-                    +9999999999999
+                    +974 307678363
                   </a>
                 </div>
               </div>

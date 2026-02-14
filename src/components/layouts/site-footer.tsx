@@ -82,7 +82,7 @@ export default function Footer() {
             <div className="flex items-center gap-3 mb-6 flex-wrap">
               <div className="relative">
                 <img
-                  src="/favicon-96x96.png"
+                  src="/favicon-32x32.png"
                   alt="Logo"
                   className="w-12 h-12 rounded-xl shadow-lg object-cover ring-2 ring-blue-500/30"
                 />
@@ -102,7 +102,7 @@ export default function Footer() {
               <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Connect With Us</p>
               <div className="flex gap-3 flex-wrap">
                 <a
-                  href="https://facebook.com/CapcoConsultingServices"
+                  href="https://facebook.com/Capcocs"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group relative w-11 h-11 flex items-center justify-center rounded-xl bg-gradient-to-br from-slate-800 to-slate-900 hover:from-blue-600 hover:to-blue-700 transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-blue-500/30 border border-slate-700/50"
@@ -113,7 +113,7 @@ export default function Footer() {
                 </a>
 
                 <a
-                  href="https://www.instagram.com/CapcoConsultingServices"
+                  href="https://www.instagram.com/Capcocs"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group relative w-11 h-11 flex items-center justify-center rounded-xl bg-gradient-to-br from-slate-800 to-slate-900 hover:from-pink-600 hover:to-purple-700 transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-pink-500/30 border border-slate-700/50"
@@ -135,7 +135,7 @@ export default function Footer() {
                 </a>
 
                 <a
-                  href="https://www.youtube.com/@CapcoConsultingServices"
+                  href="https://www.youtube.com/@Capcocs"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group relative w-11 h-11 flex items-center justify-center rounded-xl bg-gradient-to-br from-slate-800 to-slate-900 hover:from-red-600 hover:to-red-700 transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-red-500/30 border border-slate-700/50"
@@ -223,22 +223,6 @@ export default function Footer() {
             </h3>
 
             <div className="space-y-5">
-              <div className="group flex gap-4 text-slate-100">
-                <div className="w-12 h-12 bg-gradient-to-br from-slate-800 to-slate-900 rounded-xl flex items-center justify-center border border-slate-700/50 group-hover:border-blue-500/50 group-hover:shadow-lg group-hover:shadow-blue-500/20 transition-all flex-shrink-0">
-                  <Phone size={18} className="text-blue-400" />
-                </div>
-
-                <div>
-                  <p className="text-xs text-slate-500 mb-1 font-medium uppercase tracking-wide">Call Us</p>
-                  <a href="tel:+919999999999" className="font-semibold text-sm hover:text-blue-400 transition-colors block">
-                    +91 8522915171
-                  </a>
-                  <a href="tel:+9999999999" className="font-semibold text-sm hover:text-blue-400 transition-colors block">
-                    +974 307678363
-                  </a>
-                </div>
-              </div>
-
               <a
                 href="mailto:capcocsqa@gmail.com"
                 className="group flex gap-4 text-slate-100 hover:text-blue-400 transition-all"

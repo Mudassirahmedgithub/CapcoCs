@@ -67,8 +67,12 @@ export default function Header() {
       }}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between h-24 px-6">
-        <Link href="/" className="text-2xl font-bold text-blue-600">
-          CCS
+        <Link href="/" className="flex items-center">
+          <img
+            src="/favicon.svg"
+            alt="Capco Consulting Services Logo"
+            className="h-10 w-auto"
+          />
         </Link>
 
         <button

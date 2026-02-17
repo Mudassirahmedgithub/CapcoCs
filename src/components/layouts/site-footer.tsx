@@ -1,5 +1,5 @@
 "use client";
-
+import Image from "next/image";
 import {
   Phone,
   Mail,
@@ -30,6 +30,7 @@ export default function Footer() {
 
 
   const products = [
+    "Asset Management",
     "Manufacturing ERP",
     "HRMS",
     "CRM",
@@ -50,6 +51,12 @@ export default function Footer() {
   ];
 
   const services = [
+    "Warehouse",
+    "Asset management ",
+    "Business management & Consultancy",
+    "Digital marketing",
+    "Asset tagging & Tracking Solution",
+    "Human resource management",
     "Software Development",
     "Data Governance & AI",
     "IT Consulting Support",
@@ -81,12 +88,13 @@ export default function Footer() {
           <div className="lg:col-span-1 md:col-span-3 sm:col-span-2">
             <div className="flex items-center gap-3 mb-6 flex-wrap">
               <div className="relative">
-                <img
-                  src="/favicon-32x32.png"
-                  alt="Logo"
-                  className="w-12 h-12 rounded-xl shadow-lg object-cover ring-2 ring-blue-500/30"
-                />
-                <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-blue-500/20 to-transparent" />
+              <Image
+                src="/ForFooter.svg"
+                alt="Capco Consulting Services Logo"
+                width={120}
+                height={30}
+                priority
+              />
               </div>
               <h3 className="text-2xl font-bold bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">
                 Capco Consulting Services

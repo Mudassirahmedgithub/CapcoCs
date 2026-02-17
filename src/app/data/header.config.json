@@ -8,6 +8,35 @@
   ],
 
   "products": [
+{
+  "category": "Asset Management",
+  "icon": "🗂️",
+  "description": "Comprehensive tools to track, manage, and optimize assets throughout their lifecycle",
+  "base": "asset-management",
+  "items": [
+    {
+      "label": "Asset Life Cycle Management",
+      "icon": "🔄",
+      "description": "Manages assets from procurement and deployment to maintenance, depreciation, and disposal"
+    },
+    {
+      "label": "Asset Tracking",
+      "icon": "📍",
+      "description": "Monitors asset location, usage, and status in real time to improve visibility and control"
+    },
+    {
+      "label": "Asset Financial & Compliance Management",
+      "icon": "📊",
+      "description": "Tracks asset costs, depreciation, audits, and regulatory compliance to ensure financial accuracy"
+    },
+    {
+      "label": "Reports and Analytics",
+      "icon": "📈",
+      "description": "Provides detailed insights into asset performance, utilization, and maintenance trends"
+    }
+  ]
+},
+
     {
       "category": "Manufacturing ERP",
       "icon": "🏭",
@@ -1277,91 +1306,260 @@
   }
 ],
   "services": [
-
+{
+  "category": "Warehouse Management",
+  "icon": "🏭",
+  "description": "Efficient warehouse operations and inventory control solutions.",
+  "base": "warehouse-management",
+  "items": [
     {
-      "category": "Software Development",
-      "icon": "💻",
-      "description": "Custom software tailored to your business needs.",
-      "base": "software development",
-      "items": [
-        {
-          "label": "Custom Applications",
-          "icon": "📦",
-          "description": "Software built specifically for your workflows."
-        },
-        {
-          "label": "Enterprise Solutions",
-          "icon": "🏢",
-          "description": "Robust systems for large-scale organizations."
-        },
-        {
-          "label": "API Development",
-          "icon": "🔌",
-          "description": "Secure and reliable system integrations."
-        },
-        {
-          "label": "System Modernization",
-          "icon": "♻️",
-          "description": "Upgrading legacy systems with modern tech."
-        }
-      ]
+      "label": "Inventory Management",
+      "icon": "📦",
+      "description": "Real-time tracking and control of warehouse stock levels."
     },
     {
-      "category": "Data Governance & AI",
+      "label": "Order Fulfillment",
+      "icon": "🚚",
+      "description": "Streamlined picking, packing, and shipping processes."
+    },
+    {
+      "label": "Warehouse Automation",
+      "icon": "🤖",
+      "description": "Automated systems to improve speed and accuracy."
+    },
+    {
+      "label": "Stock Auditing & Reporting",
       "icon": "📊",
-      "description": "Trusted data and intelligent AI solutions.",
-      "base": "data governance & ai",
-      "items": [
-        {
-          "label": "Data Governance",
-          "icon": "📋",
-          "description": "Policies for data quality and compliance."
-        },
-        {
-          "label": "Data Analytics",
-          "icon": "📈",
-          "description": "Insights through reporting and dashboards."
-        },
-        {
-          "label": "AI & Machine Learning",
-          "icon": "🤖",
-          "description": "Predictive and intelligent systems."
-        },
-        {
-          "label": "Data Security",
-          "icon": "🛡️",
-          "description": "Safeguarding sensitive information."
-        }
-      ]
-    },
-    {
-      "category": "IT Consulting Support",
-      "icon": "🧠",
-      "description": "Expert guidance and reliable IT support.",
-      "base": "it consulting support",
-      "items": [
-        {
-          "label": "IT Strategy",
-          "icon": "🧭",
-          "description": "Technology roadmaps aligned with goals."
-        },
-        {
-          "label": "Infrastructure Support",
-          "icon": "🖧",
-          "description": "Monitoring and maintaining IT systems."
-        },
-        {
-          "label": "Cybersecurity Consulting",
-          "icon": "🔒",
-          "description": "Risk assessment and security planning."
-        },
-        {
-          "label": "Technical Support",
-          "icon": "🎧",
-          "description": "Responsive help and issue resolution."
-        }
-      ]
+      "description": "Accurate reporting and inventory reconciliation tools."
     }
   ]
+},
+
+  {
+    "category": "Asset Management",
+    "icon": "📦",
+    "description": "Comprehensive solutions for tracking and managing company assets.",
+    "base": "asset-management",
+    "items": [
+      {
+        "label": "Asset Lifecycle Management",
+        "icon": "🔄",
+        "description": "Track assets from procurement to retirement."
+      },
+      {
+        "label": "Inventory Tracking",
+        "icon": "📊",
+        "description": "Real-time monitoring of physical and digital assets."
+      },
+      {
+        "label": "Maintenance Scheduling",
+        "icon": "🛠️",
+        "description": "Automated reminders and maintenance tracking."
+      },
+      {
+        "label": "Reporting & Analytics",
+        "icon": "📈",
+        "description": "Insightful asset utilization and performance reports."
+      }
+    ]
+  },
+  {
+    "category": "Business Management & Consultancy",
+    "icon": "📊",
+    "description": "Strategic advisory services to optimize operations and growth.",
+    "base": "business-management-consultancy",
+    "items": [
+      {
+        "label": "Business Process Optimization",
+        "icon": "⚙️",
+        "description": "Improving efficiency through streamlined workflows."
+      },
+      {
+        "label": "Digital Transformation",
+        "icon": "🌐",
+        "description": "Guiding organizations through technology-driven change."
+      },
+      {
+        "label": "Performance Management",
+        "icon": "📈",
+        "description": "Tracking KPIs and improving business outcomes."
+      },
+      {
+        "label": "Change Management",
+        "icon": "🔄",
+        "description": "Supporting teams during organizational transitions."
+      }
+    ]
+  },
+  {
+    "category": "Digital Marketing",
+    "icon": "📣",
+    "description": "Data-driven marketing strategies to grow your brand.",
+    "base": "digital-marketing",
+    "items": [
+      {
+        "label": "SEO Optimization",
+        "icon": "🔍",
+        "description": "Improving search engine visibility and rankings."
+      },
+      {
+        "label": "Social Media Marketing",
+        "icon": "📱",
+        "description": "Building engagement across social platforms."
+      },
+      {
+        "label": "Content Marketing",
+        "icon": "✍️",
+        "description": "High-quality content to attract and convert audiences."
+      },
+      {
+        "label": "Paid Advertising",
+        "icon": "💰",
+        "description": "Targeted campaigns across digital channels."
+      }
+    ]
+  },
+  {
+    "category": "Asset Tagging & Tracking Solution",
+    "icon": "🏷️",
+    "description": "Smart tagging systems for real-time asset visibility.",
+    "base": "asset-tagging-tracking",
+    "items": [
+      {
+        "label": "RFID Solutions",
+        "icon": "📡",
+        "description": "Automated tracking using RFID technology."
+      },
+      {
+        "label": "Barcode Systems",
+        "icon": "🔢",
+        "description": "Efficient barcode-based asset identification."
+      },
+      {
+        "label": "GPS Tracking",
+        "icon": "📍",
+        "description": "Location-based tracking for mobile assets."
+      },
+      {
+        "label": "Cloud Dashboard",
+        "icon": "☁️",
+        "description": "Centralized monitoring and reporting platform."
+      }
+    ]
+  },
+  {
+    "category": "Human Resource Management",
+    "icon": "👥",
+    "description": "Modern HR solutions to manage and empower your workforce.",
+    "base": "human-resource-management",
+    "items": [
+      {
+        "label": "Payroll Management",
+        "icon": "💵",
+        "description": "Automated salary processing and tax compliance."
+      },
+      {
+        "label": "Attendance Tracking",
+        "icon": "🕒",
+        "description": "Monitor employee attendance and working hours."
+      },
+      {
+        "label": "Recruitment Solutions",
+        "icon": "🧾",
+        "description": "Streamlined hiring and onboarding processes."
+      },
+      {
+        "label": "Performance Evaluation",
+        "icon": "📊",
+        "description": "Structured performance reviews and appraisals."
+      }
+    ]
+  },
+  {
+    "category": "Software Development",
+    "icon": "💻",
+    "description": "Custom software solutions tailored to your business needs.",
+    "base": "software-development",
+    "items": [
+      {
+        "label": "Custom Applications",
+        "icon": "📦",
+        "description": "Software built specifically for your workflows and processes."
+      },
+      {
+        "label": "Enterprise Solutions",
+        "icon": "🏢",
+        "description": "Scalable systems for large organizations and complex operations."
+      },
+      {
+        "label": "API Development",
+        "icon": "🔌",
+        "description": "Secure and reliable system integrations and APIs."
+      },
+      {
+        "label": "System Modernization",
+        "icon": "♻️",
+        "description": "Upgrading legacy systems using modern technologies."
+      }
+    ]
+  },  
+  {
+    "category": "Data Governance & AI",
+    "icon": "📊",
+    "description": "Trusted data management and intelligent AI-powered solutions.",
+    "base": "data-governance-ai",
+    "items": [
+      {
+        "label": "Data Governance",
+        "icon": "📋",
+        "description": "Policies and frameworks ensuring data quality and compliance."
+      },
+      {
+        "label": "Data Analytics",
+        "icon": "📈",
+        "description": "Actionable insights through dashboards and reporting."
+      },
+      {
+        "label": "AI & Machine Learning",
+        "icon": "🤖",
+        "description": "Predictive models and intelligent automation systems."
+      },
+      {
+        "label": "Data Security",
+        "icon": "🛡️",
+        "description": "Protection of sensitive and critical information."
+      }
+    ]
+  },
+  {
+    "category": "IT Consulting Support",
+    "icon": "🧠",
+    "description": "Expert technology consulting and reliable IT support services.",
+    "base": "it-consulting-support",
+    "items": [
+      {
+        "label": "IT Strategy",
+        "icon": "🧭",
+        "description": "Technology roadmaps aligned with business objectives."
+      },
+      {
+        "label": "Infrastructure Support",
+        "icon": "🖧",
+        "description": "Monitoring and maintaining IT environments."
+      },
+      {
+        "label": "Cybersecurity Consulting",
+        "icon": "🔒",
+        "description": "Risk assessment and security planning services."
+      },
+      {
+        "label": "Technical Support",
+        "icon": "🎧",
+        "description": "Responsive troubleshooting and user support."
+      }
+    ]
+  }
+]
+
 }
 

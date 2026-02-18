@@ -86,7 +86,7 @@ export default function RootLayout({
         <TrpcProvider>
           <ThemeProvider
             attribute="class"
-            defaultTheme="system"
+            defaultTheme="dark"
             enableSystem
             disableTransitionOnChange
           >

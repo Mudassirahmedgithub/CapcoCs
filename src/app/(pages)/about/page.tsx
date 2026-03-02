@@ -1,139 +1,218 @@
-export default function AboutUs() {
+import Link from "next/link";
+import styles from './about.module.css';
+
+export default function AboutPage() {
   return (
-    <main className="w-full py-20">
-      <section className="container mx-auto max-w-6xl px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-xl font-medium mt-4 opacity-80">
-            Discover our mission, vision, and values that drive success.
-          </h2>
-          <h1 className="text-4xl font-bold tracking-tight">Capco Consulting Services</h1>
-          <p className="text-lg mt-3">Driving Your Vision.</p>
-        </div>
+    <main className={styles.aboutRoot}>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 mb-20">
-          <div>
-            <h2 className="text-2xl font-semibold mb-4">Who We Are</h2>
-            <p className="leading-relaxed text-base opacity-80">
-              Capco Consulting Services is a global technology consulting company dedicated to transforming
-              businesses through innovative digital solutions, enterprise platforms, tailored products, and
-              intelligent automation.
-            </p>
-          </div>
+      {/* ─── HERO ─── */}
+      <section className={styles.hero}>
+        <div className={styles.heroNoise} />
+        <div className={styles.heroRule} />
 
-          <div>
-            <h2 className="text-2xl font-semibold mb-4">Our Mission</h2>
-            <p className="leading-relaxed text-base opacity-80">
-              To deliver enterprise-grade solutions that accelerate digital transformation and unlock long-term value.
-            </p>
-          </div>
-        </div>
+        <div className={styles.heroInner}>
+          <div className={styles.heroEyebrow}>Capco Consulting Services</div>
 
-        {/* Digital Transformation */}
-        <div className="mb-20">
-          <h2 className="text-3xl font-semibold mb-10 text-center">Digital Transformation</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              
-              "ERP & CRM",
-              "Procurement Solutions",
-              "Data & AI",
-              "Robotics Process Automation",
-              "Enterprise Warehouse Management",
-            ].map((item, index) => (
-              <div key={index} className="p-6 rounded-2xl shadow-md border bg-black hover:shadow-xl transition-all">
-                <h3 className="text-xl font-semibold">{item}</h3>
-              </div>
-            ))}
-          </div>
-        </div>
+          <h1 className={styles.heroHeadline}>
+            Strategy Meets <em>Intelligent</em> Technology
+          </h1>
 
-        {/* Products */}
-        <div className="mb-20">
-          <h2 className="text-3xl font-semibold mb-10 text-center">Our Products</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              "Vertex HCM",
-              "Campus Management",
-              "Mobile Device Management",
-              "Customized Manufacturing ERP",
-              "Customized Procurement ERP",
-              "Customized HRMS",
-              "Retail Solution",
-            ].map((item, index) => (
-              <div key={index} className="p-6 rounded-2xl shadow-md border bg-black hover:shadow-xl transition-all">
-                <h3 className="text-xl font-semibold">{item}</h3>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Services */}
-        <div className="mb-20">
-          <h2 className="text-3xl font-semibold mb-10 text-center">Our Services</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              "Web Development",
-              "Software Development",
-              "Mobile App Development",
-              "Cloud Services",
-              "Data Governance & AI",
-              "IT Consulting Support",
-            ].map((item, index) => (
-              <div key={index} className="p-6 rounded-2xl shadow-md border bg-black hover:shadow-xl transition-all">
-                <h3 className="text-xl font-semibold">{item}</h3>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Contact Us — FIXED */}
-        <div className="mb-20">
-          <h2 className="text-3xl font-semibold mb-10 text-center">Contact Us</h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 text-center">
-            <div className="p-6 border rounded-xl shadow-sm bg-black">
-              <h3 className="text-xl font-semibold mb-3">Call Us</h3>
-              <p className="opacity-80">+91 999999999999</p>
-              <p className="opacity-80">+9999999999999</p>
-            </div>
-
-            <div className="p-6 border rounded-xl shadow-sm bg-black">
-              <h3 className="text-xl font-semibold mb-3">Email Us</h3>
-              <p className="opacity-80">capcocsqa@gmail.com</p>
-            </div>
-
-            <div className="p-6 border rounded-xl shadow-sm bg-black">
-              <h3 className="text-xl font-semibold mb-3">Locations</h3>
-              <p className="opacity-80">Canada, Qatar</p>
-              <p className="opacity-80">India</p>
-            </div>
-          </div>
-        </div>
-
-        {/* Mission */}
-        <div className="mb-20">
-          <h2 className="text-3xl font-semibold mb-4">Mission</h2>
-          <p className="leading-relaxed text-base opacity-80">
-            Our objective is to empower organizations across Qatar, India, and Canada by delivering tailor-made business solutions.
+          <p className={styles.heroSub}>
+            Consulting. AI. Enterprise Solutions. Engineered for
+            sustainable growth across Canada, Qatar, and India.
           </p>
+
+          <div className={styles.heroCtas}>
+            {/* btn-primary and btn-ghost are global classes from globals.css */}
+            <Link href="/services" className="btn btn-primary">
+              Explore Services
+            </Link>
+            <Link href="/contact" className="btn btn-ghost">
+              Contact Us
+            </Link>
+          </div>
         </div>
 
-        {/* Vision */}
-        <div className="mb-20">
-          <h2 className="text-3xl font-semibold mb-4">Vision</h2>
-          <p className="leading-relaxed text-base opacity-80">
-            To be a globally recognized consulting firm known for transforming businesses through innovative solutions.
-          </p>
-        </div>
-
-        {/* Values */}
-        <div className="mb-20">
-          <h2 className="text-3xl font-semibold mb-6">Values</h2>
-          <p className="leading-relaxed text-base opacity-80">
-            At CAPCO, we prioritize integrity, collaboration, excellence, and delivering impactful, customer-centric solutions.
-          </p>
+        <div className={styles.heroStats}>
+          <div className={styles.heroStat}>
+            <span className={styles.heroStatNum}>3</span>
+            <span className={styles.heroStatLabel}>Countries Served</span>
+          </div>
+          <div className={styles.heroStat}>
+            <span className={styles.heroStatNum}>10+</span>
+            <span className={styles.heroStatLabel}>Solutions Delivered</span>
+          </div>
+          <div className={styles.heroStat}>
+            <span className={styles.heroStatNum}>AI</span>
+            <span className={styles.heroStatLabel}>First Approach</span>
+          </div>
+          <div className={styles.heroStat}>
+            <span className={styles.heroStatNum}>360°</span>
+            <span className={styles.heroStatLabel}>Consulting Coverage</span>
+          </div>
         </div>
       </section>
+
+      {/* ─── ABOUT OVERVIEW ─── */}
+      <section className={styles.aboutSection}>
+        <div className={styles.aboutLeft}>
+          <div className={styles.sectionLabel}>About Us</div>
+          <h2 className={styles.aboutHeading}>
+            Precision-built for enterprise transformation
+          </h2>
+          <p className={styles.aboutBody}>
+            Capco Consulting Services is a strategic consulting and technology
+            firm enabling business excellence across Canada, Qatar, and India.
+          </p>
+          <p className={styles.aboutBody}>
+            We deliver tailored consulting frameworks, enterprise-grade
+            technology solutions, and AI-powered platforms designed to drive
+            measurable growth and operational resilience.
+          </p>
+          <p className={styles.aboutBody}>
+            Our work is grounded in strategic precision, disciplined execution,
+            and long-term value creation through intelligent transformation.
+          </p>
+        </div>
+
+        <div className={styles.aboutRight}>
+          {[
+            { num: "3",   text: "Countries Served" },
+            { num: "10+", text: "Solutions Delivered" },
+            { num: "AI",  text: "Enterprise Expertise" },
+            { num: "E2E", text: "Consulting Coverage" },
+          ].map((card) => (
+            <div className={styles.aboutCard} key={card.text}>
+              <div className={styles.aboutCardNum}>{card.num}</div>
+              <div className={styles.aboutCardText}>{card.text}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ─── MISSION & VISION ─── */}
+      <section className={styles.mvSection}>
+        <div className={styles.mvInner}>
+          <div className={styles.mvHeader}>
+            <h2 className={styles.mvHeading}>
+              Built on<br /><em>purpose.</em>
+            </h2>
+          </div>
+
+          <div className={styles.mvGrid}>
+            <div className={styles.mvCard}>
+              <div className={styles.mvCardTag}>01 — Mission</div>
+              <div className={styles.mvCardTitle}>What We Strive For</div>
+              <p className={styles.mvCardBody}>
+                To empower organizations across Qatar, India, and Canada by
+                delivering bespoke business solutions and advanced technology
+                strategies that enhance efficiency, innovation, and sustainable
+                success.
+              </p>
+            </div>
+            <div className={styles.mvCard}>
+              <div className={styles.mvCardTag}>02 — Vision</div>
+              <div className={styles.mvCardTitle}>Where We're Headed</div>
+              <p className={styles.mvCardBody}>
+                To be globally recognized as a premier consulting and technology
+                firm transforming enterprises through innovation, strategic
+                leadership, and responsible value creation.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── CORE VALUES ─── */}
+      <section className={styles.valuesSection}>
+        <div className={styles.valuesHeader}>
+          <h2 className={styles.valuesHeading}>
+            Core<br />Values
+          </h2>
+          <div className={styles.valuesDivider} />
+        </div>
+
+        <div className={styles.valuesList}>
+          {[
+            { title: "Integrity",          desc: "Transparency, accountability, and ethical responsibility in every engagement." },
+            { title: "Excellence",         desc: "Uncompromising standards of quality, precision, and performance." },
+            { title: "Client Commitment",  desc: "Aligned success through measurable and meaningful outcomes." },
+            { title: "Collaboration",      desc: "Trusted partnerships built on shared objectives and mutual growth." },
+            { title: "Innovation",         desc: "Forward-looking solutions using AI, automation, and emerging technologies." },
+          ].map((v, i) => (
+            <div className={styles.valueItem} key={v.title}>
+              <div className={styles.valueNum}>0{i + 1}</div>
+              {/* FIX: was value-title / value-desc (kebab), must be camelCase for CSS Modules */}
+              <div className={styles.valueTitle}>{v.title}</div>
+              <div className={styles.valueDesc}>{v.desc}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ─── JOURNEY ─── */}
+      <section className={styles.journeySection}>
+        <div className={styles.journeyInner}>
+          <div>
+            {/* FIX: removed inline style referencing --rust (not in globals.css) */}
+            <div className={styles.sectionLabel}>Our Journey</div>
+            <h2 className={styles.journeyHeading}>
+              A track record<br />of <em>bold</em> moves
+            </h2>
+          </div>
+
+          <ol className={styles.timeline}>
+            {[
+              "Founded with a disciplined focus on strategic consulting — bridging gaps between ambition and execution.",
+              "Expanded into digital and enterprise technology, developing end-to-end implementation capabilities.",
+              "Integrated AI across service offerings, empowering clients with intelligent, data-driven decisions.",
+              "Established a global presence across three continents, delivering transformation at scale.",
+            ].map((text, i) => (
+              <li className={styles.timelineItem} key={i}>
+                <span className={styles.timelineIdx}>0{i + 1}</span>
+                <p className={styles.timelineText}>{text}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      {/* ─── STATS BAND ─── */}
+      <div className={styles.statsBand}>
+        {[
+          { num: "3",    label: "Global Locations" },
+          { num: "10+",  label: "Enterprise Platforms Delivered" },
+          { num: "∞",    label: "AI Solutions Implemented" },
+          { num: "100%", label: "Client Commitment" },
+        ].map((s) => (
+          <div className={styles.statBlock} key={s.label}>
+            <span className={styles.statNum}>{s.num}</span>
+            <span className={styles.statLabel}>{s.label}</span>
+          </div>
+        ))}
+      </div>
+
+      {/* ─── CTA ─── */}
+      <section className={styles.ctaSection}>
+        <div className={styles.ctaInner}>
+          <h2 className={styles.ctaHeading}>
+            Ready to<br />transform your<br /><em>business?</em>
+          </h2>
+          <div className={styles.ctaActions}>
+            <Link href="/contact" className="btn btn-primary" style={{ textAlign: "center" }}>
+              Schedule a Consultation
+            </Link>
+            <a
+              href="mailto:info@capcocs.com"
+              className="btn btn-ghost"
+              style={{ textAlign: "center" }}
+            >
+              Email Us
+            </a>
+          </div>
+        </div>
+      </section>
+
     </main>
   );
 }

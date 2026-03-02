@@ -5,6 +5,7 @@ import Link from "next/link";
 import MegaMenu from "../megamenu";
 import headerConfig from "../../app/data/header.config.json";
 import slugify from "slugify";
+
 export default function Header() {
   const [activeMega, setActiveMega] = useState<string | null>(null);
   const [lockedMega, setLockedMega] = useState<string | null>(null);
@@ -15,7 +16,6 @@ export default function Header() {
   const pathname = usePathname();
 
   useEffect(() => {
-    // Close mega menu whenever route changes
     setActiveMega(null);
     setLockedMega(null);
     setMobileOpen(false);
@@ -52,20 +52,20 @@ export default function Header() {
         unlockMega();
       }
     };
-
     document.addEventListener("click", handler);
     return () => document.removeEventListener("click", handler);
   }, []);
 
   return (
     <header
-      className="bg-white text-gray-900 sticky top-0 z-50 border-b w-full relative"
+      className="bg-white text-gray-900 sticky top-0 z-50 border-b w-full"
       onClick={(e) => {
         if (!(e.target as HTMLElement).closest("nav")) {
           unlockMega();
         }
       }}
     >
+      {/* Top Bar */}
       <div className="max-w-7xl mx-auto flex items-center justify-between h-24 px-6">
         <Link href="/" className="flex items-center">
           <img
@@ -75,6 +75,7 @@ export default function Header() {
           />
         </Link>
 
+        {/* Mobile Toggle */}
         <button
           className="lg:hidden text-2xl"
           onClick={() => setMobileOpen(!mobileOpen)}
@@ -82,18 +83,20 @@ export default function Header() {
           ☰
         </button>
 
-        <nav className="hidden lg:flex items-center gap-6">
+        {/* Desktop Nav */}
+        <nav className="hidden lg:flex items-center gap-8">
           {headerConfig.mainNav.map((item) =>
             item.type === "mega" ? (
               <div
                 key={item.label}
+                className="relative" // IMPORTANT FIX
                 onMouseEnter={() =>
                   openMega(item.key ?? item.label.toLowerCase())
                 }
                 onMouseLeave={closeMega}
               >
                 <button
-                  className="flex items-center gap-1 text-lg hover:text-blue-600"
+                  className="flex items-center gap-1 text-lg hover:text-blue-600 transition-colors"
                   onClick={() =>
                     toggleMega(item.key ?? item.label.toLowerCase())
                   }
@@ -110,25 +113,12 @@ export default function Header() {
                     ▼
                   </span>
                 </button>
-
-                {activeMega ===
-                  (item.key ?? item.label.toLowerCase()) && (
-                  <MegaMenu
-                    products={
-                      (headerConfig as any)[
-                        item.key ?? item.label.toLowerCase()
-                      ]
-                    }
-                    menuType={item.label}
-                    menuKey={item.key ?? item.label.toLowerCase()}
-                  />
-                )}
               </div>
             ) : (
               <a
                 key={item.label}
                 href={item.href}
-                className="text-lg hover:text-blue-600"
+                className="text-lg hover:text-blue-600 transition-colors"
               >
                 {item.label}
               </a>
@@ -137,15 +127,34 @@ export default function Header() {
         </nav>
       </div>
 
+      {/* FULL WIDTH MEGA MENU OUTSIDE CONTAINER */}
+      {activeMega && (
+        <div
+          className="absolute left-0 top-full w-screen bg-white shadow-2xl z-40"
+          onMouseEnter={() => setActiveMega(activeMega)}
+          onMouseLeave={closeMega}
+        >
+          <MegaMenu
+            products={
+              (headerConfig as any)[activeMega]
+            }
+            menuType={activeMega}
+            menuKey={activeMega}
+          />
+        </div>
+      )}
+
+      {/* Click Overlay when locked */}
       {lockedMega && (
         <div
-          className="absolute left-0 right-0 h-4 cursor-pointer"
+          className="fixed inset-0 z-30"
           onClick={unlockMega}
         />
       )}
 
+      {/* Mobile Menu */}
       {mobileOpen && (
-        <div className="lg:hidden absolute top-full left-0 right-0 bg-white border-t shadow-xl max-h-[85vh] overflow-y-auto">
+        <div className="lg:hidden absolute top-full left-0 right-0 bg-white border-t shadow-xl max-h-[85vh] overflow-y-auto z-50">
           <nav className="p-4 space-y-4">
             {headerConfig.mainNav.map((item) => {
               if (item.type !== "mega" && item.href) {
@@ -236,4 +245,4 @@ export default function Header() {
       )}
     </header>
   );
-}
+}    

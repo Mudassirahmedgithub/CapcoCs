@@ -2,21 +2,17 @@ import { ThemeProvider } from "@/components/providers/theme-providers";
 import TrpcProvider from "@/components/providers/trpc-provider";
 import { Toaster } from "@/components/ui/toaster";
 import { siteConfig } from "@/configs/site";
+import "./globals.css"
 
-
-import "@/styles/globals.css";
 
 
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
     default: siteConfig.name,
-    template: `%s - CoDox`
+    template: `%s - CapcoCS`
   },
   description: siteConfig.description,
   // added new keywords for SEO
@@ -82,7 +78,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
+      <body>
         <TrpcProvider>
           <ThemeProvider
             attribute="class"

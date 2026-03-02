@@ -1,6 +1,6 @@
 "use client";
+import styles from './home.module.css';
 import * as THREE from "three";
-import type { Object3D } from "three";
 import React, { useEffect, useRef, useState } from "react";
 import {
   Sparkles,
@@ -9,10 +9,13 @@ import {
   Shield,
   Lightbulb,
   Heart,
-  Play,
+  ArrowRight,
+  ArrowUpRight,
+  ChevronDown,
 } from "lucide-react";
-
-// Enhanced ParticleHero Component
+/* ─────────────────────────────
+   PARTICLE HERO (Three.js)
+───────────────────────────── */
 function ParticleHero() {
   const mountRef = useRef<HTMLDivElement>(null);
   const mouseRef = useRef({ x: 0, y: 0 });
@@ -20,26 +23,22 @@ function ParticleHero() {
   useEffect(() => {
     if (!mountRef.current) return;
 
-    // Scene
     const scene = new THREE.Scene();
-    scene.fog = new THREE.FogExp2(0x000000, 0.001);
+    scene.fog = new THREE.FogExp2(0x0f1c1c, 0.003);
 
-    // Camera
     const camera = new THREE.PerspectiveCamera(
-      75,
+      70,
       window.innerWidth / window.innerHeight,
       0.1,
       1000
     );
     camera.position.z = 50;
 
-    // Renderer
     const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     mountRef.current.appendChild(renderer.domElement);
 
-    // Particle systems
     const particleSystems: THREE.Points[] = [];
 
     const createParticleSystem = (
@@ -56,10 +55,9 @@ function ParticleHero() {
         positions[i] = (Math.random() - 0.5) * spread;
         positions[i + 1] = (Math.random() - 0.5) * spread;
         positions[i + 2] = (Math.random() - 0.5) * spread;
-
-        velocities[i] = (Math.random() - 0.5) * 0.02;
-        velocities[i + 1] = (Math.random() - 0.5) * 0.02;
-        velocities[i + 2] = (Math.random() - 0.5) * 0.02;
+        velocities[i] = (Math.random() - 0.5) * 0.012;
+        velocities[i + 1] = (Math.random() - 0.5) * 0.012;
+        velocities[i + 2] = (Math.random() - 0.5) * 0.012;
       }
 
       geometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
@@ -69,58 +67,53 @@ function ParticleHero() {
         color,
         size,
         transparent: true,
-        opacity: 0.8,
+        opacity: 0.6,
         blending: THREE.AdditiveBlending,
       });
 
       return new THREE.Points(geometry, material);
     };
 
-    particleSystems.push(createParticleSystem(5000, 0x00ffff, 0.8, 200));
-    particleSystems.push(createParticleSystem(3000, 0x6366f1, 0.6, 180));
-    particleSystems.push(createParticleSystem(2000, 0xa855f7, 1.2, 150));
+    particleSystems.push(createParticleSystem(5000, 0x46c0bf, 0.55, 220));
+    particleSystems.push(createParticleSystem(2000, 0x2e9998, 0.4, 170));
+    particleSystems.push(createParticleSystem(800,  0xd0f0ef, 1.1, 110));
 
-    particleSystems.forEach(ps => scene.add(ps));
+    particleSystems.forEach((ps) => scene.add(ps));
 
-    // Mouse
     const handleMouseMove = (e: MouseEvent) => {
       mouseRef.current.x = (e.clientX / window.innerWidth) * 2 - 1;
       mouseRef.current.y = -(e.clientY / window.innerHeight) * 2 + 1;
     };
     window.addEventListener("mousemove", handleMouseMove);
 
-    // Animation
     let frame = 0;
+    let animId: number;
     const animate = () => {
-      frame += 0.01;
+      animId = requestAnimationFrame(animate);
+      frame += 0.006;
 
       particleSystems.forEach((system, index) => {
-        system.rotation.y += 0.0003 * (index + 1);
-        system.rotation.x += 0.0002 * (index + 1);
-
-        system.rotation.x += mouseRef.current.y * 0.0005;
-        system.rotation.y += mouseRef.current.x * 0.0005;
+        system.rotation.y += 0.00015 * (index + 1);
+        system.rotation.x += 0.00008 * (index + 1);
+        system.rotation.x += mouseRef.current.y * 0.0002;
+        system.rotation.y += mouseRef.current.x * 0.0002;
 
         const pos = system.geometry.attributes.position.array as Float32Array;
         const vel = system.geometry.attributes.velocity.array as Float32Array;
 
         for (let i = 0; i < pos.length; i += 3) {
-          pos[i + 1] += Math.sin(frame + pos[i] * 0.01) * 0.02;
-
+          pos[i + 1] += Math.sin(frame + pos[i] * 0.012) * 0.012;
           pos[i] += vel[i];
           pos[i + 1] += vel[i + 1];
           pos[i + 2] += vel[i + 2];
         }
-
         system.geometry.attributes.position.needsUpdate = true;
       });
 
       renderer.render(scene, camera);
-      requestAnimationFrame(animate);
     };
     animate();
 
-    // Resize
     const handleResize = () => {
       camera.aspect = window.innerWidth / window.innerHeight;
       camera.updateProjectionMatrix();
@@ -128,15 +121,15 @@ function ParticleHero() {
     };
     window.addEventListener("resize", handleResize);
 
-    // Cleanup
     return () => {
+      cancelAnimationFrame(animId);
       window.removeEventListener("resize", handleResize);
       window.removeEventListener("mousemove", handleMouseMove);
       mountRef.current?.removeChild(renderer.domElement);
-      particleSystems.forEach(p => {
+      particleSystems.forEach((p) => {
         p.geometry.dispose();
         if (Array.isArray(p.material)) {
-          p.material.forEach(m => m.dispose());
+          p.material.forEach((m) => m.dispose());
         } else {
           p.material.dispose();
         }
@@ -145,202 +138,219 @@ function ParticleHero() {
     };
   }, []);
 
-  return <div ref={mountRef} className="absolute inset-0" />;
+  return <div ref={mountRef} className={styles.heroCanvas} />;
 }
 
+/* ─────────────────────────────
+   CORE VALUES DATA
+───────────────────────────── */
+const coreValues = [
+  { title: "Innovation",    desc: "Forward-thinking solutions to complex business challenges.", icon: Lightbulb, index: "01" },
+  { title: "Integrity",     desc: "Complete honesty and transparency in everything we do.",   icon: Shield,    index: "02" },
+  { title: "Client Focus",  desc: "Our clients' success is at the heart of every decision.",  icon: Heart,     index: "03" },
+  { title: "Collaboration", desc: "Great results come from strong partnerships and teamwork.", icon: Users,     index: "04" },
+  { title: "Growth",        desc: "Continuously evolving to help businesses scale and thrive.", icon: TrendingUp, index: "05" },
+  { title: "Excellence",    desc: "Highest standards in every delivery and execution.",        icon: Sparkles,  index: "06" },
+];
 
+const stats = [
+  { number: "500+", label: "Projects Delivered",  sub: "Across industries" },
+  { number: "50+",  label: "Global Clients",       sub: "On 3 continents" },
+  { number: "15+",  label: "Years Experience",     sub: "In the field" },
+  { number: "98%",  label: "Client Satisfaction",  sub: "Retention rate" },
+];
+
+const services = [
+  { title: "IT Consulting",     desc: "Strategic technology advisory that aligns your IT vision with business outcomes." },
+  { title: "Cloud Transformation", desc: "Accelerate your move to the cloud with risk-managed, enterprise-grade migration." },
+  { title: "HR Solutions",      desc: "Talent acquisition, workforce planning, and HR process optimization at scale." },
+  { title: "Business Strategy", desc: "Market analysis, growth frameworks, and execution roadmaps for lasting impact." },
+];
+
+/* ─────────────────────────────
+   HOME PAGE
+───────────────────────────── */
 export default function HomePage() {
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    setIsLoaded(true);
+    const t = setTimeout(() => setIsLoaded(true), 100);
+    return () => clearTimeout(t);
   }, []);
 
-  const coreValues = [
-    {
-      title: "Innovation",
-      desc: "We embrace forward-thinking solutions to solve complex business challenges.",
-      icon: Lightbulb,
-      gradient: "from-violet-500 to-purple-600",
-    },
-    {
-      title: "Integrity",
-      desc: "We operate with complete honesty and transparency in everything we do.",
-      icon: Shield,
-      gradient: "from-indigo-500 to-blue-600",
-    },
-    {
-      title: "Client Focus",
-      desc: "Our clients' success is at the heart of every decision we make.",
-      icon: Heart,
-      gradient: "from-pink-500 to-rose-600",
-    },
-    {
-      title: "Collaboration",
-      desc: "We believe great results come from strong partnerships and teamwork.",
-      icon: Users,
-      gradient: "from-emerald-500 to-teal-600",
-    },
-    {
-      title: "Growth",
-      desc: "We continuously evolve to help businesses scale and thrive.",
-      icon: TrendingUp,
-      gradient: "from-cyan-500 to-sky-600",
-    },
-    {
-      title: "Excellence",
-      desc: "We hold ourselves to the highest standards in delivery and execution.",
-      icon: Sparkles,
-      gradient: "from-amber-500 to-orange-600",
-    },
-  ];
+  const anim = (delay = 0) => ({
+    opacity: isLoaded ? 1 : 0,
+    transform: isLoaded ? "translateY(0)" : "translateY(24px)",
+    transition: `opacity 0.9s ease ${delay}s, transform 0.9s ease ${delay}s`,
+  });
 
   return (
-    <div className="bg-white">
-      {/* Enhanced Particle Hero Section */}
-      <section className="relative h-screen w-full overflow-hidden bg-gradient-to-b from-black via-gray-900 to-black">
-        {/* Load Three.js */}
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-        
-        {/* WebGL Particle Background */}
+    <div>
+      {/* ── HERO ── */}
+      <section className={styles.hero}>
         <ParticleHero />
+        <div className={styles.heroVignette} />
+        <div className={styles.heroOverlayBottom} />
 
-        {/* Overlay Content */}
-        <div className="relative z-10 h-full flex items-center">
-          <div className="container mx-auto px-6 md:px-12">
-            <div className="max-w-4xl">
-              <div className={`transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-                <div className="mb-6 inline-block px-6 py-2 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 backdrop-blur-sm border border-cyan-400/30 rounded-full">
-                  <span className="text-cyan-400 font-semibold tracking-wider text-sm">
-                    ✦ TRANSFORMING BUSINESSES GLOBALLY
-                  </span>
-                </div>
-                
-                <h1 className="text-6xl md:text-8xl font-bold text-white mb-6 leading-tight">
-                  Engineering <br />
-                  <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent animate-gradient">
-                    Digital Excellence
-                  </span>
-                </h1>
+        {/* Floating top-right tag */}
+        <div className={styles.heroFloatTag} style={anim(0.6)}>
+          <span className={styles.floatTagLine} />
+          EST. 2009
+        </div>
 
-                <p className="text-xl md:text-2xl text-gray-300 mb-12 leading-relaxed max-w-2xl">
-                  Strategic IT consulting, cloud transformation, and scalable
-                  technology solutions for global enterprises.
-                </p>
+        {/* Scroll indicator */}
+        <div className={styles.heroScrollHint}>
+          <ChevronDown size={16} />
+        </div>
 
-                <div className="flex flex-wrap gap-4">
-                  <button className="group px-10 py-5 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-full font-bold text-lg hover:shadow-2xl hover:shadow-cyan-500/50 transition-all duration-300 hover:scale-105">
-                    Get Started
-                    <span className="inline-block ml-2 group-hover:translate-x-1 transition-transform">
-                      →
-                    </span>
-                  </button>
+        <div className={styles.heroContent}>
+          <div className="container">
+            <div className={styles.heroInner}>
 
-                  <button className="group px-10 py-5 border-2 border-white/30 text-white rounded-full font-bold text-lg hover:bg-white/10 transition-all duration-300 backdrop-blur-sm hover:scale-105 flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center group-hover:bg-white/30 transition-colors">
-                      <Play className="w-5 h-5 fill-white" />
-                    </div>
-                    Watch Video
-                  </button>
-                </div>
+              <div className={styles.heroBadge} style={anim(0)}>
+                <span className={styles.heroBadgeDot} />
+                Global IT & Business Consulting
+              </div>
+
+              <h1 className={styles.heroHeading} style={anim(0.12)}>
+                Engineering<br />
+                <em className={styles.heroAccent}>Digital</em><br />
+                Excellence
+              </h1>
+
+              <div className={styles.heroRule} style={anim(0.22)} />
+
+              <p className={styles.heroSubtext} style={anim(0.28)}>
+                Strategic IT consulting, cloud transformation, and scalable technology
+                solutions — trusted by global enterprises across Qatar, India &amp; Canada.
+              </p>
+
+              <div className={styles.heroActions} style={anim(0.38)}>
+                <a href="/contact" className={styles.heroCta}>
+                  Begin the Journey
+                  <ArrowRight size={16} />
+                </a>
+                <a href="/work" className={styles.heroCtaGhost}>
+                  View Our Work
+                  <ArrowUpRight size={14} />
+                </a>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Gradient overlays for depth */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent pointer-events-none"></div>
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black to-transparent pointer-events-none"></div>
+        {/* Side vertical text */}
+        <div className={styles.heroSideText}>CAPCO — 2025</div>
       </section>
 
-      {/* Company Intro */}
-      <section className="py-32 bg-gradient-to-b from-white via-gray-50 to-white relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-purple-200 rounded-full blur-3xl opacity-20"></div>
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-cyan-200 rounded-full blur-3xl opacity-20"></div>
-        
-        <div className="container mx-auto px-6 md:px-12 relative z-10">
-          <div className="max-w-6xl mx-auto text-center">
-            <div className="inline-block mb-6 px-6 py-2 bg-gradient-to-r from-violet-600 to-purple-600 text-white rounded-full text-sm font-bold tracking-wider shadow-lg">
-              WHO WE ARE
+      {/* ── MARQUEE STRIP ── */}
+      <div className={styles.marqueeStrip}>
+        <div className={styles.marqueeTrack}>
+          {["IT Consulting", "Cloud Migration", "HR Solutions", "Business Strategy", "Digital Transformation", "Operational Excellence",
+            "IT Consulting", "Cloud Migration", "HR Solutions", "Business Strategy", "Digital Transformation", "Operational Excellence"].map((item, i) => (
+            <span key={i} className={styles.marqueeItem}>
+              <span className={styles.marqueeDot} />
+              {item}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      {/* ── COMPANY INTRO ── */}
+      <section className={styles.intro}>
+        <div className={styles.introDecor} />
+        <div className="container">
+          <div className={styles.introGrid}>
+            <div className={styles.introLeft}>
+              <span className={styles.sectionLabel}>Who We Are</span>
+              <h2 className={styles.introHeading}>
+                A Trusted Partner<br />
+                <em className={styles.introAccent}>Built on Honesty</em>
+              </h2>
+              <div className={styles.introDecorLine} />
             </div>
-            <h2 className="text-5xl md:text-7xl font-bold text-gray-900 mb-8 leading-tight">
-              Complete Honesty and <br />
-              <span className="bg-gradient-to-r from-violet-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent">
-                Transparency
-              </span>
-            </h2>
-            <p className="text-xl md:text-2xl text-gray-600 leading-relaxed max-w-4xl mx-auto">
-              CAPCO is a globally recognized consulting firm committed to empowering organizations across Qatar, India, and Canada. With a focus on tailored business solutions, operational efficiency, and long-term success, CAPCO serves as a trusted partner in consulting, human resource management, and technology services.
-            </p>
+            <div className={styles.introRight}>
+              <p className={styles.introText}>
+                CAPCO is a globally recognized consulting firm committed to empowering
+                organizations across Qatar, India, and Canada. With a focus on tailored
+                business solutions, operational efficiency, and long-term success, CAPCO
+                serves as a trusted partner in consulting, human resource management, and
+                technology services.
+              </p>
+              <a href="/about" className={styles.introLink}>
+                Our Story <ArrowRight size={14} />
+              </a>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Enhanced Stats Section */}
-      <section className="py-24 bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-500 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500 rounded-full blur-3xl"></div>
-        </div>
-        
-        <div className="container mx-auto px-6 md:px-12 relative z-10">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-12 max-w-6xl mx-auto">
-            {[
-              { number: '500+', label: 'Projects Delivered', color: 'from-cyan-400 to-blue-500' },
-              { number: '50+', label: 'Global Clients', color: 'from-violet-400 to-purple-500' },
-              { number: '15+', label: 'Years Experience', color: 'from-pink-400 to-rose-500' },
-              { number: '98%', label: 'Client Satisfaction', color: 'from-emerald-400 to-teal-500' },
-            ].map((stat, index) => (
-              <div key={index} className="text-center group">
-                <div className={`text-5xl md:text-6xl font-bold bg-gradient-to-r ${stat.color} bg-clip-text text-transparent mb-3 group-hover:scale-110 transition-transform duration-300`}>
-                  {stat.number}
-                </div>
-                <div className="text-gray-400 text-lg">{stat.label}</div>
+      {/* ── STATS ── */}
+      <section className={styles.stats}>
+        <div className={styles.statsNoise} />
+        <div className="container">
+          <div className={styles.statsGrid}>
+            {stats.map((s, i) => (
+              <div className={styles.statItem} key={i}>
+                <div className={styles.statIndex}>0{i + 1}</div>
+                <div className={styles.statNumber}>{s.number}</div>
+                <div className={styles.statLabel}>{s.label}</div>
+                <div className={styles.statSub}>{s.sub}</div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Core Values */}
-      <section className="py-32 bg-white">
-        <div className="container mx-auto px-6 md:px-12">
-          <div className="text-center mb-20">
-            <div className="inline-block mb-6 px-6 py-2 bg-gray-900 text-white rounded-full text-sm font-bold tracking-wider">
-              OUR PRINCIPLES
-            </div>
-            <h2 className="text-5xl md:text-7xl font-bold text-gray-900 mb-6">
-              Core Values That <br />
-              <span className="bg-gradient-to-r from-violet-600 to-purple-600 bg-clip-text text-transparent">
-                Drive Excellence
-              </span>
+      {/* ── SERVICES ── */}
+      <section className={styles.services}>
+        <div className="container">
+          <div className={styles.sectionHeader}>
+            <span className={styles.sectionLabel}>What We Do</span>
+            <h2 className={styles.sectionHeading}>Our Services</h2>
+          </div>
+          <div className={styles.servicesGrid}>
+            {services.map((s, i) => (
+              <div className={styles.serviceItem} key={i}>
+                <div className={styles.serviceNum}>0{i + 1}</div>
+                <div className={styles.serviceBody}>
+                  <h3 className={styles.serviceTitle}>{s.title}</h3>
+                  <p className={styles.serviceDesc}>{s.desc}</p>
+                  <a href="/services" className={styles.serviceLink}>
+                    Explore <ArrowUpRight size={13} />
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── CORE VALUES ── */}
+      <section className={styles.values}>
+        <div className={styles.valuesBg} />
+        <div className="container">
+          <div className={styles.sectionHeader}>
+            <span className={styles.sectionLabel}>Our Principles</span>
+            <h2 className={styles.sectionHeading}>
+              Core Values That<br />Drive Excellence
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-            {coreValues.map((value, index) => {
-              const Icon = value.icon;
+          <div className={styles.valuesGrid}>
+            {coreValues.map((v, i) => {
+              const Icon = v.icon;
               return (
-                <div
-                  key={index}
-                  className="group relative bg-white p-10 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 border-2 border-gray-100 hover:border-transparent hover:-translate-y-2"
-                  style={{ animationDelay: `${index * 100}ms` }}
-                >
-                  <div className={`absolute inset-0 rounded-3xl bg-gradient-to-br ${value.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
-                  
-                  <div className="relative z-10">
-                    <div className={`w-20 h-20 mb-6 rounded-2xl bg-gradient-to-br ${value.gradient} flex items-center justify-center transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-xl`}>
-                      <Icon className="w-10 h-10 text-white" />
+                <div className={styles.valueCard} key={i}>
+                  <div className={styles.valueCardTop}>
+                    <span className={styles.valueIndex}>{v.index}</span>
+                    <div className={styles.valueIcon}>
+                      <Icon size={20} strokeWidth={1.5} />
                     </div>
-                    
-                    <h3 className="text-2xl font-bold mb-3 text-gray-900 group-hover:text-white transition-colors">
-                      {value.title}
-                    </h3>
-                    
-                    <p className="text-gray-600 group-hover:text-white/90 transition-colors text-lg">
-                      {value.desc}
-                    </p>
                   </div>
+                  <h3 className={styles.valueTitle}>{v.title}</h3>
+                  <p className={styles.valueDesc}>{v.desc}</p>
+                  <div className={styles.valueCardHoverBar} />
                 </div>
               );
             })}
@@ -348,90 +358,106 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* About Section with Image */}
-      <section className="py-32 bg-gradient-to-b from-gray-50 to-white">
-        <div className="container mx-auto px-6 md:px-12">
-          <div className="grid md:grid-cols-2 gap-16 items-center max-w-7xl mx-auto">
-            <div className="relative h-[600px] rounded-3xl overflow-hidden shadow-2xl group">
+      {/* ── ABOUT ── */}
+      <section className={styles.about}>
+        <div className="container">
+          <div className={styles.aboutGrid}>
+
+            <div className={styles.aboutImageWrap}>
               <img
-                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80"
+                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=900&q=85"
                 alt="Team collaboration"
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                className={styles.aboutImg}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
-              <div className="absolute bottom-8 left-8 right-8">
-                <div className="text-white font-bold text-2xl">Building Tomorrow, Together</div>
+              <div className={styles.aboutImgOverlay} />
+              <div className={styles.aboutImgTag}>
+                Building Tomorrow, Together
+              </div>
+              <div className={styles.aboutFloatCard}>
+                <div className={styles.aboutFloatNum}>98%</div>
+                <div className={styles.aboutFloatLabel}>Client Satisfaction</div>
+              </div>
+              <div className={styles.aboutFloatCard2}>
+                <div className={styles.aboutFloatNum2}>500+</div>
+                <div className={styles.aboutFloatLabel}>Projects Delivered</div>
               </div>
             </div>
 
-            <div>
-              <div className="inline-block mb-6 px-6 py-2 bg-gradient-to-r from-violet-600 to-purple-600 text-white rounded-full text-sm font-bold tracking-wider">
-                ABOUT US
-              </div>
-              <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-8 leading-tight">
-                Empowering <br />
-                <span className="bg-gradient-to-r from-violet-600 to-purple-600 bg-clip-text text-transparent">
-                  Business Growth
-                </span>
+            <div className={styles.aboutContent}>
+              <span className={styles.sectionLabel}>About CAPCO</span>
+              <h2 className={styles.aboutHeading}>
+                Empowering<br />
+                <em className={styles.aboutHeadingAccent}>Business Growth</em><br />
+                Globally
               </h2>
-              <p className="text-xl text-gray-600 leading-relaxed mb-6">
-                At CAPCO, we specialize in empowering businesses across Qatar, India, and Canada with innovative solutions and strategies. We are committed to transforming organizations by fostering resilience, optimizing operational efficiency, and driving sustainable growth.
+              <div className={styles.aboutDivider} />
+              <p className={styles.aboutText}>
+                At CAPCO, we specialize in empowering businesses across Qatar, India,
+                and Canada with innovative solutions and strategies. We are committed
+                to transforming organizations by fostering resilience, optimizing
+                operational efficiency, and driving sustainable growth.
               </p>
-              <p className="text-xl text-gray-600 leading-relaxed mb-10">
-                Through collaborative partnerships, we address complex challenges and deliver lasting value to our clients, employees, and communities.
+              <p className={styles.aboutText}>
+                Through collaborative partnerships, we address complex challenges and
+                deliver lasting value to our clients, employees, and communities.
               </p>
-              <button className="group px-10 py-5 bg-gradient-to-r from-violet-600 to-purple-600 text-white rounded-full font-bold text-lg hover:shadow-2xl hover:shadow-purple-600/50 transition-all duration-300 hover:scale-105">
-                Learn More About Us 
-                <span className="inline-block ml-2 group-hover:translate-x-1 transition-transform">→</span>
-              </button>
+
+              <div className={styles.aboutMeta}>
+                <div className={styles.aboutMetaItem}>
+                  <div className={styles.aboutMetaNum}>15+</div>
+                  <div className={styles.aboutMetaLabel}>Years of excellence</div>
+                </div>
+                <div className={styles.aboutMetaDivider} />
+                <div className={styles.aboutMetaItem}>
+                  <div className={styles.aboutMetaNum}>3</div>
+                  <div className={styles.aboutMetaLabel}>Countries served</div>
+                </div>
+                <div className={styles.aboutMetaDivider} />
+                <div className={styles.aboutMetaItem}>
+                  <div className={styles.aboutMetaNum}>50+</div>
+                  <div className={styles.aboutMetaLabel}>Global clients</div>
+                </div>
+              </div>
+
+              <a href="/about" className={styles.aboutCta}>
+                Learn More About Us
+                <ArrowRight size={16} />
+              </a>
             </div>
+
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-32 bg-gradient-to-br from-violet-600 via-purple-600 to-indigo-700 text-white relative overflow-hidden">
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-white rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-white rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
-        </div>
-        
-        <div className="container mx-auto px-6 md:px-12 relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-5xl md:text-7xl font-bold mb-8 leading-tight">
-              Ready to Transform <br /> Your Business?
+      {/* ── CTA ── */}
+      <section className={styles.cta}>
+        <div className={styles.ctaGlow} />
+        <div className={styles.ctaGrid} />
+
+        <div className="container">
+          <div className={styles.ctaInner}>
+            <span className={styles.ctaEyebrow}>Let's Work Together</span>
+            <h2 className={styles.ctaHeading}>
+              Ready to Transform<br />
+              <em className={styles.ctaAccent}>Your Business?</em>
             </h2>
-            <p className="text-xl md:text-2xl mb-12 text-white/90">
-              Join the organizations that trust CAPCO for world-class consulting services
+            <p className={styles.ctaText}>
+              Join forward-thinking organizations that trust CAPCO for world-class consulting services.
             </p>
-            <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <button className="group px-12 py-5 bg-white text-violet-600 rounded-full font-bold text-xl hover:bg-gray-100 transition-all duration-300 shadow-2xl hover:scale-105">
+            <div className={styles.ctaActions}>
+              <a href="/contact" className={styles.ctaBtnPrimary}>
                 Get in Touch
-                <span className="inline-block ml-2 group-hover:translate-x-1 transition-transform">→</span>
-              </button>
-              <button className="px-12 py-5 border-2 border-white text-white rounded-full font-bold text-xl hover:bg-white hover:text-violet-600 transition-all duration-300 hover:scale-105">
-                View Our Work
-              </button>
+                <ArrowRight size={16} />
+              </a>
+              <a href="/products" className={styles.ctaBtnOutline}>
+                View Our Products
+              </a>
             </div>
           </div>
         </div>
+
+        <div className={styles.ctaBottomText}>CAPCO CONSULTING — GLOBAL</div>
       </section>
-
-      <style jsx>{`
-        @keyframes gradient {
-          0%, 100% {
-            background-position: 0% 50%;
-          }
-          50% {
-            background-position: 100% 50%;
-          }
-        }
-
-        .animate-gradient {
-          background-size: 200% 200%;
-          animation: gradient 3s ease infinite;
-        }
-      `}</style>
     </div>
   );
 }

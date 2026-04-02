@@ -19,10 +19,18 @@ import {
   CheckCircle2,
 } from "lucide-react";
 import styles from "./aiagent.module.css";
+import { ReactNode } from "react";
+
+type StaggerInProps = {
+  children: ReactNode;
+  className?: string;
+  delay?: number;
+};
+
 
 /* ── Scroll-triggered visibility hook ────────────────────── */
-function useInView(threshold = 0.15) {
-  const ref = useRef(null);
+function useInView(threshold = 0.15): [React.RefObject<HTMLDivElement>, boolean] {
+  const ref = useRef<HTMLDivElement | null>(null);
   const [visible, setVisible] = useState(false);
   useEffect(() => {
     const el = ref.current;
@@ -38,7 +46,7 @@ function useInView(threshold = 0.15) {
 }
 
 /* ── Stagger children hook ───────────────────────────────── */
-function StaggerIn({ children, className, delay = 0 }) {
+function StaggerIn({ children, className, delay = 0 }: StaggerInProps) {
   const [ref, visible] = useInView(0.1);
   return (
     <div

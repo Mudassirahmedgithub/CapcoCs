@@ -11,7 +11,7 @@ const fadeUp = (delay = 0) => ({
   transition: { duration: 0.65, ease: [0.16, 1, 0.3, 1], delay },
 });
 
-const stagger = (i, base = 0) => fadeUp(base + i * 0.08);
+const stagger = (i: number, base: number = 0) => fadeUp(base + i * 0.08);
 
 /* ─── Data ───────────────────────────────────────────────────── */
 const solutions = [
@@ -135,7 +135,7 @@ const faqs = [
 ];
 
 /* ─── FAQ Item ───────────────────────────────────────────────── */
-function FaqItem({ faq }) {
+function FaqItem({ faq }: { faq: { q: string; a: string } }) {
   const [open, setOpen] = useState(false);
   return (
     <div className={styles.faqItem} onClick={() => setOpen(!open)}>
@@ -161,7 +161,21 @@ function FaqItem({ faq }) {
 }
 
 /* ─── Animated Card ──────────────────────────────────────────── */
-function Card({ icon, title, desc, number, dark, delay = 0 }) {
+function Card({
+  icon,
+  title,
+  desc,
+  number,
+  dark,
+  delay = 0,
+}: {
+  icon?: string;
+  title: string;
+  desc: string;
+  number?: number;
+  dark: boolean;
+  delay?: number;
+}) {
   return (
     <motion.div
       className={`${styles.gradCard} ${dark ? styles.gradCardDark : ""}`}

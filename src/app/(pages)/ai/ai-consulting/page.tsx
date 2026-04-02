@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react"
 import { motion, useScroll, useTransform, useInView, AnimatePresence } from "framer-motion"
 import styles from "./aiconsulting.module.css"
-
+import { ReactNode } from "react"
 /* ─── DATA ─── */
 const frameworkSteps = [
   { step: "01", title: "Discovery & Opportunity Mapping", desc: "We analyze business workflows, identify automation opportunities, and evaluate how AI can create measurable impact across your organization." },
@@ -53,19 +53,36 @@ const fadeIn = {
 }
 
 /* ─── COMPONENTS ─── */
+type AnimatedSectionProps = {
+  children: ReactNode
+  className?: string
+}
 
-function AnimatedSection({ children, className }) {
-  const ref = useRef(null)
+function AnimatedSection({ children, className }: AnimatedSectionProps) {
+  const ref = useRef<HTMLDivElement | null>(null)
   const isInView = useInView(ref, { once: true, margin: "-80px" })
+
   return (
-    <motion.div ref={ref} initial="hidden" animate={isInView ? "visible" : "hidden"} className={className}>
+    <motion.div
+      ref={ref}
+      initial="hidden"
+      animate={isInView ? "visible" : "hidden"}
+      className={className}
+    >
       {children}
     </motion.div>
   )
 }
 
-function GradientCard({ children, className = "", delay = 0 }) {
+type GradientCardProps = {
+  children: ReactNode
+  className?: string
+  delay?: number
+}
+
+function GradientCard({ children, className = "", delay = 0 }: GradientCardProps) {
   const [hovered, setHovered] = useState(false)
+
   return (
     <motion.div
       variants={fadeUp}
@@ -75,39 +92,64 @@ function GradientCard({ children, className = "", delay = 0 }) {
       onMouseLeave={() => setHovered(false)}
       whileHover={{ y: -4, transition: { duration: 0.25 } }}
     >
-      <div className={`${styles.gradientBorder} ${hovered ? styles.gradientBorderActive : ""}`} />
+      <div
+        className={`${styles.gradientBorder} ${
+          hovered ? styles.gradientBorderActive : ""
+        }`}
+      />
       <div className={styles.cardInner}>{children}</div>
     </motion.div>
   )
 }
 
-function Counter({ value }) {
+type CounterProps = {
+  value: string
+}
+
+function Counter({ value }: CounterProps) {
   const [display, setDisplay] = useState("0")
-  const ref = useRef(null)
+  const ref = useRef<HTMLSpanElement | null>(null)
   const isInView = useInView(ref, { once: true })
 
   useEffect(() => {
     if (!isInView) return
+
     const num = parseFloat(value.replace(/[^0-9.]/g, ""))
     const suffix = value.replace(/[0-9.]/g, "")
+
     let start = 0
     const duration = 1800
-    const step = (timestamp) => {
+
+    const step = (timestamp: number) => { // ✅ FIXED
       if (!start) start = timestamp
       const progress = Math.min((timestamp - start) / duration, 1)
       const eased = 1 - Math.pow(1 - progress, 3)
+
       setDisplay(`${Math.floor(eased * num)}${suffix}`)
+
       if (progress < 1) requestAnimationFrame(step)
       else setDisplay(value)
     }
+
     requestAnimationFrame(step)
   }, [isInView, value])
 
   return <span ref={ref}>{display}</span>
 }
 
-function FAQItem({ faq, index }) {
+type FAQ = {
+  q: string
+  a: string
+}
+
+type FAQItemProps = {
+  faq: FAQ
+  index: number
+}
+
+function FAQItem({ faq, index }: FAQItemProps) {
   const [open, setOpen] = useState(false)
+
   return (
     <motion.div
       variants={fadeUp}
@@ -117,8 +159,15 @@ function FAQItem({ faq, index }) {
     >
       <div className={styles.faqQuestion}>
         <span>{faq.q}</span>
-        <motion.span animate={{ rotate: open ? 45 : 0 }} transition={{ duration: 0.2 }} className={styles.faqIcon}>+</motion.span>
+        <motion.span
+          animate={{ rotate: open ? 45 : 0 }}
+          transition={{ duration: 0.2 }}
+          className={styles.faqIcon}
+        >
+          +
+        </motion.span>
       </div>
+
       <AnimatePresence>
         {open && (
           <motion.div

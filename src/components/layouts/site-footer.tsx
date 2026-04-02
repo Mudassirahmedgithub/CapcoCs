@@ -3,12 +3,10 @@ import Image from "next/image";
 import {
   Mail,
   MapPin,
-  Facebook,
-  Instagram,
-  Linkedin,
   ChevronRight,
   ArrowUpRight,
 } from "lucide-react";
+import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
 import './footer.css';
 export default function Footer() {
   const ai = [
@@ -97,13 +95,13 @@ export default function Footer() {
               <div className="footer-socials">
                 
                 <a href="https://facebook.com/Capcocs" target="_blank" rel="noopener noreferrer" className="social-btn fb" aria-label="Facebook">
-                  <Facebook size={16} />
+                  <FaFacebook size={16} />
                 </a>
                 <a href="https://www.instagram.com/Capcocs" target="_blank" rel="noopener noreferrer" className="social-btn ig" aria-label="Instagram">
-                  <Instagram size={16} />
+                  <FaInstagram size={16} />
                 </a>
                 <a href="https://www.linkedin.com/company/CapcoConsultingServices" target="_blank" rel="noopener noreferrer" className="social-btn li" aria-label="LinkedIn">
-                  <Linkedin size={16} />
+                  <FaLinkedin size={16} />
                 </a>
                 <a href="https://www.youtube.com/@Capcocs" target="_blank" rel="noopener noreferrer" className="social-btn" aria-label="YouTube" style={{ color: '#7ab8b8' }}
                   onMouseEnter={e => { e.currentTarget.style.background = '#ff0000'; e.currentTarget.style.borderColor = '#ff0000'; e.currentTarget.style.color = '#fff'; }}

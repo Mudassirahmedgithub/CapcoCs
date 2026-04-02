@@ -122,7 +122,7 @@ export default function Footer() {
               <ul className="footer-nav-list">
                 {ai.map((item, i) => (
                   <li key={i}>
-                    <a href={`/digitalTransformation/${item.toLowerCase().replace(/ & /g, "-").replace(/ /g, "-")}`} className="footer-nav-link">
+                    <a href={`/ai/${item.toLowerCase().replace(/ & /g, "-").replace(/ /g, "-")}`} className="footer-nav-link">
                       <ChevronRight size={12} />
                       {item}
                     </a>

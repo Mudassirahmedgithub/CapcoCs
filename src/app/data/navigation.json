@@ -1,0 +1,946 @@
+{
+  "mainNav": [
+    { "label": "About", "href": "/about" },
+    { "label": "AI", "type": "mega", "key": "ai"},    
+    { "label": "Products", "type": "mega" },
+    { "label": "Services", "type": "mega", "key": "services" },
+    { "label": "Contact", "href": "/contact" }
+  ],
+
+  "products": [
+{
+  "category": "Asset Management",
+  "icon": "🗂️",
+  "description": "Comprehensive tools to track, manage, and optimize assets throughout their lifecycle",
+  "base": "asset-management",
+  "items": [
+    {
+      "label": "Asset Life Cycle Management",
+      "icon": "🔄",
+      "description": "Manages assets from procurement and deployment to maintenance, depreciation, and disposal"
+    },
+    {
+      "label": "Asset Tracking",
+      "icon": "📍",
+      "description": "Monitors asset location, usage, and status in real time to improve visibility and control"
+    },
+    {
+      "label": "Asset Financial & Compliance Management",
+      "icon": "📊",
+      "description": "Tracks asset costs, depreciation, audits, and regulatory compliance to ensure financial accuracy"
+    },
+    {
+      "label": "Reports and Analytics",
+      "icon": "📈",
+      "description": "Provides detailed insights into asset performance, utilization, and maintenance trends"
+    }
+  ]
+},
+
+    {
+      "category": "Manufacturing ERP",
+      "icon": "🏭",
+      "description": "End-to-end ERP for manufacturing businesses",
+      "base": "manufacturing-erp",
+      "items": [
+        {
+          "label": "Production Planning & Scheduling",
+          "icon": "🏭",
+          "description": "Streamlines workflows, resources, and schedules for timely manufacturing execution"
+        },
+        {
+          "label": "Expense Management Software",
+          "icon": "💳",
+          "description": "Tracks, controls, and streamlines business expenses effortlessly"
+        },
+        {
+          "label": "Mobile App",
+          "icon": "📱",
+          "description": "Provides on-the-go ERP access with real-time updates"
+        },
+        {
+          "label": "AI-Powered Demand Forecasting",
+          "icon": "📊",
+          "description": "Uses AI models to predict demand and optimize inventory levels"
+        },
+        {
+          "label": "Field Service Management",
+          "icon": "🛠️",
+          "description": "Schedules, tracks, and manages field service operations efficiently"
+        },
+        {
+          "label": "Ticket Management Software",
+          "icon": "🎫",
+          "description": "Handles service tickets efficiently for faster issue resolution"
+        },
+        {
+          "label": "Training Management System",
+          "icon": "🎓",
+          "description": "Automates employee training, skill tracking, and LMS workflows"
+        },
+        {
+          "label": "Document Management",
+          "icon": "📁",
+          "description": "Secure document storage with version control and digital file management"
+        },
+        {
+          "label": "Human Resources & Time Tracking",
+          "icon": "👥",
+          "description": "Streamlines HR management, attendance tracking, and payroll automation"
+        },
+        {
+          "label": "Analytics & Reporting",
+          "icon": "📈",
+          "description": "Real-time business analytics, KPI dashboards, and intelligent reporting"
+        },
+        {
+          "label": "Quotes & Sales Orders (Manufacturing CRM)",
+          "icon": "🧾",
+          "description": "Manages quotes, sales orders, and customer interactions seamlessly"
+        },
+        {
+          "label": "Finance & Cost Accounting",
+          "icon": "💰",
+          "description": "Integrated financial management, cost accounting, and budget control"
+        },
+        {
+          "label": "Shop-Floor & MES Reporting",
+          "icon": "⚙️",
+          "description": "Real-time MES reporting, production monitoring, and machine performance tracking"
+        },
+        {
+          "label": "Statutory Compliance & Taxation",
+          "icon": "📜",
+          "description": "Automates statutory compliance, tax filing, and regulatory reporting"
+        },
+        {
+          "label": "Subcontracting & Outside Processing",
+          "icon": "🔗",
+          "description": "Manages subcontracting, outsourced production, and vendor processing"
+        },
+        {
+          "label": "Project-Based Manufacturing",
+          "icon": "📐",
+          "description": "End-to-end project manufacturing with scheduling and cost control"
+        },
+        {
+          "label": "Quality Control & Compliance",
+          "icon": "✅",
+          "description": "Quality inspections, compliance management, and automated QC workflows"
+        },
+        {
+          "label": "Maintenance & Asset Management",
+          "icon": "🔧",
+          "description": "Asset tracking, preventive maintenance, and equipment lifecycle management"
+        },
+        {
+          "label": "Procurement & Supplier Management",
+          "icon": "🛒",
+          "description": "Automates procurement with supplier tracking and purchase management"
+        },
+        {
+          "label": "Inventory & Warehouse Management",
+          "icon": "📦",   
+          "description": "Real-time inventory control, warehouse automation, and stock optimization"
+        },
+        {
+          "label": "Vendor Management Software",
+          "icon": "🤝",     
+          "description": "Centralized vendor onboarding, evaluation, and performance management"
+        },
+        {
+          "label": "Bill of Materials (BOM)",
+          "icon": "🧩",
+          "description": "Multi-level BOM creation, version control, and production planning accuracy"
+        },
+        {
+          "label": "Product Configurator",
+          "icon": "🧠",
+          "description": "Enables quick, error-free product customization based on client needs"
+        }
+      ]
+
+    },
+
+    {
+      "category": "HRMS",
+      "icon": "👥",
+      "description": "Manage employees, payroll, and performance efficiently",
+      "base": "hrms",
+      "items": [
+        {
+          "label": "Integrated Recruitment",
+          "icon": "🧑‍💼",
+          "description": "AI-powered recruitment system for faster and smarter talent hiring"
+        },
+        {
+          "label": "Learning Management",
+          "icon": "🎓",
+          "description": "Smart LMS platform for automated employee training and skill development"
+        },
+        {
+          "label": "Mobile App",
+          "icon":  "📱",
+          "description": "Mobile-first HRMS app for the on-the-go workforce"
+        },
+        {
+          "label": "HR Chatbot",
+          "icon": "🤖",
+          "description": "AI-powered HR chatbot for instant employee support and queries"
+        },
+        {
+          "label": "Custom Services",
+          "icon": "🧩",
+          "description": "Tailored HRMS services designed to match unique business workflows"
+        },
+        {
+          "label": "HR Automation",
+          "icon": "⚙️",
+          "description": "Automate HR processes with intelligent workflow automation"
+        },
+        {
+          "label": "Business Chat and Collaboration",
+          "icon": "💬",
+          "description": "Unified team collaboration with secure business chat and communication"
+        },
+        {
+          "label": "Employee Engagement",
+          "icon": "🌟",
+          "description": "Boost engagement through surveys, recognition, and actionable insights"
+        },
+        {
+          "label": "Integrated Travel and Expense",
+          "icon": "✈️",
+          "description": "End-to-end travel and expense management automation"
+        },
+        {
+          "label": "Integrated Payroll Software",
+          "icon": "💰",
+          "description": "Automated payroll processing with compliance and accuracy"
+        },
+        {
+          "label": "Compensation Management",
+          "icon": "📊",
+          "description": "Streamlined compensation planning supported by performance insights"
+        },
+        {
+          "label": "Onboarding",
+          "icon": "🚀",
+          "description": "Digital onboarding workflows for seamless employee setup"
+        },
+        {
+          "label": "Performance Management",
+          "icon": "🎯",
+          "description": "Goal-driven performance reviews with analytics-based tracking"
+        },
+        {
+          "label": "HR Analytics",
+          "icon": "📈",
+          "description": "Data-driven HR analytics delivering deep workforce insights"
+        },
+        {
+          "label": "Digital Document Management",
+          "icon": "📁",
+          "description": "Secure digital document storage with e-signature support"
+        },
+        {
+          "label": "HR Help Desk",
+          "icon": "🎫",
+          "description": "Automated HR help desk for quick issue resolution"
+        },
+        {
+          "label": "Timesheets",
+          "icon": "⏱️",
+          "description": "Simple timesheet tracking with approval workflows"
+        },
+        {
+          "label": "Leave Management",
+          "icon": "🏖️",
+          "description": "Automated leave requests with real-time leave balance tracking"
+        },
+        {
+          "label": "Shift Management",
+          "icon": "🕒",
+          "description": "Smart shift scheduling to meet dynamic workforce needs"
+        },
+        {
+          "label": "Attendance Management",
+          "icon": "🧾",
+          "description": "Real-time attendance tracking with biometric integrations"
+        },
+        {
+          "label": "Employee Management",
+          "icon": "👥",
+          "description": "Centralized employee records with complete lifecycle tracking"
+        },
+        {
+          "label": "Integrations",
+          "icon": "🔗",
+          "description": "Seamless HRMS integrations with enterprise applications"
+        }
+      ]
+    },
+
+    {
+      "category": "CRM",
+      "icon": "🤝",
+      "description": "AI-powered CRM for enhanced customer engagement",
+      "base": "crm",
+      "items": [
+        {
+          "label": "Sales Force Automation",
+          "icon": "🚀",
+          "description": "Automate sales workflows with intelligent sales force automation tools"
+        },
+        {
+          "label": "Customer Success",
+          "icon": "🤝",
+          "description": "Boost customer retention through proactive success management"
+        },
+        {
+          "label": "Process Management",
+          "icon": "⚙️",
+          "description": "Streamline business processes with automated CRM workflows"
+        },
+        {
+          "label": "Omnichannel",
+          "icon": "🌐",
+          "description": "Unified omnichannel CRM for seamless customer interactions"
+        },
+        {
+          "label": "Customization",
+          "icon": "🧩",
+          "description": "Flexible CRM customization tailored to unique business needs"
+        },
+        {
+          "label": "Analytics",
+          "icon": "📊",
+          "description": "Insightful CRM analytics for data-driven decision-making"
+        },
+        {
+          "label": "Sales Performance",
+          "icon": "📈",
+          "description": "Track and optimize sales performance with real-time metrics"
+        },
+        {
+          "label": "Journey Orchestration",
+          "icon": "🧭",
+          "description": "Orchestrate end-to-end customer journeys with automation"
+        },
+        {
+          "label": "AI",
+          "icon": "🤖",
+          "description": "AI-powered CRM intelligence for smarter automation and insights"
+        },
+        {
+          "label": "Sales Enablement",
+          "icon": "🎯",
+          "description": "Enable sales teams with advanced CRM tools and resources"
+        },
+        {
+          "label": "Mobile",
+          "icon": "📱",
+          "description": "Mobile-first CRM access for on-the-go sales teams"
+        },
+        {
+          "label": "Security",
+          "icon": "🔒",
+          "description": "Enterprise-grade CRM security ensuring data protection"
+        },
+        {
+          "label": "Accessibility",
+          "icon": "♿",
+          "description": "Accessible CRM interface designed for every user experience"
+        }
+      ]
+    },
+
+    {
+      "category": "Asset Management",
+      "icon": "🏗️",
+      "description": "Reduce operational costs through smart asset tracking",
+      "base": "asset-management",
+      "items": [
+        {
+          "label": "Asset Work & Registry",
+          "icon": "🗂️",
+          "description": "Centralized asset registry with automated work management"
+        },
+        {
+          "label": "Field Service Management",
+          "icon": "🛠️",
+          "description": "Optimize field operations with smart service management tools"
+        },
+        {
+          "label": "Asset Inspection",
+          "icon": "🔍",
+          "description": "Digital asset inspection workflows with real-time reporting"
+        },
+        {
+          "label": "Predictive Maintenance Alerts",
+          "icon": "⏰",
+          "description": "AI-driven predictive maintenance alerts to reduce downtime"
+        },
+        {
+          "label": "Asset Lifecycle Optimization",
+          "icon": "♻️",
+          "description": "Optimize asset lifecycle performance using intelligent analytics"
+        },
+        {
+          "label": "Geo-Tracking & Usage Monitoring",
+          "icon": "📍",
+          "description": "Real-time asset geo-tracking with detailed usage monitoring"
+        }
+      ]
+    },
+
+    {
+      "category": "Audit",
+      "icon": "📊",
+      "description": "AI-enabled software for enterprise audit management",
+      "base": "audit",
+      "items": [
+        {
+          "label": "Regulatory Compliance",
+          "icon": "📜",
+          "description": "Ensure regulatory compliance with automated policy enforcement tools"
+        },
+        {
+          "label": "Internal Audit",
+          "icon": "🔍",
+          "description": "Streamlined internal audit management with standardized workflows"
+        },
+        {
+          "label": "IT & Cyber Compliance",
+          "icon": "🛡️",
+          "description": "Strengthen IT and cyber compliance through continuous monitoring"
+        },
+        {
+          "label": "Automated Audit Scheduling",
+          "icon": "📅",
+          "description": "Automated audit scheduling for efficient audit cycle planning"
+        },
+        {
+          "label": "Issue Tracking & Corrective Actions",
+          "icon": "🛠️",
+          "description": "Track compliance issues and automate corrective actions"
+        },
+        {
+          "label": "Role-Based Reporting Dashboard",
+          "icon": "📊",
+          "description": "Role-based audit dashboards delivering real-time compliance insights"
+        }
+      ]
+    },
+
+    {
+      "category": "Books",
+      "icon": "📘",
+      "description": "Simple accounting software for effortless billing and finances",
+      "base": "books",
+      "items": [
+        {
+          "label": "Automated Bookkeeping",
+          "icon": "📘",
+          "description": "Automate bookkeeping tasks with accurate, real-time entries"
+        },
+        {
+          "label": "Invoicing & Payment Management",
+          "icon": "🧾",
+          "description": "Create invoices and manage payments using smart automation"
+        },
+        {
+          "label": "Expense Tracking & Reporting",
+          "icon": "📊",
+          "description": "Track expenses with detailed financial reports and insights"
+        },
+        {
+          "label": "GST & Tax Compliance",
+          "icon": "📜",
+          "description": "Ensure GST and tax compliance through automated calculations"
+        },
+        {
+          "label": "Financial Dashboards & Analytics",
+          "icon": "📈",
+          "description": "Visual financial dashboards delivering deep accounting analytics"
+        },
+        {
+          "label": "Multi-Account & Ledger Management",
+          "icon": "🗂️",
+          "description": "Manage multiple accounts and ledgers with streamlined workflows"
+        }
+      ]
+    },
+
+    {
+      "category": "EduVibe",
+      "icon": "🎓",
+      "description": "Empower modern education through intelligent LMS solutions",
+      "base": "EduVibe",
+      "items": [
+        {
+          "label": "Admissions",
+          "icon": "📝",
+          "description": "Streamlined digital admissions workflow for faster enrollments"
+        },
+        {
+          "label": "Fees & Finance Module",
+          "icon": "💳",
+          "description": "Automated fee management with secure finance tracking"
+        },
+        {
+          "label": "Teacher & Staff Management",
+          "icon": "👩‍🏫",
+          "description": "Centralized teacher and staff management with analytics"
+        },
+        {
+          "label": "Course Creation & Management",
+          "icon": "📚",
+          "description": "Easy course creation and management using LMS tools"
+        },
+        {
+          "label": "Assessments & Quizzes",
+          "icon": "🧠",
+          "description": "Smart assessment engine for quizzes and performance tracking"
+        },
+        {
+          "label": "Instructor & Student Dashboards",
+          "icon": "📊",
+          "description": "Intuitive dashboards for instructors and students with actionable insights"
+        }
+      ]
+    },
+
+    {
+      "category": "Expenz",
+      "icon": "💳",
+      "description": "Expense management software for tracking and controlling costs",
+      "base": "expenz",
+      "items": [
+        {
+          "label": "Travel & Expense",
+          "icon": "✈️",
+          "description": "Unified travel and expense management with intelligent automation"
+        },
+        {
+          "label": "Receipt Scanning",
+          "icon": "📸",
+          "description": "Smart receipt scanning for instant digital expense capture"
+        },
+        {
+          "label": "Global Reimbursement",
+          "icon": "🌍",
+          "description": "Streamlined global reimbursement processing with compliance support"
+        },
+        {
+          "label": "AI Fraud Detection",
+          "icon": "🛡️",
+          "description": "AI-powered fraud detection for secure expense management"
+        },
+        {
+          "label": "Multi-Level Approval Workflows",
+          "icon": "🔄",
+          "description": "Configurable multi-level approval workflows for faster processing"
+        },
+        {
+          "label": "Real-Time Spend Analytics",
+          "icon": "📊",
+          "description": "Real-time spend analytics for improved financial visibility"
+        }
+      ]
+    },
+
+    {
+      "category": "HIMS",
+      "icon": "🏥",
+      "description": "Integrated hospital information management system for streamlined clinical and administrative workflows",
+      "base": "hims",
+      "items": [
+        {
+          "label": "Appointment Management",
+          "icon": "📅",
+          "description": "Smart appointment scheduling system for seamless patient flow"
+        },
+        {
+          "label": "Electronic Medical Records",
+          "icon": "📋",
+          "description": "Secure EMR management for complete digital patient records"
+        },
+        {
+          "label": "Multi-Location Management",
+          "icon": "🏥",
+          "description": "Centralized HIMS control for multi-location healthcare facilities"
+        },
+        {
+          "label": "Doctor & Staff Scheduling",
+          "icon": "👩‍⚕️",
+          "description": "Efficient doctor and staff scheduling with automation"
+        },
+        {
+          "label": "Pharmacy & Inventory Control",
+          "icon": "💊",
+          "description": "Automated pharmacy inventory control with real-time tracking"
+        },
+        {
+          "label": "Patient Billing & Insurance Claims",
+          "icon": "🧾",
+          "description": "Streamlined patient billing and insurance claims processing"
+        }
+      ]
+    },
+
+    {
+      "category": "Legal",
+      "icon": "⚖️",
+      "description": "Streamline legal case tracking and documentation efficiently",
+      "base": "legal",
+      "items": [
+        {
+          "label": "Contract Lifecycle Management",
+          "icon": "📜",
+          "description": "End-to-end contract lifecycle management with automated workflows"
+        },
+        {
+          "label": "Enterprise Legal Management",
+          "icon": "⚖️",
+          "description": "Centralized enterprise legal management for complete operational oversight"
+        },
+        {
+          "label": "Legal Collections Management",
+          "icon": "💼",
+          "description": "Streamlined legal collections management with automated tracking"
+        },
+        {
+          "label": "Case Timeline & Task Automation",
+          "icon": "⏱️",
+          "description": "Automated case timelines and task management for efficient legal operations"
+        },
+        {
+          "label": "Centralized Evidence Repository",
+          "icon": "🗄️",
+          "description": "Secure centralized evidence repository with structured document management"
+        },
+        {
+          "label": "Court Date & Deadline Tracking",
+          "icon": "📅",
+          "description": "Accurate court date and legal deadline tracking system"
+        }
+      ]
+    },
+
+    {
+      "category": "POS",
+      "icon": "🧾",
+      "description": "Fast, reliable POS system for smooth retail operations",
+      "base": "pos",
+      "items": [
+        {
+          "label": "Fast Billing & Checkout",
+          "icon": "⚡",
+          "description": "Speed up retail billing with seamless POS checkout"
+        },
+        {
+          "label": "Real-Time Inventory Tracking",
+          "icon": "📦",
+          "description": "Track inventory in real time for accurate stock control"
+        },
+        {
+          "label": "Customer Loyalty Integration",
+          "icon": "🎁",
+          "description": "Boost customer loyalty through integrated rewards programs"
+        },
+        {
+          "label": "Multi-Store POS Management",
+          "icon": "🏬",
+          "description": "Manage all store POS operations from a single dashboard"
+        },
+        {
+          "label": "Barcode & SKU Management",
+          "icon": "🏷️",
+          "description": "Efficient barcode and SKU management for quick scanning"
+        },
+        {
+          "label": "Sales Reports & Retail Analytics",
+          "icon": "📊",
+          "description": "Insightful POS sales reports with smart retail analytics"
+        }
+      ]
+    },
+
+    {
+      "category": "Procurement",
+      "icon": "📦",
+      "description": "Automate procurement processes for smarter purchasing decisions",
+      "base": "procurement",
+      "items": [
+        {
+          "label": "Vendor Management",
+          "icon": "🤝",
+          "description": "Centralize vendor data and streamline supplier performance management"
+        },
+        {
+          "label": "Quotation Management",
+          "icon": "🧾",
+          "description": "Automate quotation creation, comparison, and approval workflows efficiently"
+        },
+        {
+          "label": "RFP",
+          "icon": "📄",
+          "description": "Simplify RFP creation, distribution, evaluation, and vendor selection"
+        },
+        {
+          "label": "Procure to Pay",
+          "icon": "🔄",
+          "description": "End-to-end procure-to-pay automation for seamless purchasing operations"
+        },
+        {
+          "label": "Purchase Request",
+          "icon": "🛒",
+          "description": "Digitize purchase requests with real-time approval workflows"
+        },
+        {
+          "label": "GRN",
+          "icon": "📦",
+          "description": "Record Goods Receipt Notes accurately for effective inventory control"
+        },
+        {
+          "label": "Account Payable",
+          "icon": "💰",
+          "description": "Automate accounts payable with faster and accurate invoice processing"
+        },
+        {
+          "label": "Spend Analytics",
+          "icon": "📊",
+          "description": "Gain actionable insights into spending with real-time analytics"
+        },
+        {
+          "label": "Project Management",
+          "icon": "📅",
+          "description": "Manage projects, tasks, timelines, and resources effectively"
+        },
+        {
+          "label": "Vendor Portal",
+          "icon": "🌐",
+          "description": "Self-service vendor portal for seamless communication and collaboration"
+        },
+        {
+          "label": "Asset Management",
+          "icon": "🏷️",
+          "description": "Track, monitor, and optimize organization-wide physical assets"
+        },
+        {
+          "label": "Inventory Management",
+          "icon": "📦",
+          "description": "Real-time inventory tracking for smarter stock control"
+        },
+        {
+          "label": "Contract Management",
+          "icon": "📜",
+          "description": "Centralize the contract lifecycle for improved compliance and visibility"
+        }
+      ]
+
+    },
+
+    {
+      "category": "Projects",
+      "icon": "📅",
+      "description": "Intelligent platform enabling smooth project delivery",
+      "base": "project",
+      "items": [
+        {
+          "label": "Project Planning & Scheduling",
+          "icon": "📅",
+          "description": "Streamlined project planning and scheduling with automated workflows"
+        },
+        {
+          "label": "Task & Resource Management",
+          "icon": "🧩",
+          "description": "Optimize tasks and resources using smart project allocation"
+        },
+        {
+          "label": "Real-Time Progress Tracking",
+          "icon": "📊",
+          "description": "Real-time project progress tracking with actionable insights"
+        },
+        {
+          "label": "Collaboration & Communication Hub",
+          "icon": "💬",
+          "description": "Unified collaboration hub for seamless project communication"
+        },
+        {
+          "label": "Budgeting & Cost Control",
+          "icon": "💰",
+          "description": "Accurate budgeting and cost control supported by analytics"
+        },
+        {
+          "label": "Risk & Issue Management",
+          "icon": "⚠️",
+          "description": "Proactive risk and issue management for project stability"
+        }
+      ]
+
+    },
+
+    {
+      "category": "Recruitment",
+      "icon": "🧲",
+      "description": "Modern recruitment system offering quick, efficient hiring",
+      "base": "recruitment",
+      "items": [
+        {
+          "label": "AI-Powered Candidate Sourcing",
+          "icon": "🤖",
+          "description": "AI-driven sourcing engine to discover high-quality candidates"
+        },
+        {
+          "label": "Automated Resume Screening",
+          "icon": "📄",
+          "description": "Smart resume screening automation for faster hiring decisions"
+        },
+        {
+          "label": "Interview Scheduling & Coordination",
+          "icon": "📅",
+          "description": "Automated interview scheduling with seamless recruiter–candidate coordination"
+        },
+        {
+          "label": "Customizable Hiring Pipelines",
+          "icon": "🧩",
+          "description": "Build customizable hiring pipelines for streamlined recruitment workflows"
+        },
+        {
+          "label": "Skill-Based Assessments",
+          "icon": "🧠",
+          "description": "Integrated skill assessments for data-driven candidate evaluation"
+        },
+        {
+          "label": "Offer Management & Onboarding",
+          "icon": "📑",
+          "description": "End-to-end offer management with smooth onboarding integration"
+        }
+      ]
+    },
+
+    {
+      "category": "Retail",
+      "icon": "🛍️",
+      "description": "Tools for managing retail sales and operations",
+      "base": "retail",
+      "items": [
+        {
+          "label": "Unified POS & Billing",
+          "icon": "🧾",
+          "description": "Seamless unified POS and billing for faster checkout experiences"
+        },
+        {
+          "label": "Real-Time Inventory Sync",
+          "icon": "🔄",
+          "description": "Real-time inventory synchronization ensuring accurate stock visibility"
+        },
+        {
+          "label": "Customer Loyalty & Engagement",
+          "icon": "🎁",
+          "description": "Boost customer loyalty and engagement through rewards automation"
+        },
+        {
+          "label": "Multi-Store Management",
+          "icon": "🏬",
+          "description": "Centralized multi-store management with unified retail control"
+        },
+        {
+          "label": "Smart Retail Analytics",
+          "icon": "📊",
+          "description": "Smart retail analytics delivering data-driven business insights"
+        },
+        {
+          "label": "Order & Supply Chain Automation",
+          "icon": "📦",
+          "description": "Automated order and supply chain workflows for improved efficiency"
+        }
+      ]
+    },
+
+    
+    {
+      "category": "Rewards",
+      "icon": "🎁",
+      "description": "Earn points, perks, and incentives",
+      "base": "rewards",
+      "items": [
+        {
+          "label": "Employee Rewards & Recognition",
+          "icon": "🏆",
+          "description": "Boost engagement with automated employee rewards and recognition programs"
+        },
+        {
+          "label": "Partner Loyalty Program",
+          "icon": "🤝",
+          "description": "Strengthen partnerships through scalable loyalty program management"
+        },
+        {
+          "label": "Customer Loyalty Vouchers",
+          "icon": "🎟️",
+          "description": "Deliver personalized customer loyalty vouchers to improve retention"
+        },
+        {
+          "label": "Multi-Tier Reward Framework",
+          "icon": "🎯",
+          "description": "Flexible multi-tier reward framework designed for diverse audiences"
+        },
+        {
+          "label": "Real-Time Points Tracking",
+          "icon": "📊",
+          "description": "Real-time loyalty points tracking with detailed analytics"
+        },
+        {
+          "label": "Automated Campaign Management",
+          "icon": "⚡",
+          "description": "Automate loyalty campaigns using smart targeting tools"
+        }
+      ]
+    },
+
+    {
+      "category": "Upskill",
+      "icon": "📚",
+      "description": "Skill-focused learning and training",
+      "base": "upskill",
+      "items": [
+        {
+          "label": "Employee Enablement",
+          "icon": "🚀",
+          "description": "Equip employees with continuous learning and development tools"
+        },
+        {
+          "label": "Employee Onboarding",
+          "icon": "🧑‍💼",
+          "description": "Streamlined digital onboarding workflows for faster employee readiness"
+        },
+        {
+          "label": "Compliance Training",
+          "icon": "📜",
+          "description": "Automated compliance training with tracking and certifications"
+        },
+        {
+          "label": "AI-Powered Learning Paths",
+          "icon": "🤖",
+          "description": "Personalized AI-driven learning paths for continuous skill growth"
+        },
+        {
+          "label": "Skill Gap Analysis",
+          "icon": "📊",
+          "description": "Identify workforce skill gaps using smart analytics"
+        },
+        {
+          "label": "Integrated Assessment & Certification",
+          "icon": "🏅",
+          "description": "Seamless assessments and certifications within a unified LMS"
+        }
+      ]
+    }
+  ]
+ 
+  
+
+}
+

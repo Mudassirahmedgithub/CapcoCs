@@ -20,8 +20,6 @@ export default function Footer() {
     "Generative AI Consulting",
     "Generative AI Development",
     "Generative AI",
-    "Hire a Developer Services",
-    "Low-Code No-Code Services",
     "Machine Learning",
   ];
 

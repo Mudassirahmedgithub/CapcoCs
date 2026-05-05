@@ -433,200 +433,6 @@
       ]
     },
 
-    {
-      "category": "Books",
-      "icon": "📘",
-      "description": "Simple accounting software for effortless billing and finances",
-      "base": "books",
-      "items": [
-        {
-          "label": "Automated Bookkeeping",
-          "icon": "📘",
-          "description": "Automate bookkeeping tasks with accurate, real-time entries"
-        },
-        {
-          "label": "Invoicing & Payment Management",
-          "icon": "🧾",
-          "description": "Create invoices and manage payments using smart automation"
-        },
-        {
-          "label": "Expense Tracking & Reporting",
-          "icon": "📊",
-          "description": "Track expenses with detailed financial reports and insights"
-        },
-        {
-          "label": "GST & Tax Compliance",
-          "icon": "📜",
-          "description": "Ensure GST and tax compliance through automated calculations"
-        },
-        {
-          "label": "Financial Dashboards & Analytics",
-          "icon": "📈",
-          "description": "Visual financial dashboards delivering deep accounting analytics"
-        },
-        {
-          "label": "Multi-Account & Ledger Management",
-          "icon": "🗂️",
-          "description": "Manage multiple accounts and ledgers with streamlined workflows"
-        }
-      ]
-    },
-
-    {
-      "category": "EduVibe",
-      "icon": "🎓",
-      "description": "Empower modern education through intelligent LMS solutions",
-      "base": "EduVibe",
-      "items": [
-        {
-          "label": "Admissions",
-          "icon": "📝",
-          "description": "Streamlined digital admissions workflow for faster enrollments"
-        },
-        {
-          "label": "Fees & Finance Module",
-          "icon": "💳",
-          "description": "Automated fee management with secure finance tracking"
-        },
-        {
-          "label": "Teacher & Staff Management",
-          "icon": "👩‍🏫",
-          "description": "Centralized teacher and staff management with analytics"
-        },
-        {
-          "label": "Course Creation & Management",
-          "icon": "📚",
-          "description": "Easy course creation and management using LMS tools"
-        },
-        {
-          "label": "Assessments & Quizzes",
-          "icon": "🧠",
-          "description": "Smart assessment engine for quizzes and performance tracking"
-        },
-        {
-          "label": "Instructor & Student Dashboards",
-          "icon": "📊",
-          "description": "Intuitive dashboards for instructors and students with actionable insights"
-        }
-      ]
-    },
-
-    {
-      "category": "Expenz",
-      "icon": "💳",
-      "description": "Expense management software for tracking and controlling costs",
-      "base": "expenz",
-      "items": [
-        {
-          "label": "Travel & Expense",
-          "icon": "✈️",
-          "description": "Unified travel and expense management with intelligent automation"
-        },
-        {
-          "label": "Receipt Scanning",
-          "icon": "📸",
-          "description": "Smart receipt scanning for instant digital expense capture"
-        },
-        {
-          "label": "Global Reimbursement",
-          "icon": "🌍",
-          "description": "Streamlined global reimbursement processing with compliance support"
-        },
-        {
-          "label": "AI Fraud Detection",
-          "icon": "🛡️",
-          "description": "AI-powered fraud detection for secure expense management"
-        },
-        {
-          "label": "Multi-Level Approval Workflows",
-          "icon": "🔄",
-          "description": "Configurable multi-level approval workflows for faster processing"
-        },
-        {
-          "label": "Real-Time Spend Analytics",
-          "icon": "📊",
-          "description": "Real-time spend analytics for improved financial visibility"
-        }
-      ]
-    },
-
-    {
-      "category": "HIMS",
-      "icon": "🏥",
-      "description": "Integrated hospital information management system for streamlined clinical and administrative workflows",
-      "base": "hims",
-      "items": [
-        {
-          "label": "Appointment Management",
-          "icon": "📅",
-          "description": "Smart appointment scheduling system for seamless patient flow"
-        },
-        {
-          "label": "Electronic Medical Records",
-          "icon": "📋",
-          "description": "Secure EMR management for complete digital patient records"
-        },
-        {
-          "label": "Multi-Location Management",
-          "icon": "🏥",
-          "description": "Centralized HIMS control for multi-location healthcare facilities"
-        },
-        {
-          "label": "Doctor & Staff Scheduling",
-          "icon": "👩‍⚕️",
-          "description": "Efficient doctor and staff scheduling with automation"
-        },
-        {
-          "label": "Pharmacy & Inventory Control",
-          "icon": "💊",
-          "description": "Automated pharmacy inventory control with real-time tracking"
-        },
-        {
-          "label": "Patient Billing & Insurance Claims",
-          "icon": "🧾",
-          "description": "Streamlined patient billing and insurance claims processing"
-        }
-      ]
-    },
-
-    {
-      "category": "Legal",
-      "icon": "⚖️",
-      "description": "Streamline legal case tracking and documentation efficiently",
-      "base": "legal",
-      "items": [
-        {
-          "label": "Contract Lifecycle Management",
-          "icon": "📜",
-          "description": "End-to-end contract lifecycle management with automated workflows"
-        },
-        {
-          "label": "Enterprise Legal Management",
-          "icon": "⚖️",
-          "description": "Centralized enterprise legal management for complete operational oversight"
-        },
-        {
-          "label": "Legal Collections Management",
-          "icon": "💼",
-          "description": "Streamlined legal collections management with automated tracking"
-        },
-        {
-          "label": "Case Timeline & Task Automation",
-          "icon": "⏱️",
-          "description": "Automated case timelines and task management for efficient legal operations"
-        },
-        {
-          "label": "Centralized Evidence Repository",
-          "icon": "🗄️",
-          "description": "Secure centralized evidence repository with structured document management"
-        },
-        {
-          "label": "Court Date & Deadline Tracking",
-          "icon": "📅",
-          "description": "Accurate court date and legal deadline tracking system"
-        }
-      ]
-    },
 
     {
       "category": "POS",
@@ -781,46 +587,6 @@
       ]
 
     },
-
-    {
-      "category": "Recruitment",
-      "icon": "🧲",
-      "description": "Modern recruitment system offering quick, efficient hiring",
-      "base": "recruitment",
-      "items": [
-        {
-          "label": "AI-Powered Candidate Sourcing",
-          "icon": "🤖",
-          "description": "AI-driven sourcing engine to discover high-quality candidates"
-        },
-        {
-          "label": "Automated Resume Screening",
-          "icon": "📄",
-          "description": "Smart resume screening automation for faster hiring decisions"
-        },
-        {
-          "label": "Interview Scheduling & Coordination",
-          "icon": "📅",
-          "description": "Automated interview scheduling with seamless recruiter–candidate coordination"
-        },
-        {
-          "label": "Customizable Hiring Pipelines",
-          "icon": "🧩",
-          "description": "Build customizable hiring pipelines for streamlined recruitment workflows"
-        },
-        {
-          "label": "Skill-Based Assessments",
-          "icon": "🧠",
-          "description": "Integrated skill assessments for data-driven candidate evaluation"
-        },
-        {
-          "label": "Offer Management & Onboarding",
-          "icon": "📑",
-          "description": "End-to-end offer management with smooth onboarding integration"
-        }
-      ]
-    },
-
     {
       "category": "Retail",
       "icon": "🛍️",
@@ -858,86 +624,8 @@
           "description": "Automated order and supply chain workflows for improved efficiency"
         }
       ]
-    },
-
-    
-    {
-      "category": "Rewards",
-      "icon": "🎁",
-      "description": "Earn points, perks, and incentives",
-      "base": "rewards",
-      "items": [
-        {
-          "label": "Employee Rewards & Recognition",
-          "icon": "🏆",
-          "description": "Boost engagement with automated employee rewards and recognition programs"
-        },
-        {
-          "label": "Partner Loyalty Program",
-          "icon": "🤝",
-          "description": "Strengthen partnerships through scalable loyalty program management"
-        },
-        {
-          "label": "Customer Loyalty Vouchers",
-          "icon": "🎟️",
-          "description": "Deliver personalized customer loyalty vouchers to improve retention"
-        },
-        {
-          "label": "Multi-Tier Reward Framework",
-          "icon": "🎯",
-          "description": "Flexible multi-tier reward framework designed for diverse audiences"
-        },
-        {
-          "label": "Real-Time Points Tracking",
-          "icon": "📊",
-          "description": "Real-time loyalty points tracking with detailed analytics"
-        },
-        {
-          "label": "Automated Campaign Management",
-          "icon": "⚡",
-          "description": "Automate loyalty campaigns using smart targeting tools"
-        }
-      ]
-    },
-
-    {
-      "category": "Upskill",
-      "icon": "📚",
-      "description": "Skill-focused learning and training",
-      "base": "upskill",
-      "items": [
-        {
-          "label": "Employee Enablement",
-          "icon": "🚀",
-          "description": "Equip employees with continuous learning and development tools"
-        },
-        {
-          "label": "Employee Onboarding",
-          "icon": "🧑‍💼",
-          "description": "Streamlined digital onboarding workflows for faster employee readiness"
-        },
-        {
-          "label": "Compliance Training",
-          "icon": "📜",
-          "description": "Automated compliance training with tracking and certifications"
-        },
-        {
-          "label": "AI-Powered Learning Paths",
-          "icon": "🤖",
-          "description": "Personalized AI-driven learning paths for continuous skill growth"
-        },
-        {
-          "label": "Skill Gap Analysis",
-          "icon": "📊",
-          "description": "Identify workforce skill gaps using smart analytics"
-        },
-        {
-          "label": "Integrated Assessment & Certification",
-          "icon": "🏅",
-          "description": "Seamless assessments and certifications within a unified LMS"
-        }
-      ]
     }
+
   ],
   "ai": [
   {
@@ -1370,24 +1058,9 @@
     "base": "business-management-consultancy",
     "items": [
       {
-        "label": "Business Process Optimization",
-        "icon": "⚙️",
-        "description": "Improving efficiency through streamlined workflows."
-      },
-      {
-        "label": "Digital Transformation",
-        "icon": "🌐",
-        "description": "Guiding organizations through technology-driven change."
-      },
-      {
-        "label": "Performance Management",
-        "icon": "📈",
-        "description": "Tracking KPIs and improving business outcomes."
-      },
-      {
-        "label": "Change Management",
-        "icon": "🔄",
-        "description": "Supporting teams during organizational transitions."
+        "label": "Business Management & Consultancy",
+        "icon": "📊",
+        "description": "Strategic advisory services to optimize operations and growth."
       }
     ]
   },
@@ -1398,24 +1071,9 @@
     "base": "digital-marketing",
     "items": [
       {
-        "label": "SEO Optimization",
-        "icon": "🔍",
-        "description": "Improving search engine visibility and rankings."
-      },
-      {
-        "label": "Social Media Marketing",
-        "icon": "📱",
-        "description": "Building engagement across social platforms."
-      },
-      {
-        "label": "Content Marketing",
-        "icon": "✍️",
-        "description": "High-quality content to attract and convert audiences."
-      },
-      {
-        "label": "Paid Advertising",
-        "icon": "💰",
-        "description": "Targeted campaigns across digital channels."
+        "label": "Digital Marketing",
+        "icon": "📣",
+        "description": "Data-driven marketing strategies to grow your brand."
       }
     ]
   },
@@ -1448,58 +1106,15 @@
     ]
   },
   {
-    "category": "Human Resource Management",
-    "icon": "👥",
-    "description": "Modern HR solutions to manage and empower your workforce.",
-    "base": "human-resource-management",
-    "items": [
-      {
-        "label": "Payroll Management",
-        "icon": "💵",
-        "description": "Automated salary processing and tax compliance."
-      },
-      {
-        "label": "Attendance Tracking",
-        "icon": "🕒",
-        "description": "Monitor employee attendance and working hours."
-      },
-      {
-        "label": "Recruitment Solutions",
-        "icon": "🧾",
-        "description": "Streamlined hiring and onboarding processes."
-      },
-      {
-        "label": "Performance Evaluation",
-        "icon": "📊",
-        "description": "Structured performance reviews and appraisals."
-      }
-    ]
-  },
-  {
     "category": "Software Development",
     "icon": "💻",
     "description": "Custom software solutions tailored to your business needs.",
     "base": "software-development",
     "items": [
       {
-        "label": "Custom Applications",
-        "icon": "📦",
-        "description": "Software built specifically for your workflows and processes."
-      },
-      {
-        "label": "Enterprise Solutions",
-        "icon": "🏢",
-        "description": "Scalable systems for large organizations and complex operations."
-      },
-      {
-        "label": "API Development",
-        "icon": "🔌",
-        "description": "Secure and reliable system integrations and APIs."
-      },
-      {
-        "label": "System Modernization",
-        "icon": "♻️",
-        "description": "Upgrading legacy systems using modern technologies."
+        "label": "Software Development",
+        "icon": "💻",
+        "description": "Custom software solutions tailored to your business needs."
       }
     ]
   },  
@@ -1510,24 +1125,10 @@
     "base": "data-governance-ai",
     "items": [
       {
-        "label": "Data Governance",
-        "icon": "📋",
-        "description": "Policies and frameworks ensuring data quality and compliance."
-      },
-      {
-        "label": "Data Analytics",
-        "icon": "📈",
-        "description": "Actionable insights through dashboards and reporting."
-      },
-      {
-        "label": "AI & Machine Learning",
-        "icon": "🤖",
-        "description": "Predictive models and intelligent automation systems."
-      },
-      {
-        "label": "Data Security",
-        "icon": "🛡️",
-        "description": "Protection of sensitive and critical information."
+        "label": "Data Governance & AI",
+        "icon": "📊",
+        "description": "Trusted data management and intelligent AI-powered solutions."
+
       }
     ]
   },
@@ -1538,24 +1139,9 @@
     "base": "it-consulting-support",
     "items": [
       {
-        "label": "IT Strategy",
-        "icon": "🧭",
-        "description": "Technology roadmaps aligned with business objectives."
-      },
-      {
-        "label": "Infrastructure Support",
-        "icon": "🖧",
-        "description": "Monitoring and maintaining IT environments."
-      },
-      {
-        "label": "Cybersecurity Consulting",
-        "icon": "🔒",
-        "description": "Risk assessment and security planning services."
-      },
-      {
-        "label": "Technical Support",
-        "icon": "🎧",
-        "description": "Responsive troubleshooting and user support."
+        "label": "IT Consulting Support",
+        "icon": "🧠",
+        "description": "Expert technology consulting and reliable IT support services."
       }
     ]
   }

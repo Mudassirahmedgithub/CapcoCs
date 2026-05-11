@@ -630,29 +630,14 @@
   "ai": [
   {
     "category": "AI Agent Development",
-    "icon": "🧠",
+    "icon": "🤖",
     "description": "Autonomous AI agents that reason, plan, and act intelligently.",
-    "base": "ai-agent-development",
+    "base": "",
     "items": [
       {
-        "label": "Autonomous AI Agents",
+        "label": "AI Agent Development",
         "icon": "🤖",
-        "description": "Self-operating agents that perform tasks end-to-end."
-      },
-      {
-        "label": "Multi-Agent Systems",
-        "icon": "🧩",
-        "description": "Collaborative AI agents working together on complex workflows."
-      },
-      {
-        "label": "Task-Oriented Agents",
-        "icon": "📌",
-        "description": "AI agents designed for specific business operations."
-      },
-      {
-        "label": "Agent Orchestration",
-        "icon": "🎛️",
-        "description": "Managing and coordinating multiple AI agents."
+        "description": "Autonomous AI agents that reason, plan, and act intelligently."
       }
     ]
   },
@@ -660,55 +645,25 @@
     "category": "AI Chatbot Development",
     "icon": "💬",
     "description": "Conversational AI solutions for customer engagement and support.",
-    "base": "ai-chatbot-development",
+    "base": "",
     "items": [
       {
-        "label": "Customer Support Chatbots",
-        "icon": "🎧",
-        "description": "24/7 automated support for customer queries."
-      },
-      {
-        "label": "Enterprise Chatbots",
-        "icon": "🏢",
-        "description": "Internal chatbots for HR, IT, and operations."
-      },
-      {
-        "label": "Multilingual Chatbots",
-        "icon": "🌍",
-        "description": "Chatbots supporting multiple languages."
-      },
-      {
-        "label": "Voice-Enabled Bots",
-        "icon": "🎙️",
-        "description": "AI bots with speech recognition and responses."
+        "label": "AI Chatbot Development",
+        "icon": "💬",
+        "description": "Conversational AI solutions for customer engagement and support."
       }
     ]
   },
   {
     "category": "AI Consulting",
-    "icon": "🧠",
+    "icon": "🧭",
     "description": "Strategic AI guidance to accelerate business transformation.",
-    "base": "ai-consulting",
+    "base": "",
     "items": [
       {
-        "label": "AI Strategy & Roadmap",
+        "label": "AI Consulting",
         "icon": "🧭",
-        "description": "Defining AI adoption plans aligned with business goals."
-      },
-      {
-        "label": "AI Feasibility Analysis",
-        "icon": "🔍",
-        "description": "Evaluating use cases and ROI for AI initiatives."
-      },
-      {
-        "label": "AI Ethics & Governance",
-        "icon": "⚖️",
-        "description": "Ensuring responsible and compliant AI usage."
-      },
-      {
-        "label": "AI Adoption Consulting",
-        "icon": "🚀",
-        "description": "Helping teams successfully implement AI solutions."
+        "description": "Strategic AI guidance to accelerate business transformation."
       }
     ]
   },
@@ -716,27 +671,12 @@
     "category": "AI Development",
     "icon": "⚙️",
     "description": "End-to-end AI solution design and implementation.",
-    "base": "ai-development",
+    "base": "",
     "items": [
       {
-        "label": "Custom AI Solutions",
-        "icon": "🛠️",
-        "description": "Tailor-made AI models for unique requirements."
-      },
-      {
-        "label": "Model Training & Tuning",
-        "icon": "📊",
-        "description": "Optimizing AI models for accuracy and performance."
-      },
-      {
-        "label": "AI APIs & Services",
-        "icon": "🔌",
-        "description": "Reusable AI services for applications."
-      },
-      {
-        "label": "AI Maintenance & Optimization",
-        "icon": "♻️",
-        "description": "Continuous improvement of deployed AI systems."
+        "label": "AI Development",
+        "icon": "⚙️",
+        "description": "End-to-end AI solution design and implementation."
       }
     ]
   },
@@ -744,55 +684,25 @@
     "category": "AI Integration",
     "icon": "🔗",
     "description": "Seamless integration of AI into existing systems.",
-    "base": "ai-integration",
+    "base": "",
     "items": [
       {
-        "label": "Enterprise AI Integration",
-        "icon": "🏗️",
-        "description": "Embedding AI into enterprise platforms."
-      },
-      {
-        "label": "API & System Integration",
-        "icon": "🧩",
-        "description": "Connecting AI models with third-party systems."
-      },
-      {
-        "label": "Workflow Automation",
-        "icon": "⚡",
-        "description": "Automating processes using AI-driven workflows."
-      },
-      {
-        "label": "Legacy System Integration",
-        "icon": "♻️",
-        "description": "Enhancing legacy systems with AI capabilities."
+        "label": "AI Integration",
+        "icon": "🔗",
+        "description": "Seamless integration of AI into existing systems."
       }
     ]
   },
   {
     "category": "AI OCR",
-    "icon": "📄",
+    "icon": "🖨️",
     "description": "Intelligent document processing using OCR technology.",
-    "base": "ai-ocr",
+    "base": "",
     "items": [
       {
-        "label": "Document Digitization",
+        "label": "AI OCR",
         "icon": "🖨️",
-        "description": "Converting scanned documents into digital text."
-      },
-      {
-        "label": "Invoice & Receipt Processing",
-        "icon": "🧾",
-        "description": "Automated data extraction from financial documents."
-      },
-      {
-        "label": "Handwriting Recognition",
-        "icon": "✍️",
-        "description": "AI-powered handwritten text recognition."
-      },
-      {
-        "label": "Form Data Extraction",
-        "icon": "📋",
-        "description": "Extracting structured data from forms."
+        "description": "Intelligent document processing using OCR technology."
       }
     ]
   },
@@ -800,27 +710,12 @@
     "category": "Computer Vision",
     "icon": "👁️",
     "description": "Visual intelligence solutions for image and video analysis.",
-    "base": "computer-vision",
+    "base": "",
     "items": [
       {
-        "label": "Image Recognition",
-        "icon": "🖼️",
-        "description": "Identifying objects and patterns in images."
-      },
-      {
-        "label": "Video Analytics",
-        "icon": "🎥",
-        "description": "Real-time video processing and insights."
-      },
-      {
-        "label": "Facial Recognition",
-        "icon": "🙂",
-        "description": "Face detection and identity verification."
-      },
-      {
-        "label": "Quality Inspection",
-        "icon": "🔍",
-        "description": "Automated defect detection in manufacturing."
+        "label": "Computer Vision",
+        "icon": "👁️",
+        "description": "Visual intelligence solutions for image and video analysis"
       }
     ]
   },
@@ -828,27 +723,12 @@
     "category": "Generative AI Consulting",
     "icon": "💡",
     "description": "Expert guidance on adopting generative AI solutions.",
-    "base": "gai-consulting",
+    "base": "",
     "items": [
       {
-        "label": "GenAI Use Case Discovery",
-        "icon": "🔎",
-        "description": "Identifying high-impact generative AI opportunities."
-      },
-      {
-        "label": "LLM Strategy",
-        "icon": "📘",
-        "description": "Selecting and deploying large language models."
-      },
-      {
-        "label": "GenAI Governance",
-        "icon": "⚖️",
-        "description": "Managing risks and compliance for generative AI."
-      },
-      {
-        "label": "Prompt Engineering Consulting",
-        "icon": "✏️",
-        "description": "Optimizing prompts for better AI outputs."
+        "label": "Generative AI Consulting",
+        "icon": "💡",
+        "description": "Expert guidance on adopting generative AI solutions."
       }
     ]
   },
@@ -856,27 +736,12 @@
     "category": "Generative AI Development",
     "icon": "✨",
     "description": "Building advanced generative AI applications.",
-    "base": "gai-development",
+    "base": "",
     "items": [
       {
-        "label": "LLM Application Development",
-        "icon": "📦",
-        "description": "Custom apps powered by large language models."
-      },
-      {
-        "label": "Text & Content Generation",
-        "icon": "📝",
-        "description": "AI-generated articles, summaries, and content."
-      },
-      {
-        "label": "Image & Media Generation",
-        "icon": "🎨",
-        "description": "Creating images and media using generative AI."
-      },
-      {
-        "label": "Fine-Tuning Models",
-        "icon": "⚙️",
-        "description": "Customizing generative models for specific needs."
+        "label": "Generative AI Development",
+        "icon": "✨",
+        "description": "Building advanced generative AI applications."
       }
     ]
   },
@@ -884,83 +749,12 @@
     "category": "Generative AI",
     "icon": "🚀",
     "description": "AI systems that generate text, images, and more.",
-    "base": "generative-ai",
+    "base": "",
     "items": [
       {
-        "label": "Text Generation",
-        "icon": "📄",
-        "description": "Human-like text creation for various use cases."
-      },
-      {
-        "label": "Image Generation",
-        "icon": "🖌️",
-        "description": "AI-created visuals and designs."
-      },
-      {
-        "label": "Code Generation",
-        "icon": "💻",
-        "description": "Automated code generation and assistance."
-      },
-      {
-        "label": "Content Personalization",
-        "icon": "🎯",
-        "description": "Dynamic content tailored to user behavior."
-      }
-    ]
-  },
-  {
-    "category": "Hire a Developer Services",
-    "icon": "👨‍💻",
-    "description": "Flexible hiring of skilled technology professionals.",
-    "base": "hire-a-developer-services",
-    "items": [
-      {
-        "label": "Hire AI Developers",
-        "icon": "🤖",
-        "description": "Dedicated AI and ML engineers."
-      },
-      {
-        "label": "Hire Full-Stack Developers",
-        "icon": "🌐",
-        "description": "End-to-end web and app developers."
-      },
-      {
-        "label": "Hire Dedicated Teams",
-        "icon": "👥",
-        "description": "Scalable development teams on demand."
-      },
-      {
-        "label": "Staff Augmentation",
-        "icon": "➕",
-        "description": "Extend your team with expert resources."
-      }
-    ]
-  },
-  {
-    "category": "Low-Code No-Code Services",
-    "icon": "🧱",
-    "description": "Rapid application development with minimal coding.",
-    "base": "low-code-no-code-services",
-    "items": [
-      {
-        "label": "Low-Code App Development",
-        "icon": "⚡",
-        "description": "Faster application delivery using low-code platforms."
-      },
-      {
-        "label": "No-Code Automation",
-        "icon": "🔄",
-        "description": "Workflow automation without writing code."
-      },
-      {
-        "label": "Platform Customization",
-        "icon": "🎛️",
-        "description": "Custom features on low-code platforms."
-      },
-      {
-        "label": "Integration Services",
-        "icon": "🔗",
-        "description": "Connecting no-code apps with existing systems."
+        "label": "Generative AI",
+        "icon": "🚀",
+        "description": "AI systems that generate text, images, and more."
       }
     ]
   },
@@ -968,27 +762,12 @@
     "category": "Machine Learning",
     "icon": "📈",
     "description": "Data-driven models that learn and improve over time.",
-    "base": "machine-learning",
+    "base": "",
     "items": [
       {
-        "label": "Predictive Modeling",
-        "icon": "🔮",
-        "description": "Forecasting trends and outcomes."
-      },
-      {
-        "label": "Recommendation Systems",
-        "icon": "⭐",
-        "description": "Personalized recommendations for users."
-      },
-      {
-        "label": "Anomaly Detection",
-        "icon": "🚨",
-        "description": "Identifying unusual patterns in data."
-      },
-      {
-        "label": "Model Deployment & MLOps",
-        "icon": "🚀",
-        "description": "Deploying and managing ML models at scale."
+        "label": "Machine Learning",
+        "icon": "📈",
+        "description": "Data-driven models that learn and improve over time"
       }
     ]
   }
@@ -1052,32 +831,6 @@
     ]
   },
   {
-    "category": "Business Management & Consultancy",
-    "icon": "📊",
-    "description": "Strategic advisory services to optimize operations and growth.",
-    "base": "business-management-consultancy",
-    "items": [
-      {
-        "label": "Business Management & Consultancy",
-        "icon": "📊",
-        "description": "Strategic advisory services to optimize operations and growth."
-      }
-    ]
-  },
-  {
-    "category": "Digital Marketing",
-    "icon": "📣",
-    "description": "Data-driven marketing strategies to grow your brand.",
-    "base": "digital-marketing",
-    "items": [
-      {
-        "label": "Digital Marketing",
-        "icon": "📣",
-        "description": "Data-driven marketing strategies to grow your brand."
-      }
-    ]
-  },
-  {
     "category": "Asset Tagging & Tracking Solution",
     "icon": "🏷️",
     "description": "Smart tagging systems for real-time asset visibility.",
@@ -1104,12 +857,38 @@
         "description": "Centralized monitoring and reporting platform."
       }
     ]
+  },  
+  {
+    "category": "Business Management & Consultancy",
+    "icon": "📊",
+    "description": "Strategic advisory services to optimize operations and growth.",
+    "base": "",
+    "items": [
+      {
+        "label": "Business Management & Consultancy",
+        "icon": "📊",
+        "description": "Strategic advisory services to optimize operations and growth."
+      }
+    ]
+  },
+  {
+    "category": "Digital Marketing",
+    "icon": "📣",
+    "description": "Data-driven marketing strategies to grow your brand.",
+    "base": "",
+    "items": [
+      {
+        "label": "Digital Marketing",
+        "icon": "📣",
+        "description": "Data-driven marketing strategies to grow your brand."
+      }
+    ]
   },
   {
     "category": "Software Development",
     "icon": "💻",
     "description": "Custom software solutions tailored to your business needs.",
-    "base": "software-development",
+    "base": "",
     "items": [
       {
         "label": "Software Development",
@@ -1122,7 +901,7 @@
     "category": "Data Governance & AI",
     "icon": "📊",
     "description": "Trusted data management and intelligent AI-powered solutions.",
-    "base": "data-governance-ai",
+    "base": "",
     "items": [
       {
         "label": "Data Governance & AI",
@@ -1136,7 +915,7 @@
     "category": "IT Consulting Support",
     "icon": "🧠",
     "description": "Expert technology consulting and reliable IT support services.",
-    "base": "it-consulting-support",
+    "base": "",
     "items": [
       {
         "label": "IT Consulting Support",
@@ -1146,6 +925,4 @@
     ]
   }
 ]
-
 }
-

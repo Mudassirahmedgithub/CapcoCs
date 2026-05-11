@@ -44,12 +44,11 @@ export default function Footer() {
   ];
 
   const services = [
-    "Warehouse",
+    "Warehouse Management",
     "Asset Management",
+    "Asset Tagging & Tracking Solution",
     "Business Management & Consultancy",
     "Digital Marketing",
-    "Asset Tagging & Tracking Solution",
-    "Human Resource Management",
     "Software Development",
     "Data Governance & AI",
     "IT Consulting Support",

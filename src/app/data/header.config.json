@@ -9,6 +9,19 @@
 
   "products": [
     {
+    "category": "Oracle Fusion 1",
+    "icon": "📊",
+    "description": "Strategic advisory services to optimize operations and growth.",
+    "base": "",
+    "items": [
+      {
+        "label": "Oracle Fusion 1",
+        "icon": "📊",
+        "description": "Strategic advisory services to optimize operations and growth."
+      }
+    ]
+  },
+    {
       "category": "Manufacturing ERP",
       "icon": "🏭",
       "description": "End-to-end ERP for manufacturing businesses",

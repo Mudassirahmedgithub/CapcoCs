@@ -24,6 +24,7 @@ export default function Footer() {
   ];
 
   const products = [
+    "Oracle Fusion 1",
     "Manufacturing ERP",
     "HRMS",
     "CRM",

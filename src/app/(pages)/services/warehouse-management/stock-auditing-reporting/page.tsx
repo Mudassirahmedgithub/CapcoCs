@@ -16,7 +16,7 @@ import {
   CheckCircle2,
   ArrowRight,
 } from "lucide-react";
-import styles from "./Stock.module.css";
+import styles from "./stock.module.css";
 import { ReactNode } from "react";
 
 /* ── Types ─────────────────────────────────────────────── */

@@ -33,6 +33,36 @@
       "label": "Reports and Analytics",
       "icon": "📈",
       "description": "Provides detailed insights into asset performance, utilization, and maintenance trends"
+    },
+    {
+      "label": "Asset Work & Registry",
+      "icon": "🗂️",
+      "description": "Centralized asset registry with automated work management"
+    },
+    {
+      "label": "Field Service Management",
+      "icon": "🛠️",
+      "description": "Optimize field operations with smart service management tools"
+    },
+    {
+      "label": "Asset Inspection",
+      "icon": "🔍",
+      "description": "Digital asset inspection workflows with real-time reporting"
+    },
+    {
+      "label": "Predictive Maintenance Alerts",
+      "icon": "⏰",
+      "description": "AI-driven predictive maintenance alerts to reduce downtime"
+    },
+    {
+      "label": "Asset Lifecycle Optimization",
+      "icon": "♻️",
+      "description": "Optimize asset lifecycle performance using intelligent analytics"
+    },
+    {
+      "label": "Geo-Tracking & Usage Monitoring",
+      "icon": "📍",
+      "description": "Real-time asset geo-tracking with detailed usage monitoring"
     }
   ]
 },
@@ -354,46 +384,6 @@
         }
       ]
     },
-
-    {
-      "category": "Asset Management",
-      "icon": "🏗️",
-      "description": "Reduce operational costs through smart asset tracking",
-      "base": "asset-management",
-      "items": [
-        {
-          "label": "Asset Work & Registry",
-          "icon": "🗂️",
-          "description": "Centralized asset registry with automated work management"
-        },
-        {
-          "label": "Field Service Management",
-          "icon": "🛠️",
-          "description": "Optimize field operations with smart service management tools"
-        },
-        {
-          "label": "Asset Inspection",
-          "icon": "🔍",
-          "description": "Digital asset inspection workflows with real-time reporting"
-        },
-        {
-          "label": "Predictive Maintenance Alerts",
-          "icon": "⏰",
-          "description": "AI-driven predictive maintenance alerts to reduce downtime"
-        },
-        {
-          "label": "Asset Lifecycle Optimization",
-          "icon": "♻️",
-          "description": "Optimize asset lifecycle performance using intelligent analytics"
-        },
-        {
-          "label": "Geo-Tracking & Usage Monitoring",
-          "icon": "📍",
-          "description": "Real-time asset geo-tracking with detailed usage monitoring"
-        }
-      ]
-    },
-
     {
       "category": "Audit",
       "icon": "📊",

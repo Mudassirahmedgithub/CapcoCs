@@ -29,18 +29,10 @@ export default function Footer() {
     "HRMS",
     "CRM",
     "Audit",
-    "Accounting",
-    "LMS",
-    "Expense Management",
-    "HIMS",
-    "Legal",
     "POS",
     "Procurement",
-    "Project Management",
-    "Recruitment",
-    "Retail",
-    "Rewards",
-    "Upskill",
+    "Projects",
+    "Retail", 
   ];
 
   const services = [
@@ -147,7 +139,7 @@ export default function Footer() {
               <ul className="footer-nav-list">
                 {services.map((item, i) => (
                   <li key={i}>
-                    <a href={`/services/${item.toLowerCase().replace(/ /g, "-")}`} className="footer-nav-link">
+                    <a href={`/services/${item.toLowerCase().replace(/ & /g, "-").replace(/ /g, "-")}`} className="footer-nav-link">
                       <ChevronRight size={12} />
                       {item}
                     </a>

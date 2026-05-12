@@ -24,7 +24,6 @@ export default function Footer() {
   ];
 
   const products = [
-    "Asset Management",
     "Manufacturing ERP",
     "HRMS",
     "CRM",
@@ -38,7 +37,6 @@ export default function Footer() {
   const services = [
     "Warehouse Management",
     "Asset Management",
-    "Asset Tagging & Tracking Solution",
     "Business Management & Consultancy",
     "Digital Marketing",
     "Software Development",

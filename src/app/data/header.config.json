@@ -8,65 +8,6 @@
   ],
 
   "products": [
-{
-  "category": "Asset Management",
-  "icon": "🗂️",
-  "description": "Comprehensive tools to track, manage, and optimize assets throughout their lifecycle",
-  "base": "asset-management",
-  "items": [
-    {
-      "label": "Asset Life Cycle Management",
-      "icon": "🔄",
-      "description": "Manages assets from procurement and deployment to maintenance, depreciation, and disposal"
-    },
-    {
-      "label": "Asset Tracking",
-      "icon": "📍",
-      "description": "Monitors asset location, usage, and status in real time to improve visibility and control"
-    },
-    {
-      "label": "Asset Financial & Compliance Management",
-      "icon": "📊",
-      "description": "Tracks asset costs, depreciation, audits, and regulatory compliance to ensure financial accuracy"
-    },
-    {
-      "label": "Reports and Analytics",
-      "icon": "📈",
-      "description": "Provides detailed insights into asset performance, utilization, and maintenance trends"
-    },
-    {
-      "label": "Asset Work & Registry",
-      "icon": "🗂️",
-      "description": "Centralized asset registry with automated work management"
-    },
-    {
-      "label": "Field Service Management",
-      "icon": "🛠️",
-      "description": "Optimize field operations with smart service management tools"
-    },
-    {
-      "label": "Asset Inspection",
-      "icon": "🔍",
-      "description": "Digital asset inspection workflows with real-time reporting"
-    },
-    {
-      "label": "Predictive Maintenance Alerts",
-      "icon": "⏰",
-      "description": "AI-driven predictive maintenance alerts to reduce downtime"
-    },
-    {
-      "label": "Asset Lifecycle Optimization",
-      "icon": "♻️",
-      "description": "Optimize asset lifecycle performance using intelligent analytics"
-    },
-    {
-      "label": "Geo-Tracking & Usage Monitoring",
-      "icon": "📍",
-      "description": "Real-time asset geo-tracking with detailed usage monitoring"
-    }
-  ]
-},
-
     {
       "category": "Manufacturing ERP",
       "icon": "🏭",
@@ -791,17 +732,56 @@
     }
   ]
 },
-
-  {
+{
     "category": "Asset Management",
     "icon": "📦",
     "description": "Comprehensive solutions for tracking and managing company assets.",
     "base": "asset-management",
     "items": [
       {
-        "label": "Asset Lifecycle Management",
+        "label": "Asset Life Cycle Management",
         "icon": "🔄",
-        "description": "Track assets from procurement to retirement."
+        "description": "Manages assets from procurement and deployment to maintenance, depreciation, and disposal"
+      },
+      {
+        "label": "Asset Tracking",
+        "icon": "📍",
+        "description": "Monitors asset location, usage, and status in real time to improve visibility and control"
+      },
+      {
+        "label": "Asset Financial & Compliance Management",
+        "icon": "📊",
+        "description": "Tracks asset costs, depreciation, audits, and regulatory compliance to ensure financial accuracy"
+      },
+      {
+        "label": "Asset Work & Registry",
+        "icon": "🗂️",
+        "description": "Centralized asset registry with automated work management"
+      },
+      {
+        "label": "Field Service Management",
+        "icon": "🛠️",
+        "description": "Optimize field operations with smart service management tools"
+      },
+      {
+        "label": "Asset Inspection",
+        "icon": "🔍",
+        "description": "Digital asset inspection workflows with real-time reporting"
+      },
+      {
+        "label": "Predictive Maintenance Alerts",
+        "icon": "⏰",
+        "description": "AI-driven predictive maintenance alerts to reduce downtime"
+      },
+      {
+        "label": "Asset Lifecycle Optimization",
+        "icon": "♻️",
+        "description": "Optimize asset lifecycle performance using intelligent analytics"
+      },
+      {
+        "label": "Geo-Tracking & Usage Monitoring",
+        "icon": "📍",
+        "description": "Real-time asset geo-tracking with detailed usage monitoring"
       },
       {
         "label": "Inventory Tracking",
@@ -817,15 +797,7 @@
         "label": "Reporting & Analytics",
         "icon": "📈",
         "description": "Insightful asset utilization and performance reports."
-      }
-    ]
-  },
-  {
-    "category": "Asset Tagging & Tracking Solution",
-    "icon": "🏷️",
-    "description": "Smart tagging systems for real-time asset visibility.",
-    "base": "asset-tagging-tracking",
-    "items": [
+      },
       {
         "label": "RFID Solutions",
         "icon": "📡",
@@ -835,19 +807,9 @@
         "label": "Barcode Systems",
         "icon": "🔢",
         "description": "Efficient barcode-based asset identification."
-      },
-      {
-        "label": "GPS Tracking",
-        "icon": "📍",
-        "description": "Location-based tracking for mobile assets."
-      },
-      {
-        "label": "Cloud Dashboard",
-        "icon": "☁️",
-        "description": "Centralized monitoring and reporting platform."
       }
     ]
-  },  
+  }, 
   {
     "category": "Business Management & Consultancy",
     "icon": "📊",

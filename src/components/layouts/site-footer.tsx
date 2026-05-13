@@ -24,7 +24,8 @@ export default function Footer() {
   ];
 
   const products = [
-    "Oracle Fusion 1",
+    "Oracle Fusion Cloud",
+    "Oracle NetSuite ERP",
     "Manufacturing ERP",
     "HRMS",
     "CRM",

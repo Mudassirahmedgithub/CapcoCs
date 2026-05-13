@@ -9,18 +9,92 @@
 
   "products": [
     {
-    "category": "Oracle Fusion 1",
-    "icon": "📊",
-    "description": "Strategic advisory services to optimize operations and growth.",
-    "base": "",
-    "items": [
-      {
-        "label": "Oracle Fusion 1",
-        "icon": "📊",
-        "description": "Strategic advisory services to optimize operations and growth."
-      }
-    ]
-  },
+      "category": "Oracle Fusion Cloud",
+      "icon": "☁️",
+      "description": "Integrated Oracle Fusion Cloud applications for enterprise transformation and automation",
+      "base": "oracle-fusion-cloud",
+      "items": [
+        {
+          "label": "Financial Management",
+          "icon": "💰",
+          "description": "Enterprise financial planning, accounting, budgeting, and reporting"
+        },
+        {
+          "label": "Supply Chain & Operations",
+          "icon": "🏭",
+          "description": "Integrated supply chain, procurement, inventory, and production operations"
+        },
+        {
+          "label": "Human Capital Management (HCM)",
+          "icon": "👥",
+          "description": "Modern HR, workforce management, recruitment, and employee engagement"
+        },
+        {
+          "label": "Project & Performance Management",
+          "icon": "📊",
+          "description": "Project execution, enterprise performance management, and resource planning"
+        },
+        {
+          "label": "Customer Experience (CX)",
+          "icon": "🤝",
+          "description": "Unified customer engagement, sales, and service management solutions"
+        },
+        {
+          "label": "AI Analytics & Reporting",
+          "icon": "🧠",
+          "description": "AI-powered dashboards, KPI monitoring, analytics, and business insights"
+        },
+        {
+          "label": "ERP Implementation & Integration",
+          "icon": "⚙️",
+          "description": "Oracle Fusion ERP deployment, customization, migration, and support services"
+        }
+      ]
+    },
+
+    {
+      "category": "Oracle NetSuite ERP",
+      "icon": "📦",
+      "description": "AI-powered cloud ERP platform for business management and operational visibility",
+      "base": "oracle-netsuite-erp",
+      "items": [
+        {
+          "label": "Financial & Accounting Management",
+          "icon": "💰",
+          "description": "Automated accounting, billing, financial reporting, and compliance management"
+        },
+        {
+          "label": "Inventory, Warehouse & Supply Chain",
+          "icon": "📦",
+          "description": "Real-time inventory control, warehouse operations, procurement, and logistics"
+        },
+        {
+          "label": "Order & Production Management",
+          "icon": "🏭",
+          "description": "Sales order processing, manufacturing workflows, and production planning"
+        },
+        {
+          "label": "Project Management",
+          "icon": "📁",
+          "description": "Project tracking, budgeting, resource allocation, and profitability management"
+        },
+        {
+          "label": "Analytics & AI Insights",
+          "icon": "📊",
+          "description": "Real-time dashboards, KPI reporting, AI-powered analytics, and data insights"
+        },
+        {
+          "label": "Multi-Entity Business Management",
+          "icon": "🌐",
+          "description": "Manage subsidiaries, business units, and global operations from one platform"
+        },
+        {
+          "label": "ERP Implementation & Support",
+          "icon": "⚙️",
+          "description": "NetSuite deployment, customization, integration, training, and support services"
+        }
+      ]
+    },
     {
       "category": "Manufacturing ERP",
       "icon": "🏭",

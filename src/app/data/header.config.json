@@ -846,54 +846,14 @@
         "description": "Centralized asset registry with automated work management"
       },
       {
-        "label": "Field Service Management",
-        "icon": "🛠️",
-        "description": "Optimize field operations with smart service management tools"
-      },
-      {
         "label": "Asset Inspection",
         "icon": "🔍",
         "description": "Digital asset inspection workflows with real-time reporting"
       },
       {
-        "label": "Predictive Maintenance Alerts",
-        "icon": "⏰",
-        "description": "AI-driven predictive maintenance alerts to reduce downtime"
-      },
-      {
-        "label": "Asset Lifecycle Optimization",
-        "icon": "♻️",
-        "description": "Optimize asset lifecycle performance using intelligent analytics"
-      },
-      {
-        "label": "Geo-Tracking & Usage Monitoring",
-        "icon": "📍",
-        "description": "Real-time asset geo-tracking with detailed usage monitoring"
-      },
-      {
-        "label": "Inventory Tracking",
-        "icon": "📊",
-        "description": "Real-time monitoring of physical and digital assets."
-      },
-      {
-        "label": "Maintenance Scheduling",
-        "icon": "🛠️",
-        "description": "Automated reminders and maintenance tracking."
-      },
-      {
-        "label": "Reporting & Analytics",
-        "icon": "📈",
-        "description": "Insightful asset utilization and performance reports."
-      },
-      {
         "label": "RFID Solutions",
         "icon": "📡",
         "description": "Automated tracking using RFID technology."
-      },
-      {
-        "label": "Barcode Systems",
-        "icon": "🔢",
-        "description": "Efficient barcode-based asset identification."
       }
     ]
   }, 

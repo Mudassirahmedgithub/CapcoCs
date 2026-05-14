@@ -185,31 +185,7 @@ function FAQItem({ faq, index }: FAQItemProps) {
   )
 }
 
-/* ─── STICKY CTA ─── */
-function StickyCTA() {
-  const [visible, setVisible] = useState(false)
-  useEffect(() => {
-    const onScroll = () => setVisible(window.scrollY > 600)
-    window.addEventListener("scroll", onScroll)
-    return () => window.removeEventListener("scroll", onScroll)
-  }, [])
-  return (
-    <AnimatePresence>
-      {visible && (
-        <motion.div
-          initial={{ y: 80, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          exit={{ y: 80, opacity: 0 }}
-          transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-          className={styles.stickyCTA}
-        >
-          <span className={styles.stickyText}>Ready to start your AI journey?</span>
-          <button className={styles.stickyBtn}>Get Free Consultation →</button>
-        </motion.div>
-      )}
-    </AnimatePresence>
-  )
-}
+
 
 /* ─── NOISE OVERLAY ─── */
 function Noise() {
@@ -226,8 +202,7 @@ export default function AIConsultingPage() {
   return (
     <main className={styles.page}>
       <Noise />
-      <StickyCTA />
-
+      
       {/* ── HERO ── */}
       <section className={styles.hero} ref={heroRef}>
         <div className={styles.heroBg} aria-hidden>

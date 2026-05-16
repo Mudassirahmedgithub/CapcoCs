@@ -8,9 +8,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     // Main Pages
     '/about',
+    '/products',
+    '/services',
+    '/ai',
     '/contact',
-    '/PrivacyPolicy',
-    '/Terms',
 
     // AI Pages
     '/ai',
@@ -28,6 +29,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     // Products
     '/products',
+
+    // PrivacyPolicy
+    '/PrivacyPolicy',
+
+    // Terms
+    '/Terms',
 
     // Oracle Fusion Cloud
     '/products/oracle-fusion-cloud',
@@ -80,6 +87,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `${baseUrl}${route}`,
     lastModified: new Date(),
     changeFrequency: 'weekly',
-    priority: route === '' ? 1 : 0.8,
+    priority:
+      route === ''
+        ? 1.0
+        : ['/about', '/services', '/products', '/contact', '/ai'].includes(route)
+        ? 0.9
+        : 0.7,
   }))
 }

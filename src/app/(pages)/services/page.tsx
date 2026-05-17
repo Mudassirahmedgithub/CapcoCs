@@ -1,101 +1,253 @@
-"use client";
+'use client';
 
-import React from "react";
-import { motion } from "framer-motion";
+import { useRef, useState, useEffect } from 'react';
+import Link from 'next/link';
+import styles from './services.module.css';
 
+/* ── Data ── */
+const services = [
+  {
+    category: 'Warehouse Management',
+    icon: '🏭',
+    description: 'Efficient warehouse operations and inventory control solutions.',
+    base: 'warehouse-management',
+    items: [
+      { label: 'Inventory Management', icon: '📦', description: 'Real-time tracking and control of warehouse stock levels.' },
+      { label: 'Order Fulfillment', icon: '🚚', description: 'Streamlined picking, packing, and shipping processes.' },
+      { label: 'Warehouse Automation', icon: '🤖', description: 'Automated systems to improve speed and accuracy.' },
+      { label: 'Stock Auditing & Reporting', icon: '📊', description: 'Accurate reporting and inventory reconciliation tools.' },
+    ],
+  },
+  {
+    category: 'Asset Management',
+    icon: '📦',
+    description: 'Comprehensive solutions for tracking and managing company assets.',
+    base: 'asset-management',
+    items: [
+      { label: 'Asset Life Cycle Management', icon: '🔄', description: 'Manages assets from procurement and deployment to maintenance, depreciation, and disposal.' },
+      { label: 'Asset Tracking', icon: '📍', description: 'Monitors asset location, usage, and status in real time to improve visibility and control.' },
+      { label: 'Asset Financial & Compliance Management', icon: '📊', description: 'Tracks asset costs, depreciation, audits, and regulatory compliance to ensure financial accuracy.' },
+      { label: 'Asset Work & Registry', icon: '🗂️', description: 'Centralized asset registry with automated work management.' },
+      { label: 'Asset Inspection', icon: '🔍', description: 'Digital asset inspection workflows with real-time reporting.' },
+      { label: 'RFID Solutions', icon: '📡', description: 'Automated tracking using RFID technology.' },
+    ],
+  },
+  {
+    category: 'Business Management & Consultancy',
+    icon: '📊',
+    description: 'Strategic advisory services to optimize operations and growth.',
+    base: '',
+    items: [
+      { label: 'Business Management & Consultancy', icon: '📊', description: 'Strategic advisory services to optimize operations and growth.' },
+    ],
+  },
+  {
+    category: 'Digital Marketing',
+    icon: '📣',
+    description: 'Data-driven marketing strategies to grow your brand.',
+    base: '',
+    items: [
+      { label: 'Digital Marketing', icon: '📣', description: 'Data-driven marketing strategies to grow your brand.' },
+    ],
+  },
+  {
+    category: 'Software Development',
+    icon: '💻',
+    description: 'Custom software solutions tailored to your business needs.',
+    base: '',
+    items: [
+      { label: 'Software Development', icon: '💻', description: 'Custom software solutions tailored to your business needs.' },
+    ],
+  },
+  {
+    category: 'Data Governance & AI',
+    icon: '📊',
+    description: 'Trusted data management and intelligent AI-powered solutions.',
+    base: '',
+    items: [
+      { label: 'Data Governance & AI', icon: '📊', description: 'Trusted data management and intelligent AI-powered solutions.' },
+    ],
+  },
+  {
+    category: 'IT Consulting Support',
+    icon: '🧠',
+    description: 'Expert technology consulting and reliable IT support services.',
+    base: '',
+    items: [
+      { label: 'IT Consulting Support', icon: '🧠', description: 'Expert technology consulting and reliable IT support services.' },
+    ],
+  },
+];
+
+/* ── Helpers ── */
+function slugify(str: string) {
+  return str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+}
+
+/* ── Page ── */
 export default function ServicesPage() {
-  const services = [
-    {
-      title: "Web Development",
-      desc:
-        "End-to-end responsive website development using modern frameworks, scalable architectures, and enterprise-grade security standards.",
-    },
-    {
-      title: "Software Development",
-      desc:
-        "Custom enterprise software solutions designed to automate workflows, optimize business operations, and enable significant cost efficiency.",
-    },
-    {
-      title: "Mobile App Development",
-      desc:
-        "Native and cross-platform applications with seamless UI/UX, performance optimization, and long-term maintainability.",
-    },
-    {
-      title: "Cloud Services",
-      desc:
-        "Cloud migration, deployment, scaling, and infrastructure optimization using AWS, Azure, GCP and private-cloud systems.",
-    },
-    {
-      title: "Data Governance & AI",
-      desc:
-        "Enterprise data pipelines, governance frameworks, ML models, analytics dashboards, and AI automation to unlock data-driven decisions.",
-    },
-    {
-      title: "IT Consulting Support",
-      desc:
-        "Technical consulting, architecture reviews, implementation support, product audits, and long-term IT strategy planning.",
-    },
-  ];
+  const [activeCategory, setActiveCategory] = useState(slugify(services[0].category));
+  const sectionRefs = useRef<Record<string, HTMLElement | null>>({});
+
+  // Update active tab on scroll
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveCategory(entry.target.id);
+          }
+        });
+      },
+      { rootMargin: '-30% 0px -60% 0px', threshold: 0 }
+    );
+
+    Object.values(sectionRefs.current).forEach((el) => {
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  function scrollToCategory(slug: string) {
+    const el = sectionRefs.current[slug];
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setActiveCategory(slug);
+    }
+  }
 
   return (
-    <main className="min-h-screen bg-slate-50 py-20 px-6 sm:px-12">
-      <div className="max-w-7xl mx-auto">
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4 }}
-          className="text-4xl font-semibold text-slate-900 tracking-tight"
-        >
-          Our Services
-        </motion.h1>
-
-        <p className="max-w-2xl mt-4 text-slate-700 text-lg">
-          Capco Consulting Services delivers high-performance digital solutions across web, mobile, cloud, and AI ecosystems.
-        </p>
-
-        <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service, index) => (
-            <motion.div
-              key={service.title}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1, duration: 0.4 }}
-              className="rounded-2xl bg-white p-6 shadow-sm hover:shadow-md border border-slate-200"
-            >
-              <h3 className="text-xl font-medium text-slate-900">{service.title}</h3>
-              <p className="mt-3 text-slate-700 text-sm leading-relaxed">{service.desc}</p>
-              <button
-                className="mt-5 inline-flex items-center rounded-xl border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100"
-              >
-                Learn More
-              </button>
-            </motion.div>
-          ))}
+    <>
+      {/* ── Hero ── */}
+      <section className={styles.hero}>
+        <div className={styles.heroBg} aria-hidden="true" />
+        <div className="container">
+          <div className={styles.heroContent}>
+            <span className={styles.heroEyebrow}>What We Do</span>
+            <h1 className={styles.heroTitle}>
+              Services built for <em>real operations</em>
+            </h1>
+            <p className={styles.heroDesc}>
+              From warehouse floors to boardroom strategy, we deliver end-to-end solutions that drive efficiency, visibility, and growth across your entire business.
+            </p>
+          </div>
         </div>
+      </section>
 
-        <div className="mt-20 bg-white border border-slate-200 rounded-2xl p-10 shadow-sm">
-          <h2 className="text-2xl font-semibold text-slate-900">Why Choose Capco?</h2>
-          <p className="mt-4 text-slate-700 max-w-3xl">
-            We combine industry experience with advanced technologies to deliver solutions that are scalable, secure, and business-focused.
-            Every service we offer is built on strong engineering foundations and a client-first approach.
-          </p>
+      {/* ── Sticky Category Nav ── */}
+      <nav className={styles.categoryNav} aria-label="Service categories">
+        <div className="container">
+          <div className={styles.categoryNavInner}>
+            {services.map((svc) => {
+              const slug = slugify(svc.category);
+              return (
+                <button
+                  key={slug}
+                  className={`${styles.categoryTab} ${activeCategory === slug ? styles.active : ''}`}
+                  onClick={() => scrollToCategory(slug)}
+                  aria-current={activeCategory === slug ? 'true' : undefined}
+                >
+                  <span className={styles.categoryTabIcon}>{svc.icon}</span>
+                  {svc.category}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      </nav>
 
-          <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-6">
-            <div className="bg-slate-50 border border-slate-200 rounded-xl p-6 text-center shadow-sm">
-              <h4 className="text-lg font-medium text-slate-900">End-to-End Execution</h4>
-              <p className="mt-2 text-slate-700 text-sm">From planning to deployment to long-term support.</p>
+      {/* ── Services Grid ── */}
+      <section className={styles.servicesSection}>
+        <div className="container">
+          {services.map((svc) => {
+            const slug = slugify(svc.category);
+            const isSingle = svc.items.length === 1;
+
+            return (
+              <div
+                key={slug}
+                id={slug}
+                className={styles.categoryBlock}
+                ref={(el) => { sectionRefs.current[slug] = el; }}
+              >
+                {/* Category Header */}
+                <div className={styles.categoryHeader}>
+                  <div className={styles.categoryIconWrap} aria-hidden="true">
+                    {svc.icon}
+                  </div>
+                  <div className={styles.categoryMeta}>
+                    <h2 className={styles.categoryName}>{svc.category}</h2>
+                    <p className={styles.categoryDesc}>{svc.description}</p>
+                  </div>
+                  {!isSingle && (
+                    <span className={styles.categoryCount}>
+                      {svc.items.length} services
+                    </span>
+                  )}
+                </div>
+
+                {/* Items */}
+                <div className={`${styles.itemsGrid} ${isSingle ? styles.singleItem : ''}`}>
+                  {svc.items.map((item) => (
+                    <ServiceCard key={item.label} item={item} base={svc.base} />
+                  ))}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* ── CTA Banner ── */}
+      <section className={styles.ctaBanner}>
+        <div className="container">
+          <div className={styles.ctaInner}>
+            <div className={styles.ctaText}>
+              <h2>Ready to transform your operations?</h2>
+              <p>
+                Talk to our team about the right mix of services for your business. No jargon — just clear solutions.
+              </p>
             </div>
-            <div className="bg-slate-50 border border-slate-200 rounded-xl p-6 text-center shadow-sm">
-              <h4 className="text-lg font-medium text-slate-900">Enterprise-Level Engineering</h4>
-              <p className="mt-2 text-slate-700 text-sm">Best practices, optimized workflows, and secure designs.</p>
-            </div>
-            <div className="bg-slate-50 border border-slate-200 rounded-xl p-6 text-center shadow-sm">
-              <h4 className="text-lg font-medium text-slate-900">Client-Focused Delivery</h4>
-              <p className="mt-2 text-slate-700 text-sm">Built for your business goals and scalable growth.</p>
+            <div className={styles.ctaActions}>
+              <Link href="/contact" className="btn btn-primary">
+                Get in Touch
+              </Link>
+              <Link href="/about" className="btn btn-ghost">
+                Learn About Us
+              </Link>
             </div>
           </div>
         </div>
-      </div>
-    </main>
+      </section>
+    </>
   );
+}
+
+/* ── Service Card Sub-component ── */
+interface ServiceItem {
+  label: string;
+  icon: string;
+  description: string;
+}
+
+function ServiceCard({ item, base }: { item: ServiceItem; base: string }) {
+  const content = (
+    <div className={styles.serviceCard}>
+      <span className={styles.serviceCardIcon}>{item.icon}</span>
+      <div className={styles.serviceCardLabel}>{item.label}</div>
+      <p className={styles.serviceCardDesc}>{item.description}</p>
+    </div>
+  );
+
+  if (base) {
+    const slug = slugify(item.label);
+    return (
+      <Link href={`/services/${base}/${slug}`} style={{ display: 'block', textDecoration: 'none' }}>
+        {content}
+      </Link>
+    );
+  }
+
+  return content;
 }

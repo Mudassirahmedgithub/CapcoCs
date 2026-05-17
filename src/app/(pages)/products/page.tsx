@@ -1,165 +1,150 @@
 import Link from "next/link"
-import productsData from "@/app/data/navigation.json"
+import productsData from "@/app/data/header.config.json"
+import styles from "./products.module.css"
+
+const AI_FEATURES = [
+  { icon: "📈", title: "AI Demand Forecasting" },
+  { icon: "💬", title: "HR Chatbot" },
+  { icon: "🛡️", title: "AI Fraud Detection" },
+  { icon: "🎯", title: "AI Recruitment" },
+]
+
+const PLATFORM_MODULES = ["ERP", "HRMS", "CRM", "Procurement", "Finance", "Audit", "Retail", "AI"]
 
 export default function ProductsPage() {
   const categories = productsData.products
 
   return (
-    <main className="w-full">
+    <main className={styles.page}>
 
-      {/* HERO */}
-      <section className="py-24 bg-gradient-to-b from-slate-50 to-white text-center">
-        <div className="max-w-5xl mx-auto px-6">
-          <h1 className="text-5xl font-bold mb-6">
-            Powerful Business Software for Every Department
+      {/* ── HERO ─────────────────────────────────────────────────── */}
+      <section className={styles.hero}>
+        <div className={styles.heroInner}>
+
+          <span className={styles.heroEyebrow}>Product Suite</span>
+
+          <h1 className={styles.heroTitle}>
+            Powerful Business Software<br />
+            for <em>Every Department</em>
           </h1>
 
-          <p className="text-lg text-gray-600 mb-8">
+          <p className={styles.heroDesc}>
             Explore our integrated suite of business applications designed
             to streamline operations, improve productivity, and drive growth.
           </p>
 
-          <div className="flex justify-center gap-4">
-            <Link
-              href="#categories"
-              className="px-6 py-3 bg-black text-white rounded-lg"
-            >
+          <div className={styles.heroCta}>
+            <Link href="#categories" className="btn btn-primary">
               Explore Solutions
             </Link>
-
-            <Link
-              href="/contact"
-              className="px-6 py-3 border rounded-lg"
-            >
-              Book Demo
+            <Link href="/contact" className="btn btn-ghost">
+              Book a Demo
             </Link>
           </div>
+
         </div>
       </section>
 
-      {/* PLATFORM OVERVIEW */}
-      <section className="py-20 border-b">
-        <div className="max-w-6xl mx-auto px-6 text-center">
+      {/* ── PLATFORM OVERVIEW ────────────────────────────────────── */}
+      <section className={styles.overview}>
+        <div className={styles.overviewInner}>
 
-          <h2 className="text-3xl font-bold mb-6">
-            One Platform. Multiple Business Solutions
-          </h2>
-
-          <p className="text-gray-600 max-w-3xl mx-auto mb-10">
+          <span className={styles.sectionEyebrow}>The Platform</span>
+          <h2 className={styles.sectionTitle}>One Platform. Multiple Business Solutions.</h2>
+          <p className={styles.sectionSubtitle}>
             Our platform connects ERP, HRMS, CRM, Procurement, Finance,
             and AI-powered analytics into one unified ecosystem.
           </p>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {["ERP", "HRMS", "CRM", "Procurement", "Finance", "Audit", "Retail", "AI"].map(
-              (item) => (
-                <div
-                  key={item}
-                  className="border rounded-xl p-6 text-center bg-white shadow-sm"
-                >
-                  <span className="text-lg font-semibold">{item}</span>
-                </div>
-              )
-            )}
+          <div className={styles.pillGrid}>
+            {PLATFORM_MODULES.map((item) => (
+              <div key={item} className={styles.pill}>
+                {item}
+              </div>
+            ))}
           </div>
 
         </div>
       </section>
 
-      {/* CATEGORY GRID */}
-      <section id="categories" className="py-20 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-6">
+      {/* ── CATEGORY GRID ────────────────────────────────────────── */}
+      <section id="categories" className={styles.categories}>
+        <div className={styles.categoriesInner}>
 
-          <h2 className="text-3xl font-bold mb-12 text-center">
-            Explore Our Product Suite
-          </h2>
+          <div className={styles.sectionHeader}>
+            <span className={styles.sectionEyebrow}>Solutions</span>
+            <h2 className={styles.sectionTitle}>Explore Our Product Suite</h2>
+            <p className={styles.sectionSubtitle}>
+              Purpose-built modules for every business function, all working together seamlessly.
+            </p>
+          </div>
 
-          <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-8">
-
+          <div className={styles.categoryGrid}>
             {categories.map((category: any) => (
-              <div
-                key={category.base}
-                className="bg-white rounded-xl border p-6 hover:shadow-md transition"
-              >
+              <div key={category.base} className={styles.categoryCard}>
 
-                <div className="text-3xl mb-4">{category.icon}</div>
+                <div className={styles.categoryIcon}>{category.icon}</div>
 
-                <h3 className="text-xl font-semibold mb-2">
-                  {category.category}
-                </h3>
+                <h3 className={styles.categoryName}>{category.category}</h3>
 
-                <p className="text-sm text-gray-600 mb-4">
-                  {category.description}
-                </p>
+                <p className={styles.categoryDesc}>{category.description}</p>
 
-                <ul className="text-sm text-gray-500 space-y-1 mb-4">
+                <ul className={styles.categoryList}>
                   {category.items.slice(0, 4).map((item: any) => (
-                    <li key={item.label}>• {item.label}</li>
+                    <li key={item.label} className={styles.categoryListItem}>
+                      {item.label}
+                    </li>
                   ))}
                 </ul>
 
-                <Link
-                  href={`/products/${category.base}`}
-                  className="text-sm font-medium text-blue-600"
-                >
+                <Link href={`/products/${category.base}`} className={styles.categoryLink}>
                   View All →
                 </Link>
 
               </div>
             ))}
-
           </div>
+
         </div>
       </section>
 
-      {/* CATEGORY + ITEMS PREVIEW */}
-      <section className="py-24">
-        <div className="max-w-7xl mx-auto px-6 space-y-24">
+      {/* ── FULL PRODUCT LISTING ──────────────────────────────────── */}
+      <section className={styles.listing}>
+        <div className={styles.listingInner}>
 
           {categories.map((category: any) => (
-            <div key={category.base} id={category.base}>
+            <div key={category.base} id={category.base} className={styles.listingGroup}>
 
-              <div className="flex justify-between items-center mb-8">
-                <div>
-                  <h2 className="text-3xl font-bold">
+              <div className={styles.listingGroupHeader}>
+                <div className={styles.listingGroupMeta}>
+                  <h2>
                     {category.icon} {category.category}
                   </h2>
-
-                  <p className="text-gray-600 mt-2">
-                    {category.description}
-                  </p>
+                  <p>{category.description}</p>
                 </div>
 
                 <Link
                   href={`/products/${category.base}`}
-                  className="text-sm font-semibold"
+                  className={styles.listingGroupLink}
                 >
                   View {category.category} →
                 </Link>
               </div>
 
-              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-
+              <div className={styles.productGrid}>
                 {category.items.slice(0, 8).map((item: any) => (
                   <Link
                     key={item.label}
                     href={`/products/${category.base}/${item.label
                       .toLowerCase()
                       .replace(/\s+/g, "-")}`}
-                    className="border rounded-lg p-5 hover:shadow-md transition"
+                    className={styles.productCard}
                   >
-                    <div className="text-xl mb-2">{item.icon}</div>
-
-                    <h4 className="font-semibold mb-2">
-                      {item.label}
-                    </h4>
-
-                    <p className="text-sm text-gray-600">
-                      {item.description}
-                    </p>
+                    <div className={styles.productCardIcon}>{item.icon}</div>
+                    <h4 className={styles.productCardName}>{item.label}</h4>
+                    <p className={styles.productCardDesc}>{item.description}</p>
                   </Link>
                 ))}
-
               </div>
 
             </div>
@@ -168,82 +153,57 @@ export default function ProductsPage() {
         </div>
       </section>
 
-      {/* AI SECTION */}
-      <section className="py-24 bg-slate-50">
-        <div className="max-w-6xl mx-auto px-6 text-center">
+      {/* ── AI SECTION ───────────────────────────────────────────── */}
+      <section className={styles.ai}>
+        <div className={styles.aiInner}>
 
-          <h2 className="text-3xl font-bold mb-6">
-            AI Powered Business Intelligence
-          </h2>
-
-          <p className="text-gray-600 mb-10">
-            Leverage artificial intelligence across HR, ERP, CRM,
-            and finance to unlock predictive insights and automation.
+          <span className={styles.sectionEyebrow}>Artificial Intelligence</span>
+          <h2 className={styles.sectionTitle}>AI Powered Business Intelligence</h2>
+          <p className={styles.sectionSubtitle}>
+            Leverage artificial intelligence across HR, ERP, CRM, and finance
+            to unlock predictive insights and automation.
           </p>
 
-          <div className="grid md:grid-cols-4 gap-6">
-
-            {[
-              "AI Demand Forecasting",
-              "HR Chatbot",
-              "AI Fraud Detection",
-              "AI Recruitment",
-            ].map((ai) => (
-              <div
-                key={ai}
-                className="p-6 border rounded-xl bg-white"
-              >
-                🤖 {ai}
+          <div className={styles.aiGrid}>
+            {AI_FEATURES.map((feature) => (
+              <div key={feature.title} className={styles.aiCard}>
+                <div className={styles.aiCardIconWrap}>{feature.icon}</div>
+                <h3 className={styles.aiCardTitle}>{feature.title}</h3>
               </div>
             ))}
-
           </div>
 
         </div>
       </section>
 
-      {/* PLATFORM INTEGRATION */}
-      <section className="py-24 border-t border-b">
-        <div className="max-w-6xl mx-auto px-6 text-center">
+      {/* ── INTEGRATION BANNER ───────────────────────────────────── */}
+      <section className={styles.integration}>
+        <div className={styles.integrationInner}>
 
-          <h2 className="text-3xl font-bold mb-6">
-            Everything Works Together
-          </h2>
-
-          <p className="text-gray-600 max-w-3xl mx-auto">
-            ERP, HRMS, CRM, Finance, Procurement, and Analytics
-            all run on a unified platform designed for scalability,
-            security, and performance.
+          <h2 className={styles.integrationTitle}>Everything Works Together</h2>
+          <p className={styles.integrationDesc}>
+            ERP, HRMS, CRM, Finance, Procurement, and Analytics all run on a
+            unified platform designed for scalability, security, and performance.
           </p>
 
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-24 text-center">
-        <div className="max-w-4xl mx-auto px-6">
+      {/* ── CTA ──────────────────────────────────────────────────── */}
+      <section className={styles.cta}>
+        <div className={styles.ctaInner}>
 
-          <h2 className="text-3xl font-bold mb-6">
-            Ready to Transform Your Business?
-          </h2>
-
-          <p className="text-gray-600 mb-8">
-            Discover how our integrated business software
-            can help you automate operations and accelerate growth.
+          <h2 className={styles.ctaTitle}>Ready to Transform Your Business?</h2>
+          <p className={styles.ctaDesc}>
+            Discover how our integrated business software can help you
+            automate operations and accelerate growth.
           </p>
 
-          <div className="flex justify-center gap-4">
-            <Link
-              href="/contact"
-              className="px-6 py-3 bg-black text-white rounded-lg"
-            >
+          <div className={styles.ctaButtons}>
+            <Link href="/contact" className={styles.ctaBtnPrimary}>
               Request Demo
             </Link>
-
-            <Link
-              href="/contact"
-              className="px-6 py-3 border rounded-lg"
-            >
+            <Link href="/contact" className={styles.ctaBtnGhost}>
               Contact Sales
             </Link>
           </div>

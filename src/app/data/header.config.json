@@ -94,6 +94,19 @@
           "description": "NetSuite deployment, customization, integration, training, and support services"
         }
       ]
+   },
+    {
+      "category": "Beyond-RF",
+      "icon": "📦",
+      "description": "SAP-certified mobile warehouse management solution that modernizes RF scanning with a fast, intuitive Android experience for SAP EWM and SAP WM.",
+      "base": "",
+      "items": [
+        {
+          "label": "Beyond-RF",
+          "icon": "📱",
+          "description": "Mobile data capture platform for SAP warehouses, enabling faster barcode scanning, offline operations, seamless SAP integration, and improved warehouse productivity."
+        }
+      ]
     }
 
   ],
@@ -136,111 +149,8 @@
         "description": "Strategic AI guidance to accelerate business transformation."
       }
     ]
-  },
-  {
-    "category": "AI Development",
-    "icon": "⚙️",
-    "description": "End-to-end AI solution design and implementation.",
-    "base": "",
-    "items": [
-      {
-        "label": "AI Development",
-        "icon": "⚙️",
-        "description": "End-to-end AI solution design and implementation."
-      }
-    ]
-  },
-  {
-    "category": "AI Integration",
-    "icon": "🔗",
-    "description": "Seamless integration of AI into existing systems.",
-    "base": "",
-    "items": [
-      {
-        "label": "AI Integration",
-        "icon": "🔗",
-        "description": "Seamless integration of AI into existing systems."
-      }
-    ]
-  },
-  {
-    "category": "AI OCR",
-    "icon": "🖨️",
-    "description": "Intelligent document processing using OCR technology.",
-    "base": "",
-    "items": [
-      {
-        "label": "AI OCR",
-        "icon": "🖨️",
-        "description": "Intelligent document processing using OCR technology."
-      }
-    ]
-  },
-  {
-    "category": "Computer Vision",
-    "icon": "👁️",
-    "description": "Visual intelligence solutions for image and video analysis.",
-    "base": "",
-    "items": [
-      {
-        "label": "Computer Vision",
-        "icon": "👁️",
-        "description": "Visual intelligence solutions for image and video analysis"
-      }
-    ]
-  },
-  {
-    "category": "Generative AI Consulting",
-    "icon": "💡",
-    "description": "Expert guidance on adopting generative AI solutions.",
-    "base": "",
-    "items": [
-      {
-        "label": "Generative AI Consulting",
-        "icon": "💡",
-        "description": "Expert guidance on adopting generative AI solutions."
-      }
-    ]
-  },
-  {
-    "category": "Generative AI Development",
-    "icon": "✨",
-    "description": "Building advanced generative AI applications.",
-    "base": "",
-    "items": [
-      {
-        "label": "Generative AI Development",
-        "icon": "✨",
-        "description": "Building advanced generative AI applications."
-      }
-    ]
-  },
-  {
-    "category": "Generative AI",
-    "icon": "🚀",
-    "description": "AI systems that generate text, images, and more.",
-    "base": "",
-    "items": [
-      {
-        "label": "Generative AI",
-        "icon": "🚀",
-        "description": "AI systems that generate text, images, and more."
-      }
-    ]
-  },
-  {
-    "category": "Machine Learning",
-    "icon": "📈",
-    "description": "Data-driven models that learn and improve over time.",
-    "base": "",
-    "items": [
-      {
-        "label": "Machine Learning",
-        "icon": "📈",
-        "description": "Data-driven models that learn and improve over time"
-      }
-    ]
   }
+ 
 ],
   "services": [
 {

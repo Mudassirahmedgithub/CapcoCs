@@ -1,315 +1,256 @@
-import styles from './ai.module.css';
+import type { Metadata } from "next";
 
-const aiServices = [
-  {
-    category: 'AI Agent Development',
-    icon: '🤖',
-    description: 'Autonomous AI agents that reason, plan, and act intelligently.',
+// ─── SEO Metadata ────────────────────────────────────────────────────────────
+export const metadata: Metadata = {
+  title: "AI Development Services | AI Consulting & Solutions | CAPCO Consulting",
+  description:
+    "CAPCO Consulting delivers enterprise AI services — AI agent development, generative AI, machine learning, computer vision, NLP, AI chatbots, and AI integration across industries worldwide.",
+  keywords: [
+    "AI Development Services",
+    "AI Consulting Services",
+    "Enterprise AI Solutions",
+    "Generative AI Development",
+    "AI Agent Development",
+    "Machine Learning Services",
+    "AI Chatbot Development",
+    "Computer Vision Solutions",
+    "AI Integration Services",
+    "AI OCR Services",
+    "NLP Solutions",
+    "AI Transformation",
+    "AI for Business",
+    "Custom AI Development",
+    "AI Strategy Consulting",
+    "MLOps Services",
+    "Responsible AI",
+    "AI Automation",
+  ],
+  openGraph: {
+    title: "AI Development & Consulting Services | CAPCO Consulting Services",
+    description:
+      "From autonomous AI agents to generative AI and machine learning — CAPCO builds, deploys, and scales enterprise AI solutions that create measurable business impact.",
+    type: "website",
+    url: "https://www.capcocs.com/services/ai",
+    siteName: "CAPCO Consulting Services",
   },
-  {
-    category: 'AI Chatbot Development',
-    icon: '💬',
-    description: 'Conversational AI solutions for customer engagement and support.',
+  twitter: {
+    card: "summary_large_image",
+    title: "AI Development & Consulting Services | CAPCO Consulting Services",
+    description:
+      "From autonomous AI agents to generative AI and machine learning — CAPCO builds, deploys, and scales enterprise AI solutions.",
   },
-  {
-    category: 'AI Consulting',
-    icon: '🧭',
-    description: 'Strategic AI guidance to accelerate business transformation.',
+  alternates: {
+    canonical: "https://www.capcocs.com/services/ai",
   },
-  {
-    category: 'AI Development',
-    icon: '⚙️',
-    description: 'End-to-end AI solution design and implementation.',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
-  {
-    category: 'AI Integration',
-    icon: '🔗',
-    description: 'Seamless integration of AI into existing systems.',
-  },
-  {
-    category: 'AI OCR',
-    icon: '🖨️',
-    description: 'Intelligent document processing using OCR technology.',
-  },
-  {
-    category: 'Computer Vision',
-    icon: '👁️',
-    description: 'Visual intelligence solutions for image and video analysis.',
-  },
-  {
-    category: 'Generative AI Consulting',
-    icon: '💡',
-    description: 'Expert guidance on adopting generative AI solutions.',
-  },
-  {
-    category: 'Generative AI Development',
-    icon: '✨',
-    description: 'Building advanced generative AI applications.',
-  },
-  {
-    category: 'Generative AI',
-    icon: '🚀',
-    description: 'AI systems that generate text, images, and more.',
-  },
-  {
-    category: 'Machine Learning',
-    icon: '📈',
-    description: 'Data-driven models that learn and improve over time.',
-  },
-];
+};
 
-const processSteps = [
-  {
-    num: '01',
-    title: 'Discovery',
-    desc: 'We analyse your business goals, data landscape, and existing systems.',
+// ─── JSON-LD: Professional Service Schema ────────────────────────────────────
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  name: "CAPCO Consulting Services – AI Development & Consulting",
+  description:
+    "Enterprise AI services including AI agent development, generative AI, machine learning, computer vision, NLP, AI chatbot development, and AI strategy consulting.",
+  url: "https://www.capcocs.com/services/ai",
+  logo: "https://www.capcocs.com/logo.png",
+  areaServed: "Worldwide",
+  serviceType: [
+    "AI Development",
+    "AI Consulting",
+    "Generative AI Development",
+    "Machine Learning Services",
+    "AI Agent Development",
+    "Computer Vision Solutions",
+    "AI Chatbot Development",
+    "AI Integration Services",
+  ],
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "AI Services Portfolio",
+    itemListElement: [
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "AI Agent Development" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "AI Chatbot Development" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "AI Consulting & Strategy" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "End-to-End AI Development" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "AI Systems Integration" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "AI-Powered OCR & Document Processing" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Computer Vision Solutions" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Generative AI Consulting & Development" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Machine Learning & Predictive Analytics" } },
+    ],
   },
-  {
-    num: '02',
-    title: 'Strategy',
-    desc: 'A tailored AI roadmap is crafted around your specific use cases.',
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: "4.9",
+    reviewCount: "120",
+    bestRating: "5",
   },
-  {
-    num: '03',
-    title: 'Build',
-    desc: 'Our engineers design, train, and integrate the AI solution end-to-end.',
-  },
-  {
-    num: '04',
-    title: 'Scale',
-    desc: 'Ongoing monitoring, optimisation, and iteration to maximise impact.',
-  },
-];
+};
 
-const whyItems = [
-  {
-    icon: '🎯',
-    title: 'Domain-specific expertise',
-    desc: 'Specialists across verticals — healthcare, fintech, retail, logistics and beyond.',
-  },
-  {
-    icon: '🔬',
-    title: 'Research-backed approach',
-    desc: 'We apply cutting-edge techniques from the latest academic and industry research.',
-  },
-  {
-    icon: '🛡️',
-    title: 'Responsible AI by default',
-    desc: 'Privacy, fairness, and explainability baked into every model we deliver.',
-  },
-  {
-    icon: '⚡',
-    title: 'Rapid time-to-value',
-    desc: 'Agile sprints and pre-built components get you to production faster.',
-  },
-];
+// ─── JSON-LD: FAQ Schema ──────────────────────────────────────────────────────
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "What AI development services does CAPCO Consulting offer?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "CAPCO Consulting offers a full spectrum of AI services including AI agent development, generative AI consulting and development, machine learning, computer vision, NLP, AI chatbot development, AI-powered OCR, AI integration, and end-to-end AI strategy — tailored to your industry and business goals.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "How long does it take to build and deploy an AI solution?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Most enterprise AI solutions are delivered to production within 12 weeks on average. We use agile sprints and pre-built AI components to accelerate time-to-value without compromising quality.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Can you integrate AI into our existing systems and cloud infrastructure?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes. We work natively with AWS, Azure, and GCP, and integrate AI capabilities into your existing ERP, CRM, data warehouse, and REST API ecosystem — no full platform migration required.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What industries do you serve with AI solutions?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "We serve a wide range of industries including healthcare, financial services, fintech, retail, logistics, manufacturing, and more — with domain-specific AI strategies and implementation.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Do you provide AI model monitoring and maintenance after deployment?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Absolutely. Our MLOps practice includes continuous drift detection, automated retraining triggers, performance dashboards, and versioned rollback to keep your AI models accurate and reliable in production.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What is Responsible AI and how do you implement it?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Responsible AI means building models that are fair, explainable, and privacy-preserving by design. We embed bias auditing, transparency reporting, and data privacy controls into every AI solution we deliver.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What are AI agents and how can they benefit my business?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "AI agents are autonomous systems that reason, plan, and take actions to achieve goals — from automating complex workflows to orchestrating multi-step processes across your business applications, reducing manual effort significantly.",
+      },
+    },
+  ],
+};
 
-export default function AiPage() {
+// ─── JSON-LD: Breadcrumb Schema ───────────────────────────────────────────────
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://www.capcocs.com" },
+    { "@type": "ListItem", position: 2, name: "Services", item: "https://www.capcocs.com/services" },
+    { "@type": "ListItem", position: 3, name: "AI Services", item: "https://www.capcocs.com/services/ai" },
+  ],
+};
+
+// ─── JSON-LD: WebPage Schema ──────────────────────────────────────────────────
+const webPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://www.capcocs.com/services/ai",
+  url: "https://www.capcocs.com/services/ai",
+  name: "AI Development Services | CAPCO Consulting Services",
+  description:
+    "Enterprise AI services: AI agents, generative AI, machine learning, computer vision, chatbots, NLP, OCR, and AI consulting for businesses worldwide.",
+  isPartOf: {
+    "@type": "WebSite",
+    url: "https://www.capcocs.com",
+    name: "CAPCO Consulting Services",
+  },
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.capcocs.com" },
+      { "@type": "ListItem", position: 2, name: "Services", item: "https://www.capcocs.com/services" },
+      { "@type": "ListItem", position: 3, name: "AI Services", item: "https://www.capcocs.com/services/ai" },
+    ],
+  },
+  speakable: {
+    "@type": "SpeakableSpecification",
+    cssSelector: ["h1", "h2", ".hero-subtitle"],
+  },
+};
+
+// ─── Imports ──────────────────────────────────────────────────────────────────
+import AiPage from "./Aipage";
+import Link from "next/link";
+
+// ─── Page (Server Component) ──────────────────────────────────────────────────
+export default function Page() {
   return (
-    <main>
-      {/* ── Hero ── */}
-      <section className={styles.hero}>
-        <div className="container">
-          <div className={styles.heroGrid}>
-            <div className={styles.heroContent}>
-              <span className={styles.heroEyebrow}>AI Services</span>
-              <h1 className={styles.heroTitle}>
-                Intelligence,<br />
-                <em>built for your business.</em>
-              </h1>
-              <p className={styles.heroSubtitle}>
-                From autonomous agents to generative AI, we design, build, and deploy
-                AI solutions that create measurable impact — at every stage of your
-                digital transformation.
-              </p>
-              <div className={styles.heroActions}>
-                <a href="/contact" className="btn btn-primary">Get a free consultation</a>
-                <a href="#services" className="btn btn-ghost">Explore services</a>
-              </div>
-            </div>
+    <>
+      {/* ── Inject JSON-LD Schemas ── */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }}
+      />
 
-            <div className={styles.heroVisual}>
-              <div className={styles.heroOrbRing2} />
-              <div className={styles.heroOrbRing} />
-              <div className={styles.heroOrb}>
-                <div className={styles.heroOrbInner}>
-                  <span className={styles.heroOrbIcon}>🤖</span>
-                </div>
-              </div>
-              <span className={styles.heroFloatDot} />
-              <span className={styles.heroFloatDot2} />
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* ── Accessible Breadcrumb (visible to crawlers, hidden visually) ── */}
+      <nav aria-label="Breadcrumb" className="sr-only">
+        <ol itemScope itemType="https://schema.org/BreadcrumbList">
+          <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
+            <Link href="/" itemProp="item">
+              <span itemProp="name">Home</span>
+            </Link>
+            <meta itemProp="position" content="1" />
+          </li>
+          <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
+            <Link href="/services" itemProp="item">
+              <span itemProp="name">Services</span>
+            </Link>
+            <meta itemProp="position" content="2" />
+          </li>
+          <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
+            <span itemProp="name" aria-current="page">AI Services</span>
+            <meta itemProp="position" content="3" />
+          </li>
+        </ol>
+      </nav>
 
-      {/* ── Stats Bar ── */}
-      <div className={styles.statsBar}>
-        <div className="container">
-          <div className={styles.statsGrid}>
-            <div className={styles.statItem}>
-              <span className={styles.statValue}>
-                <span className={styles.statAccent}>200</span>+
-              </span>
-              <span className={styles.statLabel}>AI Projects Delivered</span>
-            </div>
-            <div className={styles.statItem}>
-              <span className={styles.statValue}>
-                <span className={styles.statAccent}>11</span>
-              </span>
-              <span className={styles.statLabel}>AI Specialisations</span>
-            </div>
-            <div className={styles.statItem}>
-              <span className={styles.statValue}>
-                <span className={styles.statAccent}>98</span>%
-              </span>
-              <span className={styles.statLabel}>Client Satisfaction</span>
-            </div>
-            <div className={styles.statItem}>
-              <span className={styles.statValue}>
-                <span className={styles.statAccent}>6</span>yrs
-              </span>
-              <span className={styles.statLabel}>Deep AI Expertise</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* ── Services ── */}
-      <section className={styles.services} id="services">
-        <div className="container">
-          <div className={styles.sectionHeader}>
-            <span className={styles.sectionEyebrow}>What we offer</span>
-            <h2 className={styles.sectionTitle}>Our AI service portfolio</h2>
-            <p className={styles.sectionSubtitle}>
-              A comprehensive suite of AI capabilities, each crafted to solve real
-              problems and unlock new possibilities for your organisation.
-            </p>
-          </div>
-
-          <div className={styles.servicesGrid}>
-            {aiServices.map((service) => (
-              <article key={service.category} className={styles.serviceCard}>
-                <span className={styles.serviceIcon}>{service.icon}</span>
-                <h3 className={styles.serviceLabel}>{service.category}</h3>
-                <p className={styles.serviceDesc}>{service.description}</p>
-                <span className={styles.serviceArrow}>
-                  Learn more →
-                </span>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── Process ── */}
-      <section className={styles.process}>
-        <div className="container">
-          <div className={styles.sectionHeader}>
-            <span className={styles.sectionEyebrow}>How we work</span>
-            <h2 className={styles.sectionTitle}>
-              A process built for <em>real outcomes</em>
-            </h2>
-            <p className={styles.sectionSubtitle}>
-              We don't just build models — we engineer AI systems that slot into your
-              business and keep getting better.
-            </p>
-          </div>
-
-          <div className={styles.processSteps}>
-            {processSteps.map((step) => (
-              <div key={step.num} className={styles.processStep}>
-                <div className={styles.processStepNum}>{step.num}</div>
-                <h4 className={styles.processStepTitle}>{step.title}</h4>
-                <p className={styles.processStepDesc}>{step.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── Why Us ── */}
-      <section className={styles.why}>
-        <div className="container">
-          <div className={styles.whyGrid}>
-            <div>
-              <span className={styles.sectionEyebrow}>Why choose us</span>
-              <h2 className={styles.sectionTitle}>
-                AI partners who go<br /><em>beyond the model</em>
-              </h2>
-
-              <div className={styles.whyList}>
-                {whyItems.map((item) => (
-                  <div key={item.title} className={styles.whyItem}>
-                    <span className={styles.whyItemIcon}>{item.icon}</span>
-                    <div className={styles.whyItemContent}>
-                      <h4 className={styles.whyItemTitle}>{item.title}</h4>
-                      <p className={styles.whyItemDesc}>{item.desc}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Decorative metrics card */}
-            <div className={styles.whyVisual}>
-              <div className={styles.whyCard}>
-                <div className={styles.whyCardHeader}>
-                  <div className={styles.whyCardAvatar}>🤖</div>
-                  <div>
-                    <div className={styles.whyCardName}>AI Performance Report</div>
-                    <div className={styles.whyCardRole}>Quarterly model insights</div>
-                  </div>
-                </div>
-
-                <div className={styles.whyCardMetrics}>
-                  <div className={styles.whyCardMetric}>
-                    <span className={`${styles.whyCardMetricVal} ${styles.whyCardAccent}`}>↑ 3.4×</span>
-                    <span className={styles.whyCardMetricLabel}>Productivity lift</span>
-                  </div>
-                  <div className={styles.whyCardMetric}>
-                    <span className={`${styles.whyCardMetricVal} ${styles.whyCardAccent}`}>−62%</span>
-                    <span className={styles.whyCardMetricLabel}>Manual effort</span>
-                  </div>
-                  <div className={styles.whyCardMetric}>
-                    <span className={styles.whyCardMetricVal}>99.2%</span>
-                    <span className={styles.whyCardMetricLabel}>Model uptime</span>
-                  </div>
-                  <div className={styles.whyCardMetric}>
-                    <span className={styles.whyCardMetricVal}>12 wk</span>
-                    <span className={styles.whyCardMetricLabel}>Avg. to production</span>
-                  </div>
-                </div>
-
-                <div>
-                  <span className={styles.whyCardTag}>Responsible AI certified</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── CTA ── */}
-      <section className={styles.cta}>
-        <div className="container">
-          <div className={styles.ctaInner}>
-            <h2 className={styles.ctaTitle}>
-              Ready to build something<br /><em>intelligent?</em>
-            </h2>
-            <p className={styles.ctaSubtitle}>
-              Talk to our AI team and discover how we can accelerate your
-              transformation — from a single model to a full AI ecosystem.
-            </p>
-            <div className={styles.ctaActions}>
-              <a href="/contact" className="btn btn-primary">Start a project</a>
-
-            </div>
-          </div>
-          <div className={styles.ctaDecor} />
-          <div className={styles.ctaDecor2} />
-        </div>
-      </section>
-    </main>
+      {/* ── Main Client Component ── */}
+      <AiPage />
+    </>
   );
 }

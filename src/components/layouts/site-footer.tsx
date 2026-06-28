@@ -13,27 +13,12 @@ export default function Footer() {
     "AI Agent Development",
     "AI Chatbot Development",
     "AI Consulting",
-    "AI Development",
-    "AI Integration",
-    "AI OCR",
-    "Computer Vision",
-    "Generative AI Consulting",
-    "Generative AI Development",
-    "Generative AI",
-    "Machine Learning",
   ];
 
   const products = [
     "Oracle Fusion Cloud",
     "Oracle NetSuite ERP",
-    "Manufacturing ERP",
-    "HRMS",
-    "CRM",
-    "Audit",
-    "POS",
-    "Procurement",
-    "Projects",
-    "Retail", 
+    "Beyond RF",
   ];
 
   const services = [
@@ -70,8 +55,8 @@ export default function Footer() {
                 <Image
                   src="/ForFooter.svg"
                   alt="Capco Consulting Services Logo"
-                  width={110}
-                  height={28}
+                  width={220}
+                  height={40}
                   priority
                 />
                 <span className="footer-brand-name">Capco Consulting Services</span>

@@ -1,49 +1,565 @@
-import { Wrench, Rocket, ArrowLeft } from "lucide-react";
-import Link from "next/link";
+// BeyondRFPage.tsx
+// Mobile Warehouse Management Solution for SAP EWM & SAP WM
+// CSS Module: beyond.module.css  |  Globals: globals.css
+// Built on the same design system as AIAgentDevelopmentPage for brand consistency
 
-export default function WorkInProgressPage() {
+"use client";
+
+import React, { useEffect, useRef, useState } from "react";
+import {
+  Boxes,
+  Smartphone,
+  WifiOff,
+  Truck,
+  PackageCheck,
+  ScanLine,
+  PackagePlus,
+  Printer,
+  Layers,
+  Bluetooth,
+  Camera,
+  Zap,
+  Clock,
+  TrendingUp,
+  ShieldCheck,
+  Cloud,
+  RefreshCw,
+  Rocket,
+  ListChecks,
+} from "lucide-react";
+import styles from "./beyond.module.css";
+import { ReactNode } from "react";
+
+type StaggerInProps = {
+  children: ReactNode;
+  className?: string;
+  delay?: number;
+};
+
+/* ── Scroll-triggered visibility hook ────────────────────── */
+function useInView(threshold = 0.15): [React.RefObject<HTMLDivElement>, boolean] {
+  const ref = useRef<HTMLDivElement | null>(null);
+  const [visible, setVisible] = useState(false);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) { setVisible(true); obs.disconnect(); } },
+      { threshold }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, [threshold]);
+  return [ref, visible];
+}
+
+/* ── Stagger children hook ───────────────────────────────── */
+function StaggerIn({ children, className, delay = 0 }: StaggerInProps) {
+  const [ref, visible] = useInView(0.1);
   return (
-    <main className="flex min-h-screen items-center justify-center bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 px-6">
-      <div className="max-w-xl text-center">
-        <div className="mx-auto mb-8 flex h-20 w-20 items-center justify-center rounded-full bg-indigo-500/10 ring-1 ring-indigo-500/20">
-          <Wrench className="h-10 w-10 text-indigo-400" />
+    <div
+      ref={ref}
+      className={className}
+      style={{
+        opacity: visible ? 1 : 0,
+        transform: visible ? "translateY(0)" : "translateY(24px)",
+        transition: `opacity 0.7s ${delay}s cubic-bezier(0.22,1,0.36,1), transform 0.7s ${delay}s cubic-bezier(0.22,1,0.36,1)`,
+      }}
+    >
+      {children}
+    </div>
+  );
+}
+
+/* ─────────────────────────────────────────────────────────── */
+
+export default function BeyondRFPage() {
+  /* Sticky CTA visibility */
+  const [stickyVisible, setStickyVisible] = useState(false);
+  useEffect(() => {
+    const handler = () => setStickyVisible(window.scrollY > 400);
+    window.addEventListener("scroll", handler, { passive: true });
+    return () => window.removeEventListener("scroll", handler);
+  }, []);
+
+  /* Why-section in-view refs */
+  const [whyRef, whyVisible] = useInView(0.15);
+
+  /* ── Data ── */
+  const whyCards = [
+    {
+      title: "Faster Data Capture & Productivity",
+      description:
+        "Beyond-RF uses a native mobile interface optimized for warehouse operations, letting users scan, capture, and process data significantly faster than browser-based RF screens.",
+      points: [
+        "Reduced transaction processing time",
+        "Faster barcode scanning & validation",
+        "Increased warehouse throughput",
+      ],
+      icon: <ScanLine className="w-5 h-5" />,
+    },
+    {
+      title: "Intuitive Mobile Experience",
+      description:
+        "A familiar Android-based experience designed specifically for warehouse personnel, minimizing training requirements and accelerating user adoption.",
+      points: [
+        "User-friendly mobile screens",
+        "Minimal learning curve",
+        "Faster onboarding of warehouse staff",
+      ],
+      icon: <Smartphone className="w-5 h-5" />,
+    },
+    {
+      title: "Rapid Deployment & Easy Integration",
+      description:
+        "Built entirely on standard SAP technologies, Beyond-RF integrates seamlessly with your existing landscape — no complex middleware required.",
+      points: [
+        "SAP-standard architecture",
+        "Minimal system disruption",
+        "Configured and operational within days",
+      ],
+      icon: <Rocket className="w-5 h-5" />,
+    },
+  ];
+
+  const platforms = [
+    { label: "SAP Extended Warehouse Management (Decentralized EWM)", icon: <Boxes className="w-5 h-5" /> },
+    { label: "SAP S/4HANA Embedded EWM", icon: <Layers className="w-5 h-5" /> },
+    { label: "SAP S/4HANA Cloud Warehouse Management", icon: <Cloud className="w-5 h-5" /> },
+    { label: "SAP Warehouse Management (LE-WM)", icon: <Truck className="w-5 h-5" /> },
+  ];
+
+  const processes = [
+    "Goods Receipt",
+    "Putaway",
+    "Picking",
+    "Packing",
+    "Replenishment",
+    "Internal Warehouse Movements",
+    "Inventory Counting",
+    "Stock Transfers",
+    "Shipping and Loading",
+    "Handling Unit Management",
+    "Label Printing",
+  ];
+
+  const deviceFeatures = [
+    {
+      icon: <ScanLine className="w-5 h-5" />,
+      title: "Integrated Barcode Scanners",
+      desc: "Native support for rugged handheld scanners built for warehouse environments.",
+    },
+    {
+      icon: <Camera className="w-5 h-5" />,
+      title: "Camera-Based Scanning",
+      desc: "Capture barcodes and labels using the device camera when needed.",
+    },
+    {
+      icon: <Bluetooth className="w-5 h-5" />,
+      title: "Bluetooth Connectivity",
+      desc: "Reliable Bluetooth-enabled printing for labels, shipping documents, and transactions.",
+    },
+    {
+      icon: <Printer className="w-5 h-5" />,
+      title: "Mobile Label Printing",
+      desc: "Integrates directly with mobile printer software for on-the-spot label output.",
+    },
+  ];
+
+  const offlineBenefits = [
+    "Continue operations without interruption",
+    "Eliminate productivity losses from network outages",
+    "Support work in low-connectivity warehouse zones",
+    "Improve operational reliability",
+    "Ensure data integrity and synchronization",
+  ];
+
+  const stats = [
+    { num: "Faster", label: "Scanning & Transactions" },
+    { num: "Easier", label: "Onboarding & Adoption" },
+    { num: "Lower", label: "Total Cost of Ownership" },
+    { num: "Always-On", label: "Offline-Ready Operations" },
+  ];
+
+  const faqs = [
+    {
+      q: "What is Beyond-RF?",
+      a: "Beyond-RF is a SAP-certified mobile warehouse management solution that replaces traditional RF barcode scanning with a modern, high-performance mobile data capture platform.",
+    },
+    {
+      q: "Which SAP warehouse platforms does it support?",
+      a: "Beyond-RF supports SAP Extended Warehouse Management (Decentralized EWM), SAP S/4HANA Embedded EWM, SAP S/4HANA Cloud Warehouse Management, and SAP Warehouse Management (LE-WM).",
+    },
+    {
+      q: "How long does implementation take?",
+      a: "Because Beyond-RF is built on standard SAP technologies with no complex middleware, organizations can typically have it configured and operational within a matter of days for standard warehouse processes.",
+    },
+    {
+      q: "What happens if the warehouse loses network connectivity?",
+      a: "Beyond-RF includes built-in offline functionality. Transaction data is securely stored on the device and automatically synchronized with SAP once connectivity is restored.",
+    },
+    {
+      q: "What devices does Beyond-RF run on?",
+      a: "Beyond-RF is optimized for Android rugged handheld devices, leveraging native capabilities such as integrated barcode scanners, cameras, and Bluetooth-enabled printing.",
+    },
+  ];
+
+  return (
+    <div className={styles.page}>
+
+
+
+      {/* ── HERO ───────────────────────────────────────────────── */}
+      <section className={styles.hero}>
+        <div className={styles.heroGlow} />
+        <div className={styles.heroContent}>
+          <div className={styles.heroPill}>
+            <span className={styles.pillDot} />
+            Mobile Warehouse Management for SAP
+          </div>
+
+          <h1 className={styles.heroTitle}>
+            Modernize Your Warehouse
+            <br />
+            <em>with Beyond-RF</em>
+          </h1>
+
+          <p className={styles.heroDesc}>
+            A SAP-certified mobile warehouse management solution that replaces traditional
+            RF barcode scanning with a modern, high-performance mobile data capture platform
+            — built for SAP EWM and SAP WM environments.
+          </p>
+
+          <div className={styles.heroActions}>
+            <button className={styles.btnPrimary}>Watch Video</button>
+            <button className={styles.btnGhost}>Talk to Our Experts</button>
+          </div>
         </div>
 
-        <span className="inline-flex items-center gap-2 rounded-full border border-indigo-500/20 bg-indigo-500/10 px-4 py-1 text-sm font-medium text-indigo-300">
-          <Rocket className="h-4 w-4" />
-          Work In Progress
-        </span>
-
-        <h1 className="mt-6 text-4xl font-bold tracking-tight text-white sm:text-5xl">
-          We're Building Something Awesome 🚀
-        </h1>
-
-        <p className="mt-4 text-lg leading-8 text-slate-400">
-          This page is currently under development. We're working hard to bring
-          you an amazing experience. Please check back soon!
-        </p>
-
-        <div className="mt-10 flex justify-center gap-4">
-          <Link
-            href="/"
-            className="inline-flex items-center gap-2 rounded-lg bg-indigo-600 px-6 py-3 font-medium text-white transition hover:bg-indigo-500"
-          >
-            <ArrowLeft className="h-4 w-4" />
-            Back to Home
-          </Link>
-
-          <button
-            disabled
-            className="cursor-not-allowed rounded-lg border border-slate-700 px-6 py-3 font-medium text-slate-500"
-          >
-            Coming Soon
-          </button>
+        {/* Glass stats row */}
+        <div className={styles.heroStats}>
+          {stats.map((s, i) => (
+            <div className={styles.heroStat} key={i}>
+              <span className={styles.heroStatNum}>{s.num}</span>
+              <span className={styles.heroStatLabel}>{s.label}</span>
+            </div>
+          ))}
         </div>
+      </section>
 
-        <div className="mt-12 border-t border-slate-800 pt-6 text-sm text-slate-500">
-          Thanks for your patience ❤️
+      {/* ── PRODUCT VIDEO ──────────────────────────────────────── */}
+      <section className={styles.videoSection}>
+        <StaggerIn delay={0}>
+          <span className={styles.sectionEyebrow}>See It In Action</span>
+          <h2 className={styles.sectionTitle}>
+            Beyond-RF <em>In Your Warehouse</em>
+          </h2>
+          <p className={styles.sectionDesc}>
+            Watch how Beyond-RF transforms everyday SAP warehouse transactions —
+            from scanning to picking, packing, and shipping.
+          </p>
+        </StaggerIn>
+
+        <StaggerIn delay={0.1}>
+          <div className={styles.videoFrame}>
+            <video
+              className={styles.videoPlayer}
+              src="/beyond-rf-demo.mp4"
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="auto"
+              controls
+            />
+          </div>
+        </StaggerIn>
+      </section>
+
+      {/* ── WHY CHOOSE BEYOND-RF ───────────────────────────────── */}
+      <section className={styles.solutions}>
+        <StaggerIn delay={0}>
+          <span className={styles.sectionEyebrow}>Why Beyond-RF</span>
+          <h2 className={styles.sectionTitle}>
+            Built for <em>Real Warehouse Speed</em>
+          </h2>
+          <p className={styles.sectionDesc}>
+            Beyond-RF helps organizations modernize warehouse operations by replacing
+            outdated RF technology with a powerful, user-friendly mobile solution built
+            for today's digital supply chain.
+          </p>
+        </StaggerIn>
+
+        <div className={styles.cardsGrid}>
+          {whyCards.map((s, i) => (
+            <StaggerIn key={i} delay={i * 0.07}>
+              <div className={styles.card}>
+                <div className={styles.cardBorderTop} />
+                <div className={styles.cardIconWrap}>{s.icon}</div>
+                <h3 className={styles.cardTitle}>{s.title}</h3>
+                <p className={styles.cardDesc}>{s.description}</p>
+                <ul className={styles.cardPoints}>
+                  {s.points.map((p, j) => (
+                    <li key={j}>{p}</li>
+                  ))}
+                </ul>
+              </div>
+            </StaggerIn>
+          ))}
+        </div>
+      </section>
+
+      {/* ── SUPPORTED SAP PLATFORMS ────────────────────────────── */}
+      <section className={styles.techSection}>
+        <div className={styles.techInner}>
+          <div className={styles.techHeader}>
+            <StaggerIn>
+              <span className={styles.sectionEyebrow} style={{ color: "var(--color-primary)" }}>
+                Platforms
+              </span>
+              <h2 className={styles.techTitle}>
+                Ready-to-Use for
+                <br />
+                <em>Every SAP Warehouse</em>
+              </h2>
+            </StaggerIn>
+            <StaggerIn delay={0.15}>
+              <p className={styles.techSubDesc}>
+                Beyond-RF comes with a comprehensive suite of pre-built warehouse mobile
+                applications that support standard SAP warehouse processes out of the box.
+              </p>
+            </StaggerIn>
+          </div>
+
+          <div className={styles.platformGrid}>
+            {platforms.map((t, i) => (
+              <StaggerIn key={i} delay={i * 0.07}>
+                <div className={styles.platformItem}>
+                  <div className={styles.platformIcon}>{t.icon}</div>
+                  <span className={styles.platformLabel}>{t.label}</span>
+                </div>
+              </StaggerIn>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── TYPICAL WAREHOUSE PROCESSES ────────────────────────── */}
+      <section className={styles.processSection}>
+        <StaggerIn delay={0}>
+          <span className={styles.sectionEyebrow}>
+            <ListChecks className="w-4 h-4" style={{ display: "inline", marginRight: "0.3rem" }} />
+            Processes Supported
+          </span>
+          <h2 className={styles.sectionTitle}>
+            Every Step, <em>Covered</em>
+          </h2>
+          <p className={styles.sectionDesc}>
+            From receiving to shipping, Beyond-RF supports the full range of standard
+            warehouse processes across your SAP landscape.
+          </p>
+        </StaggerIn>
+
+        <StaggerIn delay={0.1}>
+          <div className={styles.tagGrid}>
+            {processes.map((p, i) => (
+              <span className={styles.tagItem} key={i}>
+                <PackageCheck className={styles.tagItemIcon} size={14} />
+                {p}
+              </span>
+            ))}
+          </div>
+        </StaggerIn>
+      </section>
+
+      {/* ── DEVICE FEATURES / OFFLINE — WHY US SPLIT ───────────── */}
+      <section style={{ padding: "clamp(5rem,10vw,9rem) clamp(1.5rem,5vw,4rem)" }}>
+        <div
+          ref={whyRef}
+          className={styles.whySection}
+          style={{ padding: 0 }}
+        >
+          <div className={`${styles.whyLeft} ${whyVisible ? styles.visible : ""}`}>
+            <span className={styles.sectionEyebrow}>Mobile Hardware</span>
+            <h2 className={styles.whyTitle}>
+              Maximize the Value
+              <br />
+              of <em>Your Devices</em>
+            </h2>
+            <div className={styles.whyList}>
+              {deviceFeatures.map((w, i) => (
+                <div className={styles.whyItem} key={i}>
+                  <div className={styles.whyItemIcon}>{w.icon}</div>
+                  <div>
+                    <div className={styles.whyItemTitle}>{w.title}</div>
+                    <div className={styles.whyItemDesc}>{w.desc}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className={`${styles.whyRight} ${whyVisible ? styles.visible : ""}`}>
+            <div className={styles.benefitsCard}>
+              <div className={styles.benefitsCardHead}>
+                <h3 className={styles.benefitsCardTitle}>
+                  Uninterrupted Operations with Offline Capability
+                </h3>
+              </div>
+              <ul className={styles.benefitsList}>
+                {offlineBenefits.map((b, i) => (
+                  <li className={styles.benefitItem} key={i}>
+                    <span className={styles.benefitCheck}>✓</span>
+                    <span className={styles.benefitText}>{b}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── KEY BUSINESS BENEFITS BAND ─────────────────────────── */}
+      <div className={styles.statsBand}>
+        <div className={styles.statBlock}>
+          <Zap className="w-6 h-6" style={{ color: "var(--color-white)", marginBottom: "0.6rem" }} />
+          <span className={styles.statLabel}>Improve Warehouse Efficiency</span>
+        </div>
+        <div className={styles.statBlock}>
+          <Clock className="w-6 h-6" style={{ color: "var(--color-white)", marginBottom: "0.6rem" }} />
+          <span className={styles.statLabel}>Reduce Training Time</span>
+        </div>
+        <div className={styles.statBlock}>
+          <ShieldCheck className="w-6 h-6" style={{ color: "var(--color-white)", marginBottom: "0.6rem" }} />
+          <span className={styles.statLabel}>Increase Accuracy</span>
+        </div>
+        <div className={styles.statBlock}>
+          <TrendingUp className="w-6 h-6" style={{ color: "var(--color-white)", marginBottom: "0.6rem" }} />
+          <span className={styles.statLabel}>Lower Total Cost of Ownership</span>
         </div>
       </div>
-    </main>
+
+      {/* ── FAQ ────────────────────────────────────────────────── */}
+      <section className={styles.faqSection}>
+        <div className={styles.faqInner}>
+          <StaggerIn>
+            <div className={styles.faqLeft}>
+              <span className={styles.sectionEyebrow}>FAQ</span>
+              <h2 className={styles.faqTitle}>
+                Frequently Asked
+                <br />
+                <em>Questions</em>
+              </h2>
+              <p className={styles.faqSub}>
+                Everything you need to know about deploying Beyond-RF
+                across your SAP warehouse landscape.
+              </p>
+            </div>
+          </StaggerIn>
+
+          <StaggerIn delay={0.15}>
+            <div className={styles.faqList}>
+              {faqs.map((f, i) => (
+                <details className={styles.faqItem} key={i}>
+                  <summary>{f.q}</summary>
+                  <p className={styles.faqAnswer}>{f.a}</p>
+                </details>
+              ))}
+            </div>
+          </StaggerIn>
+        </div>
+      </section>
+
+      {/* ── CTA SECTION ────────────────────────────────────────── */}
+      <section className={styles.ctaSection}>
+        <div className={styles.ctaInner}>
+          <StaggerIn>
+            <span className={styles.ctaEyebrow}>Get Started</span>
+            <h2 className={styles.ctaTitle}>
+              Transform Your
+              <br />
+              <em>SAP Warehouse Mobility</em>
+            </h2>
+            <p className={styles.ctaDesc}>
+              Experience faster scanning, improved productivity, seamless SAP integration,
+              and uninterrupted warehouse operations — all from a single SAP-certified
+              mobile platform.
+            </p>
+            <div className={styles.ctaActions}>
+              <button className={styles.btnPrimary}>Get a Free Quote</button>
+              <button className={styles.btnGhost}>Watch Video</button>
+            </div>
+          </StaggerIn>
+        </div>
+      </section>
+
+      {/* ── CONTACT ────────────────────────────────────────────── */}
+      <section style={{ background: "var(--color-white)" }}>
+        <div className={styles.contactSection}>
+          <StaggerIn>
+            <div className={styles.contactLeft}>
+              <span className={styles.sectionEyebrow}>Contact</span>
+              <h2 className={styles.contactTitle}>
+                Talk to Our
+                <br />
+                <em>Warehouse Experts</em>
+              </h2>
+              <p className={styles.contactDesc}>
+                Tell us about your SAP landscape and warehouse processes, and we'll help
+                you find the right Beyond-RF deployment for your operation.
+              </p>
+              <div className={styles.contactMeta}>
+                <div className={styles.contactMetaItem}>
+                  <span className={styles.contactMetaDot} />
+                  Responding within 24 hours
+                </div>
+                <div className={styles.contactMetaItem}>
+                  <span style={{ width: 7, height: 7, borderRadius: "50%", background: "var(--color-primary)", display: "inline-block", flexShrink: 0 }} />
+                  Free initial consultation
+                </div>
+                <div className={styles.contactMetaItem}>
+                  <RefreshCw style={{ width: 14, height: 14, color: "var(--color-primary)", flexShrink: 0 }} />
+                  Configured in a matter of days
+                </div>
+              </div>
+            </div>
+          </StaggerIn>
+
+          <StaggerIn delay={0.15}>
+            <div className={styles.contactForm}>
+              <div className={styles.formRow}>
+                <div className={styles.formField}>
+                  <label className={styles.formLabel}>Name</label>
+                  <input type="text" placeholder="Jane Smith" className={styles.formInput} />
+                </div>
+                <div className={styles.formField}>
+                  <label className={styles.formLabel}>Work Email</label>
+                  <input type="email" placeholder="jane@company.com" className={styles.formInput} />
+                </div>
+              </div>
+              <div className={styles.formRow}>
+                <div className={styles.formField}>
+                  <label className={styles.formLabel}>Phone</label>
+                  <input type="tel" placeholder="+1 (555) 000-0000" className={styles.formInput} />
+                </div>
+                <div className={styles.formField}>
+                  <label className={styles.formLabel}>SAP Platform</label>
+                  <input type="text" placeholder="e.g. SAP S/4HANA Embedded EWM" className={styles.formInput} />
+                </div>
+              </div>
+              <div className={styles.formField}>
+                <label className={styles.formLabel}>Message</label>
+                <textarea
+                  className={styles.formTextarea}
+                  placeholder="Tell us about your warehouse, device fleet, and goals..."
+                />
+              </div>
+              <button className={styles.formSubmit}>Submit Inquiry</button>
+            </div>
+          </StaggerIn>
+        </div>
+      </section>
+
+    </div>
   );
 }

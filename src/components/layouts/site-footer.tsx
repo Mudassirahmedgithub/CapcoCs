@@ -3,11 +3,13 @@ import Image from "next/image";
 import {
   Mail,
   MapPin,
+  Phone,
   ChevronRight,
   ArrowUpRight,
 } from "lucide-react";
+import styles from "./footer.module.css";
 import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
-import './footer.css';
+
 export default function Footer() {
   const ai = [
     "AI Agent Development",
@@ -33,25 +35,23 @@ export default function Footer() {
 
   return (
     <>
-
-
-      <footer className="footer-root">
+      <footer className={styles.footerRoot}>
         {/* Accent bar */}
-        <div className="footer-accent-bar" />
+        <div className={styles.footerAccentBar} />
 
         {/* Ambient blobs */}
-        <div className="footer-blob footer-blob-1" />
-        <div className="footer-blob footer-blob-2" />
+        <div className={`${styles.footerBlob} ${styles.footerBlob1}`} />
+        <div className={`${styles.footerBlob} ${styles.footerBlob2}`} />
 
         {/* Dot grid */}
-        <div className="footer-grid" />
+        <div className={styles.footerGrid} />
 
-        <div className="footer-inner">
-          <div className="footer-grid-main">
+        <div className={styles.footerInner}>
+          <div className={styles.footerGridMain}>
 
             {/* ── Brand ── */}
-            <div className="footer-brand">
-              <div className="footer-logo-row">
+            <div className={styles.footerBrand}>
+              <div className={styles.footerLogoRow}>
                 <Image
                   src="/ForFooter.svg"
                   alt="Capco Consulting Services Logo"
@@ -59,25 +59,25 @@ export default function Footer() {
                   height={40}
                   priority
                 />
-                <span className="footer-brand-name">Capco Consulting Services</span>
+                <span className={styles.footerBrandName}>Capco Consulting Services</span>
               </div>
-              <p className="footer-tagline">
+              <p className={styles.footerTagline}>
                 Driving your vision forward with innovative digital solutions and cutting-edge technology consulting.
               </p>
 
-              <p className="footer-social-label">Connect with us</p>
-              <div className="footer-socials">
-                
-                <a href="https://facebook.com/Capcocs" target="_blank" rel="noopener noreferrer" className="social-btn fb" aria-label="Facebook">
+              <p className={styles.footerSocialLabel}>Connect with us</p>
+              <div className={styles.footerSocials}>
+
+                <a href="https://facebook.com/Capcocs" target="_blank" rel="noopener noreferrer" className={`${styles.socialBtn} ${styles.fb}`} aria-label="Facebook">
                   <FaFacebook size={16} />
                 </a>
-                <a href="https://www.instagram.com/Capcocs" target="_blank" rel="noopener noreferrer" className="social-btn ig" aria-label="Instagram">
+                <a href="https://www.instagram.com/Capcocs" target="_blank" rel="noopener noreferrer" className={`${styles.socialBtn} ${styles.ig}`} aria-label="Instagram">
                   <FaInstagram size={16} />
                 </a>
-                <a href="https://www.linkedin.com/company/CapcoConsultingServices" target="_blank" rel="noopener noreferrer" className="social-btn li" aria-label="LinkedIn">
+                <a href="https://www.linkedin.com/company/CapcoConsultingServices" target="_blank" rel="noopener noreferrer" className={`${styles.socialBtn} ${styles.li}`} aria-label="LinkedIn">
                   <FaLinkedin size={16} />
                 </a>
-                <a href="https://www.youtube.com/@Capcocs" target="_blank" rel="noopener noreferrer" className="social-btn" aria-label="YouTube" style={{ color: '#7ab8b8' }}
+                <a href="https://www.youtube.com/@Capcocs" target="_blank" rel="noopener noreferrer" className={styles.socialBtn} aria-label="YouTube" style={{ color: '#7ab8b8' }}
                   onMouseEnter={e => { e.currentTarget.style.background = '#ff0000'; e.currentTarget.style.borderColor = '#ff0000'; e.currentTarget.style.color = '#fff'; }}
                   onMouseLeave={e => { e.currentTarget.style.background = '#111c1c'; e.currentTarget.style.borderColor = '#1e3030'; e.currentTarget.style.color = '#7ab8b8'; }}
                 >
@@ -90,11 +90,11 @@ export default function Footer() {
 
             {/* ── AI ── */}
             <div>
-              <h3 className="footer-col-heading">AI</h3>
-              <ul className="footer-nav-list">
+              <h3 className={styles.footerColHeading}>AI</h3>
+              <ul className={styles.footerNavList}>
                 {ai.map((item, i) => (
                   <li key={i}>
-                    <a href={`/ai/${item.toLowerCase().replace(/ & /g, "-").replace(/ /g, "-")}`} className="footer-nav-link">
+                    <a href={`/ai/${item.toLowerCase().replace(/ & /g, "-").replace(/ /g, "-")}`} className={styles.footerNavLink}>
                       <ChevronRight size={12} />
                       {item}
                     </a>
@@ -105,11 +105,11 @@ export default function Footer() {
 
             {/* ── Products ── */}
             <div>
-              <h3 className="footer-col-heading">Products</h3>
-              <ul className="footer-nav-list">
+              <h3 className={styles.footerColHeading}>Products</h3>
+              <ul className={styles.footerNavList}>
                 {products.map((item, i) => (
                   <li key={i}>
-                    <a href={`/products/${item.toLowerCase().replace(/ /g, "-")}`} className="footer-nav-link">
+                    <a href={`/products/${item.toLowerCase().replace(/ /g, "-")}`} className={styles.footerNavLink}>
                       <ChevronRight size={12} />
                       {item}
                     </a>
@@ -120,11 +120,11 @@ export default function Footer() {
 
             {/* ── Services ── */}
             <div>
-              <h3 className="footer-col-heading">Services</h3>
-              <ul className="footer-nav-list">
+              <h3 className={styles.footerColHeading}>Services</h3>
+              <ul className={styles.footerNavList}>
                 {services.map((item, i) => (
                   <li key={i}>
-                    <a href={`/services/${item.toLowerCase().replace(/ & /g, "-").replace(/ /g, "-")}`} className="footer-nav-link">
+                    <a href={`/services/${item.toLowerCase().replace(/ & /g, "-").replace(/ /g, "-")}`} className={styles.footerNavLink}>
                       <ChevronRight size={12} />
                       {item}
                     </a>
@@ -134,52 +134,62 @@ export default function Footer() {
             </div>
 
             {/* ── Contact ── */}
-            <div className="footer-contact">
-              <h3 className="footer-col-heading">Contact Us</h3>
+            <div className={styles.footerContact}>
+              <h3 className={styles.footerColHeading}>Contact Us</h3>
 
-              <a href="mailto:capcocsqa@gmail.com" style={{ textDecoration: 'none' }}>
-                <div className="footer-contact-item">
-                  <div className="contact-icon-wrap">
+              <a href="mailto:info@capcocs.com" style={{ textDecoration: "none" }}>
+                <div className={styles.footerContactItem}>
+                  <div className={styles.contactIconWrap}>
                     <Mail size={17} />
                   </div>
                   <div>
-                    <p className="contact-label">Email Us</p>
-                    <p className="contact-value">capcocsqa@gmail.com</p>
+                    <p className={styles.contactLabel}>Email Us</p>
+                    <p className={styles.contactValue}>info@capcocs.com</p>
                   </div>
                 </div>
               </a>
 
-              <div className="footer-contact-item">
-                <div className="contact-icon-wrap">
+              <a href="tel:+974 50520211" style={{ textDecoration: "none" }}>
+                <div className={styles.footerContactItem}>
+                  <div className={styles.contactIconWrap}>
+                    <Phone size={17} />
+                  </div>
+                  <div>
+                    <p className={styles.contactLabel}>Call Us</p>
+                    <p className={styles.contactValue}>+974 50520211</p>
+                  </div>
+                </div>
+              </a>
+
+              <div className={styles.footerContactItem}>
+                <div className={styles.contactIconWrap}>
                   <MapPin size={17} />
                 </div>
                 <div>
-                  <p className="contact-label">Locations</p>
-                  <p className="contact-value">Canada · Qatar · India</p>
+                  <p className={styles.contactLabel}>Locations</p>
+                  <p className={styles.contactValue}>Canada · Qatar · India</p>
                 </div>
               </div>
             </div>
-
           </div>
-
           {/* Divider */}
-          <div className="footer-divider" />
+          <div className={styles.footerDivider} />
 
           {/* Bottom bar */}
-          <div className="footer-bottom">
-            <p className="footer-copy">
+          <div className={styles.footerBottom}>
+            <p className={styles.footerCopy}>
               © {new Date().getFullYear()}
               <span style={{ color: '#1e3030' }}>•</span>
               <strong>Capco Consulting Services</strong>
               <span style={{ color: '#1e3030' }}>•</span>
               All rights reserved.
             </p>
-            <div className="footer-legal">
-              <a href="/PrivacyPolicy" className="footer-legal-link">
+            <div className={styles.footerLegal}>
+              <a href="/PrivacyPolicy" className={styles.footerLegalLink}>
                 Privacy Policy <ArrowUpRight size={12} />
               </a>
-              <span className="footer-legal-sep">|</span>
-              <a href="/Terms" className="footer-legal-link">
+              <span className={styles.footerLegalSep}>|</span>
+              <a href="/Terms" className={styles.footerLegalLink}>
                 Terms & Conditions <ArrowUpRight size={12} />
               </a>
             </div>

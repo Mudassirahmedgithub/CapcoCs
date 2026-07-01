@@ -212,7 +212,7 @@ export default function BeyondRFPage() {
       {/* ── HERO ───────────────────────────────────────────────── */}
       <section className={styles.hero}>
         <div className={styles.heroGlow} />
-        <div className={styles.heroContent}>
+
           <div className={styles.heroPill}>
             <span className={styles.pillDot} />
             Mobile Warehouse Management for SAP
@@ -230,11 +230,7 @@ export default function BeyondRFPage() {
             — built for SAP EWM and SAP WM environments.
           </p>
 
-          <div className={styles.heroActions}>
-            <button className={styles.btnPrimary}>Watch Video</button>
-            <button className={styles.btnGhost}>Talk to Our Experts</button>
-          </div>
-        </div>
+
 
         {/* Glass stats row */}
         <div className={styles.heroStats}>
@@ -470,95 +466,7 @@ export default function BeyondRFPage() {
         </div>
       </section>
 
-      {/* ── CTA SECTION ────────────────────────────────────────── */}
-      <section className={styles.ctaSection}>
-        <div className={styles.ctaInner}>
-          <StaggerIn>
-            <span className={styles.ctaEyebrow}>Get Started</span>
-            <h2 className={styles.ctaTitle}>
-              Transform Your
-              <br />
-              <em>SAP Warehouse Mobility</em>
-            </h2>
-            <p className={styles.ctaDesc}>
-              Experience faster scanning, improved productivity, seamless SAP integration,
-              and uninterrupted warehouse operations — all from a single SAP-certified
-              mobile platform.
-            </p>
-            <div className={styles.ctaActions}>
-              <button className={styles.btnPrimary}>Get a Free Quote</button>
-              <button className={styles.btnGhost}>Watch Video</button>
-            </div>
-          </StaggerIn>
-        </div>
-      </section>
 
-      {/* ── CONTACT ────────────────────────────────────────────── */}
-      <section style={{ background: "var(--color-white)" }}>
-        <div className={styles.contactSection}>
-          <StaggerIn>
-            <div className={styles.contactLeft}>
-              <span className={styles.sectionEyebrow}>Contact</span>
-              <h2 className={styles.contactTitle}>
-                Talk to Our
-                <br />
-                <em>Warehouse Experts</em>
-              </h2>
-              <p className={styles.contactDesc}>
-                Tell us about your SAP landscape and warehouse processes, and we'll help
-                you find the right Beyond-RF deployment for your operation.
-              </p>
-              <div className={styles.contactMeta}>
-                <div className={styles.contactMetaItem}>
-                  <span className={styles.contactMetaDot} />
-                  Responding within 24 hours
-                </div>
-                <div className={styles.contactMetaItem}>
-                  <span style={{ width: 7, height: 7, borderRadius: "50%", background: "var(--color-primary)", display: "inline-block", flexShrink: 0 }} />
-                  Free initial consultation
-                </div>
-                <div className={styles.contactMetaItem}>
-                  <RefreshCw style={{ width: 14, height: 14, color: "var(--color-primary)", flexShrink: 0 }} />
-                  Configured in a matter of days
-                </div>
-              </div>
-            </div>
-          </StaggerIn>
-
-          <StaggerIn delay={0.15}>
-            <div className={styles.contactForm}>
-              <div className={styles.formRow}>
-                <div className={styles.formField}>
-                  <label className={styles.formLabel}>Name</label>
-                  <input type="text" placeholder="Jane Smith" className={styles.formInput} />
-                </div>
-                <div className={styles.formField}>
-                  <label className={styles.formLabel}>Work Email</label>
-                  <input type="email" placeholder="jane@company.com" className={styles.formInput} />
-                </div>
-              </div>
-              <div className={styles.formRow}>
-                <div className={styles.formField}>
-                  <label className={styles.formLabel}>Phone</label>
-                  <input type="tel" placeholder="+1 (555) 000-0000" className={styles.formInput} />
-                </div>
-                <div className={styles.formField}>
-                  <label className={styles.formLabel}>SAP Platform</label>
-                  <input type="text" placeholder="e.g. SAP S/4HANA Embedded EWM" className={styles.formInput} />
-                </div>
-              </div>
-              <div className={styles.formField}>
-                <label className={styles.formLabel}>Message</label>
-                <textarea
-                  className={styles.formTextarea}
-                  placeholder="Tell us about your warehouse, device fleet, and goals..."
-                />
-              </div>
-              <button className={styles.formSubmit}>Submit Inquiry</button>
-            </div>
-          </StaggerIn>
-        </div>
-      </section>
 
     </div>
   );

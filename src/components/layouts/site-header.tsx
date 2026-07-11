@@ -218,11 +218,13 @@ export default function Header() {
                                     (item: any) => (
                                       <Link
                                         key={item.label}
-                                        href={`/${sectionKey}/${slugify(
-                                          group.base
-                                        )}/${slugify(
-                                          item.label
-                                        )}`}
+                                        href={`/${sectionKey}/${slugify(group.base, {
+                                          lower: true,
+                                          strict: true,
+                                        })}/${slugify(item.label, {
+                                          lower: true,
+                                          strict: true,
+                                        })}`}
                                         className="block text-sm text-gray-700"
                                       >
                                         {item.label}
